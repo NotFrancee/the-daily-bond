@@ -1,4 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -48,6 +50,14 @@ const config: GatsbyConfig = {
          * if false, this plugin will not use <ColorModeProvider />
          */
         isUsingColorMode: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `5hh1d9m6f1kc`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
   ],
