@@ -1,11 +1,18 @@
 import * as React from "react";
+import About from "../components/homepage/About";
+import AboutMe from "../components/homepage/AboutMe";
+import Introduction from "../components/homepage/Introduction";
+import LatestArticles from "../components/homepage/LatestArticles";
+import Layout from "../components/Layout";
 
 const Index = () => {
   return (
-    <div>
-      <h1>Test Site</h1>
-      <p>this is a test site</p>
-    </div>
+    <Layout>
+      <Introduction />
+      <LatestArticles />
+      <About />
+      <AboutMe />
+    </Layout>
   );
 };
 
