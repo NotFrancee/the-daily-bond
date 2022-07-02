@@ -4,12 +4,13 @@ const CustomButtonStyle: ComponentStyleConfig = {
   variants: {
     "primary-btn": {
       bg: "primary.highlight",
-      // color: "white",
-      border: "1px solid red",
+      color: "white",
+      fontFamily: "heading",
+      fontWeight: "bold",
     },
   },
   defaultProps: {
-    // variant: "primary-btn",
+    variant: "primary-btn",
   },
 };
 

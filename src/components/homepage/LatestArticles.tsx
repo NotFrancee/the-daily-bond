@@ -4,7 +4,7 @@ import StyledFlex from "../shared/StyledFlex";
 
 const LatestArticles = () => {
   return (
-    <StyledFlex>
+    <Flex flexDirection={"column"} bgColor="primary.background">
       <Heading>Ultimi Articoli</Heading>
       <Box>
         <Box>
@@ -12,7 +12,7 @@ const LatestArticles = () => {
         </Box>
       </Box>
       <Button>Esplora</Button>
-    </StyledFlex>
+    </Flex>
   );
 };
 
