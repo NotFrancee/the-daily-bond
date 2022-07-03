@@ -4,8 +4,14 @@ dotenv.config();
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `CHANGE THIS`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `The Daily Bond`,
+    titleTemplate: "%s",
+    defaultTitle: "The Daily Bond",
+    defaultImage: "icon.png",
+    defaultDescription:
+      "The Daily Bond - La finanza personale in modo semplice",
+    siteUrl: `https://www.thedailybond.com`,
+    twitterUsername: "frvncee_",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
