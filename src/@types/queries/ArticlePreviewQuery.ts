@@ -3,6 +3,7 @@ interface ArticlePreview {
     slug: string;
     category: {
       title: string;
+      slug: string;
     };
   };
 }

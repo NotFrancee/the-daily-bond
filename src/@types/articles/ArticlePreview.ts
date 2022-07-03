@@ -6,5 +6,7 @@ export interface ArticlePreview {
   };
   category: {
     title: string;
+    slug: string;
   };
+  slug: string;
 }

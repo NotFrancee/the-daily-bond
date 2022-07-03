@@ -1,5 +1,6 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
+import { ArticlePreview } from "../../@types";
 import PreviewItem from "./PreviewItem";
 
 const testArticle = {
@@ -10,18 +11,19 @@ const testArticle = {
 };
 
 interface Props {
-  articles: any;
+  articles: ArticlePreview[];
 }
 
 const Carousel = ({ articles }: Props) => {
-  const ArticlesEl = articles.map((article: any) => (
-    <PreviewItem type="article" article={article} />
+  console.log({ articles });
+  const ArticlesEl = articles.map((article) => (
+    <PreviewItem article={article} />
   ));
   console.log(ArticlesEl);
 
   return (
     <Flex p={5} direction="column">
-      <p>fix</p>
+      {ArticlesEl}
     </Flex>
   );
 };

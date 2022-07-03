@@ -9,7 +9,9 @@ const Header = () => {
       p={5}
       borderBottom="1px solid gray"
     >
-      <Heading>The Daily Bond</Heading>
+      <Heading as={"p"} size={"md"}>
+        The Daily Bond
+      </Heading>
       <Text>Menu</Text>
     </Flex>
   );

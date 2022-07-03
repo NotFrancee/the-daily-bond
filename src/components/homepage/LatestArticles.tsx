@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { ArticlePreview } from "../../@types";
 import Carousel from "../carousel/Carousel";
+import Section from "../shared/Section";
 interface Response {
   allContentfulArticle: {
     nodes: ArticlePreview[];
@@ -16,9 +17,11 @@ const query = graphql`
         metaDescription {
           metaDescription
         }
+        slug
         title
         category {
           title
+          slug
         }
       }
     }
@@ -27,15 +30,14 @@ const query = graphql`
 
 const LatestArticles = () => {
   const data = useStaticQuery<Response>(query);
-  console.log(data);
-
   const articles = data.allContentfulArticle.nodes;
+
   return (
-    <Flex flexDirection={"column"} bgColor="primary.background" p={5}>
-      <Heading>Ultimi Articoli</Heading>
+    <Section bgColor="primary.background">
+      <Heading as={"h2"}>Ultimi Articoli</Heading>
       <Carousel articles={articles} />
-      <Button>Esplora</Button>
-    </Flex>
+      <Text>Esplora Tutto</Text>
+    </Section>
   );
 };
 
