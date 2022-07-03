@@ -1,10 +1,9 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import StyledFlex from "../shared/StyledFlex";
 
 const About = () => {
   return (
-    <StyledFlex>
+    <Flex>
       <Heading>Il Valore di TDB</Heading>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -15,7 +14,7 @@ const About = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum
       </Text>
-    </StyledFlex>
+    </Flex>
   );
 };
 

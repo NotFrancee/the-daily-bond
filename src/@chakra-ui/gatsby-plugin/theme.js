@@ -2,8 +2,10 @@
 import { extendTheme } from "@chakra-ui/react";
 import {
   CustomButtonStyle,
+  CustomFlexStyle,
   CustomHeadingStyle,
   CustomTextStyle,
+  SectionComponent,
 } from "../custom-components";
 
 const theme = {
@@ -17,6 +19,7 @@ const theme = {
     Button: CustomButtonStyle,
     Text: CustomTextStyle,
     Heading: CustomHeadingStyle,
+    Section: SectionComponent,
   },
   fonts: {
     body: `'minion-pro', serif`,

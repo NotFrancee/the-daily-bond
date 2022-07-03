@@ -1,4 +1,4 @@
-interface Article {
+export interface Article {
   title: string;
   category: {
     title: string;
@@ -13,8 +13,4 @@ interface Article {
   };
   createdAt: string;
   updatedAt: string;
-}
-
-export interface ArticleQuery {
-  contentfulArticle: Article;
 }
