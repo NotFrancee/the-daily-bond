@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import React from "react";
 import Footer from "../footer/Footer";
-import Header from "../header/Header";
+import NavBar from "../responsive-header/NavBar";
 
 interface Props {
   children: React.ReactNode;
@@ -10,7 +10,7 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <Box>
-      <Header />
+      <NavBar />
       {children}
       <Footer />
     </Box>
