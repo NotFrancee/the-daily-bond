@@ -1,24 +1,21 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text, Link } from "@chakra-ui/react";
 import { graphql } from "gatsby";
 import React from "react";
 import { ArticleQuery } from "../@types";
 import Layout from "../components/shared/Layout";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { Section, SEO } from "../components/shared";
+import { options } from "./article-template/rich-text/richTextOptions";
 
 interface Props {
   data: ArticleQuery;
 }
 
-const options = {};
-
 const ArticleTemplate = ({ data }: Props) => {
-  console.log(data);
   const { title, category, body, updatedAt, seoTitle, metaDescription, slug } =
     data.contentfulArticle;
 
-  console.log({ body });
-  const richTextEl = renderRichText(body, options);
+  const richTextEl = renderRichText(body);
   return (
     <Layout>
       <SEO
