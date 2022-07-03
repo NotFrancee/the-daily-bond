@@ -1,10 +1,10 @@
 import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import StyledFlex from "../shared/StyledFlex";
+import Section from "../shared/Section";
 
 const Introduction = () => {
   return (
-    <Flex px={5} py={10} direction="column" gap={5}>
+    <Section py={10}>
       <Heading>
         Impara a gestire le tue finanze e riprendi il controllo della tua vita
       </Heading>
@@ -15,9 +15,9 @@ const Introduction = () => {
       </Text>
       {/* // cambia colore mettendo quello main  */}
       <Image src="https://ik.imagekit.io/astrum/TheDailyBond/engineeringTeam" />
-      <Button>Esplora i nostri Articoli</Button>
+      <Button w={"full"}>Esplora i nostri Articoli</Button>
       {/* Image of something inspiring, cartooned */}
-    </Flex>
+    </Section>
   );
 };
 

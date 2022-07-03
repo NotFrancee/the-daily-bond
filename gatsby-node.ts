@@ -1,6 +1,6 @@
 import { GatsbyGraphQLType } from "gatsby";
 import type { GatsbyNode } from "gatsby";
-import { ArticlePreviewQuery } from "./src/@types/articles/ArticlePreviewQuery";
+import { ArticlePreviewQuery } from "./src/@types/queries/ArticlePreviewQuery";
 
 const path = require("path");
 

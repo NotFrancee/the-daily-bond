@@ -6,6 +6,7 @@ interface ArticlePreview {
     };
   };
 }
+
 export interface ArticlePreviewQuery {
   allContentfulArticle: {
     edges: ArticlePreview[];
