@@ -1,10 +1,11 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import Section from "../shared/Section";
 
 const AboutMe = () => {
   return (
-    <Flex>
-      <Heading>Chi sono</Heading>
+    <Section>
+      <Heading as="h2">Chi sono</Heading>
       <Text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -14,7 +15,7 @@ const AboutMe = () => {
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum
       </Text>
-    </Flex>
+    </Section>
   );
 };
 

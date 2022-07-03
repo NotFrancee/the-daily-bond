@@ -3,7 +3,7 @@ import About from "../components/homepage/About";
 import AboutMe from "../components/homepage/AboutMe";
 import Introduction from "../components/homepage/Introduction";
 import LatestArticles from "../components/homepage/LatestArticles";
-import Layout from "../components/Layout";
+import Layout from "../components/shared/Layout";
 
 const Index = () => {
   return (

@@ -7,7 +7,7 @@ const path = require("path");
 interface Props {
   graphql: GatsbyGraphQLType;
 }
-// Create blog pages dynamically
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
@@ -22,6 +22,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             slug
             category {
               title
+              slug
             }
           }
         }
@@ -33,7 +34,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   res.data.allContentfulArticle.edges.forEach((edge) => {
     createPage({
       component: articleTemplate,
-      path: `/${edge.node.slug}`,
+      path: `/${edge.node.category.slug}/${edge.node.slug}`,
       context: {
         slug: edge.node.slug,
       },
