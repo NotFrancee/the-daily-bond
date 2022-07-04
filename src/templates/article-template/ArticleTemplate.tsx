@@ -30,7 +30,7 @@ const ArticleTemplate = ({ data }: Props) => {
         description={metaDescription.metaDescription}
         title={seoTitle}
         pathName={`/${category.title}/${slug}`}
-        // image={} fix
+        image={mainImage.publicUrl}
       />
       <Section>
         <Text>{category.title}</Text>
@@ -66,6 +66,7 @@ export const query = graphql`
       mainImage {
         gatsbyImage(width: 500)
         description
+        publicUrl
       }
     }
   }

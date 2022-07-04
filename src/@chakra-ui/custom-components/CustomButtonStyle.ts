@@ -7,6 +7,12 @@ const CustomButtonStyle: ComponentStyleConfig = {
       color: "white",
       fontFamily: "heading",
       fontWeight: "bold",
+      _hover: {
+        border: "2px solid",
+        borderColor: "primary.highlight",
+        color: "primary.highlight",
+        bg: "transparent",
+      },
     },
   },
   defaultProps: {
