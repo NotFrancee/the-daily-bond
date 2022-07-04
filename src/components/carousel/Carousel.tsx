@@ -22,7 +22,7 @@ const Carousel = ({ articles }: Props) => {
   console.log(ArticlesEl);
 
   return (
-    <Flex p={5} direction="column">
+    <Flex p={5} gap={5} direction="column">
       {ArticlesEl}
     </Flex>
   );

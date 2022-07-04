@@ -27,6 +27,9 @@ const PreviewItem = ({ article }: Props) => {
         </Text>
       </Box>
       <Text>{metaDescription.metaDescription}</Text>
+      <Link color={"primary.highlight"} href={`/${category.slug}/${slug}`}>
+        Leggi
+      </Link>
     </Flex>
   );
   // switch (type) {
