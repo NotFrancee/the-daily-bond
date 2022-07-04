@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { ArticlePreview } from "../../@types";
@@ -36,7 +36,7 @@ const LatestArticles = () => {
     <Section bgColor="primary.background">
       <Heading as={"h2"}>Ultimi Articoli</Heading>
       <Carousel articles={articles} />
-      <Text>Esplora Tutto</Text>
+      <Link href="/finanza-personale">Esplora Tutto</Link>
     </Section>
   );
 };

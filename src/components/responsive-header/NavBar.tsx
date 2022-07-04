@@ -12,7 +12,7 @@ const NavBarContainer = ({ children, ...props }: any) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={5}
+      // mb={5}
       p={5}
       bg={[
         "primary.highlight",
