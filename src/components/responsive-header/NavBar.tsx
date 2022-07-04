@@ -20,7 +20,7 @@ const NavBarContainer = ({ children, ...props }: any) => {
         "transparent",
         "transparent",
       ]}
-      color={["black", "black", "primary.background", "primary.background"]}
+      color={["white", "white", "black", "black"]}
       {...props}
     >
       {children}
@@ -35,7 +35,7 @@ const NavBar = (props: any) => {
 
   return (
     <NavBarContainer {...props}>
-      <Logo color={["white", "white", "primary.500", "primary.500"]} />
+      <Logo color={["white", "white", "black", "black"]} />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>
