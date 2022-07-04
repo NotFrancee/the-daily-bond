@@ -2,7 +2,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import {
   CustomButtonStyle,
-  CustomFlexStyle,
   CustomHeadingStyle,
   CustomTextStyle,
   SectionComponent,
