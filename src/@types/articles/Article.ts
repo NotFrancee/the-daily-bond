@@ -1,3 +1,5 @@
+import { ImageDataLike } from "gatsby-plugin-image";
+
 export interface Article {
   title: string;
   category: {
@@ -13,4 +15,5 @@ export interface Article {
   };
   createdAt: string;
   updatedAt: string;
+  mainImage: any;
 }

@@ -6,10 +6,19 @@ import React from "react";
 export const options: Options = {
   renderNode: {
     [BLOCKS.HEADING_1]: (node, children) => (
-      <Heading as="h1">{children}</Heading>
+      <Heading mt={5} as="h1">
+        {children}
+      </Heading>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <Heading as="h2">{children}</Heading>
+      <Heading size={"md"} mt={5} as="h2">
+        {children}
+      </Heading>
+    ),
+    [BLOCKS.HEADING_3]: (node, children) => (
+      <Heading size={"sm"} mt={2} as="h3">
+        {children}
+      </Heading>
     ),
     [INLINES.HYPERLINK]: (node, children) => {
       const { uri } = node.data;
@@ -22,6 +31,6 @@ export const options: Options = {
     },
   },
   renderMark: {
-    [MARKS.BOLD]: (text) => <Text fontWeight="bold">{text}</Text>,
+    // [MARKS.BOLD]: (text) => <Text fontWeight="bold">{text}</Text>,
   },
 };

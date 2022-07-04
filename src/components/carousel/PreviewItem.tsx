@@ -11,6 +11,7 @@ interface Props {
 // what do we need for a preview?
 
 const PreviewItem = ({ article }: Props) => {
+  console.log("article to preview", article);
   const { title, metaDescription, category, slug } = article;
   return (
     <Flex p={5} gap={5} bgColor="white" direction="column" rounded={"base"}>
