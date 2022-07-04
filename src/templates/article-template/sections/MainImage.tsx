@@ -1,13 +1,17 @@
 import { Box } from "@chakra-ui/react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 
 interface Props {
-  mainImage: any;
+  mainImage: {
+    description: string;
+    publicUrl: string;
+    gatsbyImage: IGatsbyImageData;
+  };
 }
 
 const MainImage = ({ mainImage }: Props) => {
-  const image = getImage(mainImage);
+  const image = getImage(mainImage.gatsbyImage);
 
   if (!image) return null;
 

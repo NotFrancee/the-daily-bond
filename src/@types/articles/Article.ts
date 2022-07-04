@@ -1,4 +1,4 @@
-import { ImageDataLike } from "gatsby-plugin-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 
 export interface Article {
   title: string;
@@ -15,5 +15,9 @@ export interface Article {
   };
   createdAt: string;
   updatedAt: string;
-  mainImage: any;
+  mainImage: {
+    publicUrl: string;
+    description: string;
+    gatsbyImage: IGatsbyImageData;
+  };
 }
