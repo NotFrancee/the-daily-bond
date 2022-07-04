@@ -13,7 +13,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions,
 }) => {
   const { createPage } = actions;
-  const articleTemplate = path.resolve("./src/templates/ArticleTemplate.tsx");
+  const articleTemplate = path.resolve(
+    "./src/templates/article-template/ArticleTemplate.tsx"
+  );
   const res = await graphql<ArticlePreviewQuery>(`
     query {
       allContentfulArticle {
