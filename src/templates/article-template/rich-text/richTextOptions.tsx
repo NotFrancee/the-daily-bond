@@ -6,20 +6,25 @@ import React from "react";
 export const options: Options = {
   renderNode: {
     [BLOCKS.HEADING_1]: (node, children) => (
-      <Heading mt={5} as="h1">
+      <Heading fontSize={"1.75rem"} mt={5} as="h1">
         {children}
       </Heading>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <Heading size={"md"} mt={5} as="h2">
+      <Heading fontSize={"2xl"} size={"md"} mt={5} as="h2">
         {children}
-      </Heading>
+      </Heading> // 2xl = 1.5 rem
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <Heading size={"sm"} mt={2} as="h3">
+      <Heading size={"xl"} mt={2} as="h3">
         {children}
-      </Heading>
+      </Heading> // same as paragraph
     ),
+    [BLOCKS.PARAGRAPH]: (node, children) => (
+      <Text pt={3} fontSize={"xl"}>
+        {children}
+      </Text>
+    ), // xl = 1.25rem
     [INLINES.HYPERLINK]: (node, children) => {
       const { uri } = node.data;
 

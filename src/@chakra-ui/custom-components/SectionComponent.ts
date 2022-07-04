@@ -4,7 +4,6 @@ const SectionComponent: ComponentStyleConfig = {
   baseStyle: {
     padding: 5,
     gap: 5,
-    border: "1px solid red",
   },
   sizes: {},
   variants: {
