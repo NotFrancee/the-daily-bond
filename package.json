@@ -1,8 +1,8 @@
 {
-  "name": "change-this",
+  "name": "the-daily-bond",
   "version": "1.0.0",
   "private": true,
-  "description": "change-this",
+  "description": "The Daily Bond Repo",
   "author": "Andrea Franceschini",
   "keywords": [
     "gatsby"
