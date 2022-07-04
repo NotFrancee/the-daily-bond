@@ -15,11 +15,11 @@ interface Props {
 }
 
 const Carousel = ({ articles }: Props) => {
-  console.log({ articles });
+  // console.log({ articles });
   const ArticlesEl = articles.map((article) => (
-    <PreviewItem article={article} />
+    <PreviewItem key={article.slug} article={article} />
   ));
-  console.log(ArticlesEl);
+  // console.log(ArticlesEl);
 
   return (
     <Flex p={5} gap={5} direction="column">
