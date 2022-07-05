@@ -2,7 +2,7 @@ import { GatsbyConfig, graphql } from "gatsby";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const siteUrl = process.env.URL || `https://thedailybond.com`;
+const siteUrl = process.env.URL || `https://www.thedailybond.com`;
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -102,6 +102,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
+        output: "/",
         query: `
           query MyQuery {
             allSitePage {
@@ -154,6 +155,7 @@ const config: GatsbyConfig = {
         // Processes data and returns only the url received from allSiteData and the last modified time
         serialize: (data: any) => {
           const { path, updatedAt } = data;
+          console.log("PATH: ", path);
           return {
             url: path,
             lastmod: updatedAt,
@@ -165,7 +167,7 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://www.thedailybond.com",
-        // sitemap: "https://www.example.com/sitemap.xml",
+        sitemap: "https://www.thedailybond.com/sitemap-index.xml",
         policy: [
           { userAgent: "*", allow: "/" },
           { userAgent: "SemrushBot-CT", allow: "/" },

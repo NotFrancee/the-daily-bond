@@ -5,13 +5,17 @@ import { Section } from "../shared";
 import Preview from "./Preview";
 
 const query = graphql`
-  query DefinitionsPreviews {
-    allContentfulDefinition(sort: { fields: updatedAt, order: DESC }) {
+  query ArticlesPreviews {
+    allContentfulArticle(sort: { fields: updatedAt, order: DESC }) {
       nodes {
         slug
         title
         category {
           slug
+          title
+        }
+        metaDescription {
+          metaDescription
         }
       }
     }
@@ -23,22 +27,26 @@ interface Prev {
   slug: string;
   category: {
     slug: string;
+    title: string;
+  };
+  metaDescription: {
+    metaDescription: string;
   };
 }
 
 interface QueryRes {
-  allContentfulDefinition: {
+  allContentfulArticle: {
     nodes: Prev[];
   };
 }
 
-const Definitions = () => {
+const Articles = () => {
   const data = useStaticQuery<QueryRes>(query);
 
-  const previewEl = data.allContentfulDefinition.nodes.map((def) => (
-    <Preview key={def.slug} definition={def} />
+  const previewEl = data.allContentfulArticle.nodes.map((art) => (
+    <Preview key={art.slug} article={art} />
   ));
   return <Box pt={5}>{previewEl}</Box>;
 };
 
-export default Definitions;
+export default Articles;

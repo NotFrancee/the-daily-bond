@@ -12,6 +12,7 @@ const Index = () => {
       <SEO
         title="The Daily Bond - Homepage"
         description="Impara la finanza personale in modo semplice e migliora le tue abitudini finanziarie"
+        pathName="/"
       />
       <Introduction />
       <LatestArticles />
