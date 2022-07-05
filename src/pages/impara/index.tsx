@@ -1,11 +1,19 @@
 import { Heading } from "@chakra-ui/react";
 import React from "react";
-import { Layout } from "../../components/shared";
+import Definitions from "../../components/definitions/Definitions";
+import { Layout, Section, SEO } from "../../components/shared";
 
 const index = () => {
   return (
     <Layout>
-      <Heading>Impara</Heading>
+      <SEO
+        title="Impara - The Daily Bond"
+        description="Impara tutti i termini finanziari in modo semplice e veloce!"
+      />
+      <Section>
+        <Heading>Impara</Heading>
+        <Definitions />
+      </Section>
     </Layout>
   );
 };

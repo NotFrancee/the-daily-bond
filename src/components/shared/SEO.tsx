@@ -8,9 +8,17 @@ interface Props {
   image: string;
   article: boolean;
   pathName: string;
+  canonicalUrl: string;
 }
 
-const SEO = ({ title, description, image, article, pathName }: Props) => {
+const SEO = ({
+  title,
+  description,
+  image,
+  article,
+  pathName,
+  canonicalUrl,
+}: Props) => {
   const { site } = useStaticQuery(query);
   const {
     defaultTitle,
@@ -29,7 +37,16 @@ const SEO = ({ title, description, image, article, pathName }: Props) => {
   };
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet
+      title={seo.title}
+      titleTemplate={titleTemplate}
+      htmlAttributes={{
+        lang: "it",
+      }}
+    >
+      {canonicalUrl && (
+        <link rel="canonical" href={`${siteUrl}${canonicalUrl}`} />
+      )}
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -60,6 +77,7 @@ SEO.defaultProps = {
   image: null,
   article: false,
   pathName: "",
+  canonicalUrl: null,
 };
 
 const query = graphql`
