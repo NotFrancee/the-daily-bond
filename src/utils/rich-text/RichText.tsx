@@ -1,6 +1,6 @@
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import React from "react";
-import { Section } from "../../../components/shared";
+import { Section } from "../../components/shared";
 import { options } from "./richTextOptions";
 
 interface Props {
