@@ -9,6 +9,7 @@ const index = () => {
       <SEO
         title="Impara - The Daily Bond"
         description="Impara tutti i termini finanziari in modo semplice e veloce!"
+        pathName="/impara"
       />
       <Section>
         <Heading as={"h1"}>Impara</Heading>
