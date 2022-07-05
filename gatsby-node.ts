@@ -73,25 +73,31 @@ export const createPages: GatsbyNode["createPages"] = async ({
   createRedirect({
     fromPath: "investire-senza-rischi-2021",
     toPath: "investire-senza-rischi-2022",
+    isPermanent: true,
   });
   createRedirect({
     fromPath: "page/2/",
     toPath: "",
+    isPermanent: true,
   });
   createRedirect({
     fromPath: "sitemap.xml",
     toPath: "sitemap/sitemap-index.xml",
+    isPermanent: true,
   });
   createRedirect({
     fromPath: "?post_type=definizione&p=505&preview=true",
     toPath: "",
+    isPermanent: true,
   });
   createRedirect({
-    fromPath: "finanza-personale/",
-    toPath: "finanza-personale",
+    fromPath: "finanza-personale",
+    toPath: "finanza-personale/",
   });
   createRedirect({
-    fromPath: "/",
-    toPath: "",
+    fromPath:
+      "finanza-personale/recensione-pancakeswap-come-usarlo-ed-i-suoi-rischi/",
+    toPath: "finanza-personale/",
+    isPermanent: true,
   });
 };
