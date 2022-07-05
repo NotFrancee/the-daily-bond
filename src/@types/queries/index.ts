@@ -1,4 +1,5 @@
-import { ArticlePreviewQuery } from "./ArticlePreviewQuery";
+import { CreatePagesQuery } from "./CreatePagesQuery";
 import { ArticleQuery } from "./ArticleQuery";
+import { DefinitionQuery } from "./DefinitionQuery";
 
-export { ArticlePreviewQuery, ArticleQuery };
+export { CreatePagesQuery, ArticleQuery, DefinitionQuery };
