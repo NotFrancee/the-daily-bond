@@ -12,7 +12,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
 }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const articleTemplate = path.resolve(
     "./src/templates/article-template/ArticleTemplate.tsx"
   );
@@ -68,5 +68,30 @@ export const createPages: GatsbyNode["createPages"] = async ({
         slug: edge.node.slug,
       },
     });
+  });
+
+  createRedirect({
+    fromPath: "investire-senza-rischi-2021",
+    toPath: "investire-senza-rischi-2022",
+  });
+  createRedirect({
+    fromPath: "page/2/",
+    toPath: "",
+  });
+  createRedirect({
+    fromPath: "sitemap.xml",
+    toPath: "sitemap/sitemap-index.xml",
+  });
+  createRedirect({
+    fromPath: "?post_type=definizione&p=505&preview=true",
+    toPath: "",
+  });
+  createRedirect({
+    fromPath: "finanza-personale/",
+    toPath: "finanza-personale",
+  });
+  createRedirect({
+    fromPath: "/",
+    toPath: "",
   });
 };

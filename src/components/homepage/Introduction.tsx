@@ -13,7 +13,10 @@ const Introduction = () => {
         vogliamo venderti niente, solo migliorare la tua gestione dei soldi per
         migliorare il tuo stile di vita
       </Text>
-      <Image src="https://ik.imagekit.io/astrum/TheDailyBond/engineeringTeam" />
+      <Image
+        width={"full"}
+        src="https://ik.imagekit.io/astrum/TheDailyBond/engineeringTeam"
+      />
       <Button w={"full"}>Esplora i nostri Articoli</Button>
     </Section>
   );

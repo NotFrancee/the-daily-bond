@@ -95,7 +95,7 @@ const config: GatsbyConfig = {
           // Avoids sending pageview hits from custom paths
           exclude: ["/preview/**", "/do-not-track/me/too/"],
           // Defaults to https://www.googletagmanager.com
-          origin: "YOUR_SELF_HOSTED_ORIGIN",
+          // origin: "YOUR_SELF_HOSTED_ORIGIN",
         },
       },
     },
@@ -159,6 +159,17 @@ const config: GatsbyConfig = {
             lastmod: updatedAt,
           };
         },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.thedailybond.com",
+        // sitemap: "https://www.example.com/sitemap.xml",
+        policy: [
+          { userAgent: "*", allow: "/" },
+          { userAgent: "SemrushBot-CT", allow: "/" },
+        ],
       },
     },
   ],
