@@ -4,6 +4,7 @@ export interface Article {
   title: string;
   category: {
     title: string;
+    slug: string;
   };
   tags: string[];
   body: any;

@@ -29,15 +29,15 @@ const ArticleTemplate = ({ data }: Props) => {
         article={true}
         description={metaDescription.metaDescription}
         title={seoTitle}
-        pathName={`/${category.title}/${slug}`}
+        pathName={`/${category.slug}/${slug}`}
         image={mainImage.publicUrl}
       />
       <Section>
         <Text>{category.title}</Text>
         <Heading as={"h1"}>{title}</Heading>
         <MainImage mainImage={mainImage} />
+        <RichText rawBody={body} pt={0} />
       </Section>
-      <RichText rawBody={body} pt={0} />
     </Layout>
   );
   // handle SEO
@@ -53,6 +53,7 @@ export const query = graphql`
       }
       category {
         title
+        slug
       }
       createdAt(formatString: "MMMM Do, YYYY")
       seoTitle
