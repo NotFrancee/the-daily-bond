@@ -32,11 +32,13 @@ const ArticleTemplate = ({ data }: Props) => {
         pathName={`/${category.slug}/${slug}`}
         //image={mainImage.publicUrl}
       />
-      <Section>
-        <Heading as={"h1"}>{title}</Heading>
+      <Heading p={5} pb={0} as={"h1"}>
+        {title}
+      </Heading>
+      <Section px={10}>
+        <RichText rawBody={mainText} />
+        <RichText rawBody={secondaryText} />
       </Section>
-      <RichText rawBody={mainText} />
-      <RichText rawBody={secondaryText} />
     </Layout>
   );
   // handle SEO
