@@ -6,7 +6,10 @@ import Preview from "./Preview";
 
 const query = graphql`
   query ArticlesPreviews {
-    allContentfulArticle(sort: { fields: updatedAt, order: DESC }) {
+    allContentfulArticle(
+      filter: { category: { slug: { eq: "finanza-personale" } } }
+      sort: { fields: updatedAt, order: DESC }
+    ) {
       nodes {
         slug
         title
@@ -40,8 +43,15 @@ interface QueryRes {
   };
 }
 
-const Articles = () => {
+interface Props {
+  categorySlug: string;
+}
+
+const Articles = ({ categorySlug }: Props) => {
+  console.log("this should show only the ", categorySlug);
   const data = useStaticQuery<QueryRes>(query);
+
+  // FILTER DATA BASED ON CATEGORY PROP
 
   const previewEl = data.allContentfulArticle.nodes.map((art) => (
     <Preview key={art.slug} article={art} />
