@@ -22,6 +22,7 @@ const MenuLinks = ({ isOpen }: Props) => {
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/finanza-personale">Finanza Personale</MenuItem>
         <MenuItem to="/impara">Impara la Finanza</MenuItem>
+        <MenuItem to="/mercati">Mercati</MenuItem>
       </Stack>
     </Box>
   );

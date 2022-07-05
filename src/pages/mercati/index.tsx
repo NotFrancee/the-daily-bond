@@ -7,13 +7,13 @@ const index = () => {
   return (
     <Layout>
       <SEO
-        title="Finanza Personale - The Daily Bond"
-        description="Esplora le nostre risorse sulla finanza personale!"
-        pathName="/finanza-personale"
+        title="Mercati - The Daily Bond"
+        description="Esplora i nostri articoli sui mercati finanziari!"
+        pathName="/mercati"
       />
       <Section>
-        <Heading as={"h1"}>Finanza Personale</Heading>
-        <Articles categorySlug="finanza-personale" />
+        <Heading as={"h1"}>Mercati</Heading>
+        <Articles categorySlug="mercati" />
       </Section>
     </Layout>
   );
