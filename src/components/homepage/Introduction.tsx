@@ -1,4 +1,5 @@
 import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Section from "../shared/Section";
 
@@ -14,6 +15,7 @@ const Introduction = () => {
         migliorare il tuo stile di vita
       </Text>
       <Image
+        alt="Image of people working together"
         width={"full"}
         src="https://ik.imagekit.io/astrum/TheDailyBond/engineeringTeam"
       />

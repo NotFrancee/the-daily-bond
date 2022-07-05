@@ -11,7 +11,7 @@ const index = () => {
         description="Impara tutti i termini finanziari in modo semplice e veloce!"
       />
       <Section>
-        <Heading>Impara</Heading>
+        <Heading as={"h1"}>Impara</Heading>
         <Definitions />
       </Section>
     </Layout>
