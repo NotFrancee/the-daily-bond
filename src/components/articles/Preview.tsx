@@ -1,31 +1,22 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
-import { Link } from "gatsby";
+import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/react";
+import { Link as GatsbyLink } from "gatsby";
 import React from "react";
+import { ArticlePreview } from "../../@types";
 
 interface Props {
-  article: {
-    title: string;
-    slug: string;
-    category: {
-      slug: string;
-      title: string;
-    };
-    metaDescription: {
-      metaDescription: string;
-    };
-  };
+  article: ArticlePreview;
 }
 
 const Preview = ({ article }: Props) => {
-  const { title, slug, category } = article;
-  // const url = `${category.slug}/${slug}`;
+  const { title, slug, category, metaDescription } = article;
+
   return (
-    <Flex flexDir={"column"}>
-      <Box>
-        <Heading size={"sm"} to={slug} as={Link}>
-          {title}
-        </Heading>
-      </Box>
+    <Flex flexDir={"column"} gap={5}>
+      <Heading size={"sm"} to={slug} as={GatsbyLink}>
+        {title}
+      </Heading>
+      <Text>{metaDescription.metaDescription}</Text>
+      <Divider />
     </Flex>
   );
 };

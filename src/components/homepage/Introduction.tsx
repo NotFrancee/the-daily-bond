@@ -1,5 +1,5 @@
 import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import Section from "../shared/Section";
 

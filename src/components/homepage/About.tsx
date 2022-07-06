@@ -1,20 +1,42 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Divider, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import Section from "../shared/Section";
 
 const About = () => {
   return (
-    <Section>
-      <Heading as={"h2"}>Il Valore di TDB</Heading>
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
-      </Text>
+    <Section justifyContent="center" mt={10}>
+      <Heading textAlign={"center"} as={"h2"}>
+        Perchè The Daily Bond
+      </Heading>
+      <Section>
+        <Heading textAlign={"center"} size={"md"} as={"h3"}>
+          Finanza Personale
+        </Heading>
+        <Text textAlign={"center"} mt={5}>
+          Migliora la gestione delle tue finanza personali e inizia a
+          risparmiare per il tuo futuro. Non è difficile, semplicemente non te
+          lo hanno mai insegnato!
+        </Text>
+      </Section>
+      <Section>
+        <Heading textAlign={"center"} size={"md"} as={"h3"}>
+          Investimenti
+        </Heading>
+        <Text textAlign={"center"} mt={5}>
+          Tenere i soldi sotto il materasso non è più una soluzione: è ora di
+          far fruttare il tuo denaro, e non è difficile come pensi!
+        </Text>
+      </Section>
+      <Section>
+        <Heading textAlign={"center"} size={"md"} as={"h3"}>
+          Produttività
+        </Heading>
+        <Text textAlign={"center"} mt={5}>
+          Diventa un maestro della produttività: abbandonare la procrastinazione
+          e affrontare anche i compiti più difficili è più semplice di quello
+          che pensi!
+        </Text>
+      </Section>
     </Section>
   );
 };

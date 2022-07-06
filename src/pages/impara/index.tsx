@@ -1,9 +1,17 @@
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { graphql } from "gatsby";
 import React from "react";
+import { DefinitionPreviewQuery } from "../../@types";
 import Definitions from "../../components/definitions/Definitions";
 import { Layout, Section, SEO } from "../../components/shared";
 
-const index = () => {
+interface Props {
+  data: DefinitionPreviewQuery;
+}
+
+const index = ({ data }: Props) => {
+  const definitions = data.allContentfulDefinition.nodes;
+
   return (
     <Layout>
       <SEO
@@ -12,11 +20,31 @@ const index = () => {
         pathName="/impara"
       />
       <Section>
-        <Heading as={"h1"}>Impara</Heading>
-        <Definitions />
+        <Box>
+          <Heading as={"h1"}>Impara la Finanza</Heading>
+          <Text>
+            Impara tutti i termini finanziari con il nostro glossario. Leggi la
+            nostra definizione del giorno, oppure cerca partendo da una lettera!
+          </Text>
+        </Box>
+        <Definitions title="Tutte le Definizioni" definitions={definitions} />
       </Section>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query DefinitionsPreviews {
+    allContentfulDefinition(sort: { fields: updatedAt, order: DESC }) {
+      nodes {
+        slug
+        title
+        category {
+          slug
+        }
+      }
+    }
+  }
+`;
 
 export default index;
