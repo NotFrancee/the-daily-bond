@@ -13,7 +13,7 @@ const index = () => {
       />
       <Section>
         <Heading as={"h1"}>Mercati</Heading>
-        <Articles categorySlug="mercati" />
+        {/* <Articles categorySlug="mercati" /> */}
       </Section>
     </Layout>
   );
