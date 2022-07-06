@@ -19,6 +19,6 @@ export interface Article {
   mainImage: {
     publicUrl: string;
     description: string;
-    gatsbyImage: IGatsbyImageData;
+    gatsbyImageData: IGatsbyImageData;
   };
 }

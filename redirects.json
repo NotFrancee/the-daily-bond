@@ -1,7 +1,8 @@
 [
   {
     "fromPath": "/finanza-personale/investire-senza-rischi-2021",
-    "toPath": "/finanza-personale/investire-senza-rischi-2022"
+    "toPath": "/finanza-personale/investire-senza-rischi-2022",
+    "isPermanent": "true"
   },
   {
     "fromPath": "/page/2/",
@@ -20,9 +21,5 @@
   {
     "fromPath": "/finanza-personale/recensione-pancakeswap-come-usarlo-ed-i-suoi-rischi/",
     "toPath": "/finanza-personale"
-  },
-  {
-    "fromPath": "www.thedailybond.com/testredirect",
-    "toPath": "www.thedailybond.com/"
   }
 ]
