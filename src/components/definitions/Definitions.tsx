@@ -1,44 +1,27 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { DefinitionPreview } from "../../@types/definitions";
 import { Section } from "../shared";
 import Preview from "./Preview";
 
-const query = graphql`
-  query DefinitionsPreviews {
-    allContentfulDefinition(sort: { fields: updatedAt, order: DESC }) {
-      nodes {
-        slug
-        title
-        category {
-          slug
-        }
-      }
-    }
-  }
-`;
-
-interface Prev {
+interface Props {
   title: string;
-  slug: string;
-  category: {
-    slug: string;
-  };
+  definitions: DefinitionPreview[];
 }
 
-interface QueryRes {
-  allContentfulDefinition: {
-    nodes: Prev[];
-  };
-}
-
-const Definitions = () => {
-  const data = useStaticQuery<QueryRes>(query);
-
-  const previewEl = data.allContentfulDefinition.nodes.map((def) => (
-    <Preview key={def.slug} definition={def} />
+const Definitions = ({ title, definitions }: Props) => {
+  const previewEl = definitions.map((definition) => (
+    <Preview key={definition.slug} definition={definition} />
   ));
-  return <Box pt={5}>{previewEl}</Box>;
+  return (
+    <Section p={0}>
+      <Heading as={"h2"} size="lg">
+        {title}
+      </Heading>
+      {previewEl}
+    </Section>
+  );
 };
 
 export default Definitions;

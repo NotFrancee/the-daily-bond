@@ -1,5 +1,5 @@
 import { Box, Divider, Flex, Heading, Text } from "@chakra-ui/react";
-import { Link } from "gatsby";
+import { Link as GatsbyLink } from "gatsby";
 import React from "react";
 import { ArticlePreview } from "../../@types";
 
@@ -12,7 +12,7 @@ const Preview = ({ article }: Props) => {
 
   return (
     <Flex flexDir={"column"} gap={5}>
-      <Heading size={"sm"} to={slug} as={Link}>
+      <Heading size={"sm"} to={slug} as={GatsbyLink}>
         {title}
       </Heading>
       <Text>{metaDescription.metaDescription}</Text>
