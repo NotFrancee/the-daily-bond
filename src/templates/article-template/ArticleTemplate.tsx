@@ -65,7 +65,7 @@ export const query = graphql`
       }
       updatedAt(formatString: "MMMM Do, YYYY")
       mainImage {
-        gatsbyImage(width: 500)
+        gatsbyImageData(width: 700)
         description
         publicUrl
       }
