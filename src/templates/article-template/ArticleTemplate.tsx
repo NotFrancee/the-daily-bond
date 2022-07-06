@@ -17,11 +17,14 @@ const ArticleTemplate = ({ data }: Props) => {
     title,
     category,
     body,
-    updatedAt,
     seoTitle,
     metaDescription,
     slug,
+    createdAt,
+    updatedAt,
   } = data.contentfulArticle;
+
+  console.log({ createdAt, updatedAt });
 
   return (
     <Layout>
@@ -31,6 +34,8 @@ const ArticleTemplate = ({ data }: Props) => {
         title={seoTitle}
         pathName={`/${category.slug}/${slug}`}
         image={mainImage.publicUrl}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
       />
       <Section>
         <Text>{category.title}</Text>
@@ -55,7 +60,7 @@ export const query = graphql`
         title
         slug
       }
-      createdAt(formatString: "MMMM Do, YYYY")
+      createdAt
       seoTitle
       slug
       title
@@ -63,7 +68,7 @@ export const query = graphql`
         metaDescription
         id
       }
-      updatedAt(formatString: "MMMM Do, YYYY")
+      updatedAt
       mainImage {
         gatsbyImageData(width: 700)
         description

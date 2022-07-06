@@ -23,6 +23,7 @@ const ArticleTemplate = ({ data }: Props) => {
     updatedAt,
     createdAt,
   } = data.contentfulDefinition;
+  console.log({ updatedAt, createdAt });
   return (
     <Layout>
       <SEO
@@ -30,6 +31,8 @@ const ArticleTemplate = ({ data }: Props) => {
         description={metaDescription.metaDescription}
         title={seoTitle}
         pathName={`/${category.slug}/${slug}`}
+        createdAt={createdAt}
+        updatedAt={updatedAt}
         //image={mainImage.publicUrl}
       />
       <Heading p={5} pb={0} as={"h1"}>
