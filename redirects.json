@@ -1,0 +1,28 @@
+[
+  {
+    "fromPath": "/finanza-personale/investire-senza-rischi-2021",
+    "toPath": "/finanza-personale/investire-senza-rischi-2022"
+  },
+  {
+    "fromPath": "/page/2/",
+    "toPath": "/",
+    "isPermanent": "true"
+  },
+  {
+    "fromPath": "/sitemap.xml",
+    "toPath": "/sitemap-index.xml"
+  },
+  {
+    "fromPath": "/?post_type=definizione&p=505&preview=true",
+    "toPath": "/",
+    "isPermanent": "true"
+  },
+  {
+    "fromPath": "/finanza-personale/recensione-pancakeswap-come-usarlo-ed-i-suoi-rischi/",
+    "toPath": "/finanza-personale"
+  },
+  {
+    "fromPath": "",
+    "toPath": ""
+  }
+]
