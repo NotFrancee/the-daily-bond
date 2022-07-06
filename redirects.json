@@ -22,7 +22,7 @@
     "toPath": "/finanza-personale"
   },
   {
-    "fromPath": "",
-    "toPath": ""
+    "fromPath": "www.thedailybond.com/testredirect",
+    "toPath": "www.thedailybond.com/"
   }
 ]
