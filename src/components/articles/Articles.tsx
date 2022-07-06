@@ -1,62 +1,28 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { ArticlePreview } from "../../@types";
 import { Section } from "../shared";
 import Preview from "./Preview";
 
-const query = graphql`
-  query ArticlesPreviews {
-    allContentfulArticle(
-      filter: { category: { slug: { eq: "finanza-personale" } } }
-      sort: { fields: updatedAt, order: DESC }
-    ) {
-      nodes {
-        slug
-        title
-        category {
-          slug
-          title
-        }
-        metaDescription {
-          metaDescription
-        }
-      }
-    }
-  }
-`;
-
-interface Prev {
-  title: string;
-  slug: string;
-  category: {
-    slug: string;
-    title: string;
-  };
-  metaDescription: {
-    metaDescription: string;
-  };
-}
-
-interface QueryRes {
-  allContentfulArticle: {
-    nodes: Prev[];
-  };
-}
-
 interface Props {
-  categorySlug: string;
+  articles: ArticlePreview[];
+  title: string;
 }
 
-const Articles = ({ categorySlug }: Props) => {
-  console.log("this should show only the ", categorySlug);
-  const data = useStaticQuery<QueryRes>(query);
-
-  // FILTER DATA BASED ON CATEGORY PROP
-
-  const previewEl = data.allContentfulArticle.nodes.map((art) => (
-    <Preview key={art.slug} article={art} />
+const Articles = ({ articles, title }: Props) => {
+  console.log(articles);
+  const previewEl = articles.map((article) => (
+    <Preview key={article.slug} article={article} />
   ));
-  return <Box pt={5}>{previewEl}</Box>;
+  return (
+    <Section p={0}>
+      <Heading as="h2" pb={5} size="lg">
+        {title}
+      </Heading>
+      {previewEl}
+    </Section>
+  );
 };
 
 export default Articles;
