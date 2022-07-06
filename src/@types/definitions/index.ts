@@ -1,2 +1,3 @@
 import Definition from "./Definition";
-export { Definition };
+import { DefinitionPreview } from "./DefinitionPreview";
+export { Definition, DefinitionPreview };

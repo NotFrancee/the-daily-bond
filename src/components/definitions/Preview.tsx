@@ -1,27 +1,25 @@
-import { Box, Flex, Heading, Link } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import { Link as GatsbyLink } from "gatsby";
 import React from "react";
+import { DefinitionPreview } from "../../@types";
+import { Section } from "../shared";
 
 interface Props {
-  definition: {
-    title: string;
-    slug: string;
-    category: {
-      slug: string;
-    };
-  };
+  definition: DefinitionPreview;
 }
 
 const Preview = ({ definition }: Props) => {
   const { title, slug, category } = definition;
-  const url = `${category.slug}/${slug}`;
+  const url = `/${category.slug}/${slug}`;
+
   return (
-    <Flex flexDir={"column"}>
+    <Section p={0}>
       <Box>
-        <Heading size={"sm"} href={url} as={Link}>
+        <Heading size={"sm"} to={url} as={GatsbyLink}>
           {title}
         </Heading>
       </Box>
-    </Flex>
+    </Section>
   );
 };
 
