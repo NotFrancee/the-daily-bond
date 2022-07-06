@@ -2,7 +2,15 @@ import { GatsbyGraphQLType } from "gatsby";
 import type { GatsbyNode } from "gatsby";
 import { CreatePagesQuery } from "./src/@types/queries/CreatePagesQuery";
 
+interface Redirect {
+  fromPath: string;
+  toPath: string;
+  isPermanent?: boolean;
+}
+type Redirects = Redirect[];
+
 const path = require("path");
+const redirects: Redirects = require("./redirects.json");
 
 interface Props {
   graphql: GatsbyGraphQLType;
@@ -70,34 +78,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  createRedirect({
-    fromPath: "investire-senza-rischi-2021",
-    toPath: "investire-senza-rischi-2022",
-    isPermanent: true,
-  });
-  createRedirect({
-    fromPath: "page/2/",
-    toPath: "",
-    isPermanent: true,
-  });
-  createRedirect({
-    fromPath: "sitemap.xml",
-    toPath: "sitemap/sitemap-index.xml",
-    isPermanent: true,
-  });
-  createRedirect({
-    fromPath: "?post_type=definizione&p=505&preview=true",
-    toPath: "",
-    isPermanent: true,
-  });
-  createRedirect({
-    fromPath: "finanza-personale",
-    toPath: "finanza-personale/",
-  });
-  createRedirect({
-    fromPath:
-      "finanza-personale/recensione-pancakeswap-come-usarlo-ed-i-suoi-rischi/",
-    toPath: "finanza-personale/",
-    isPermanent: true,
+  redirects.forEach((redirect) => {
+    const { fromPath, toPath, isPermanent } = redirect;
+    createRedirect({
+      fromPath,
+      toPath,
+      isPermanent,
+    });
   });
 };

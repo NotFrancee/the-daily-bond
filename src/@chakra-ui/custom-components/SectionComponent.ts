@@ -4,6 +4,8 @@ const SectionComponent: ComponentStyleConfig = {
   baseStyle: {
     padding: 5,
     gap: 5,
+    display: "flex",
+    flexDirection: "column",
   },
   sizes: {},
   variants: {

@@ -34,9 +34,13 @@ const LatestArticles = () => {
 
   return (
     <Section bgColor="primary.background">
-      <Heading as={"h2"}>Ultimi Articoli</Heading>
+      <Heading textAlign={"center"} as={"h2"}>
+        Ultimi Articoli
+      </Heading>
       <Carousel articles={articles} />
-      <Link href="/finanza-personale">Esplora Tutto</Link>
+      <Link border={"1px solid red"} href="/finanza-personale">
+        Esplora Tutto
+      </Link>
     </Section>
   );
 };
