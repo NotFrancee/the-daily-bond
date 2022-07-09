@@ -11,6 +11,7 @@ import {
 import React, { useState } from "react";
 import addToMailchimp, { MailchimpResponse } from "gatsby-plugin-mailchimp";
 import { Section } from "../shared";
+import { navigate } from "gatsby";
 
 interface Props {
   title: string;
@@ -39,6 +40,9 @@ const ContentUpgrade = ({ title, description, contentUpgrade }: Props) => {
       const response = await addToMailchimp(email);
       setResponse(response);
       setTimeout(() => setResponse(null), 3000);
+
+      // give the content upgrade
+      navigate(contentUpgrade, {});
     } catch {
       console.error("Something went wrong");
     }
