@@ -6,7 +6,6 @@ import Layout from "../../components/shared/Layout";
 import { Section, SEO } from "../../components/shared";
 import RichText from "../../utils/rich-text/RichText";
 import MainImage from "./sections/MainImage";
-import ContentUpgrade from "../../components/newsletter/ContentUpgrade";
 
 interface Props {
   data: ArticleQuery;
@@ -43,11 +42,6 @@ const ArticleTemplate = ({ data }: Props) => {
         <Heading as={"h1"}>{title}</Heading>
         <MainImage mainImage={mainImage} />
         <RichText rawBody={body} pt={0} />
-        <ContentUpgrade
-          title="Ricevi la Quick Start Guide per il 3M Framework"
-          description="Riceverai una checklist di tutto quello che devi fare nelle prime 8 settimane del percorso!"
-          contentUpgrade="test"
-        />
       </Section>
     </Layout>
   );
@@ -61,6 +55,37 @@ export const query = graphql`
     contentfulArticle(slug: { eq: $slug }) {
       body {
         raw
+        references {
+          ... on ContentfulArticle {
+            __typename
+            contentful_id
+            category {
+              slug
+            }
+            slug
+          }
+          ... on ContentfulAsset {
+            __typename
+            contentful_id
+            gatsbyImageData(width: 700)
+            description
+            publicUrl
+          }
+          ... on ContentfulLeadMagnet {
+            __typename
+            contentful_id
+            heading
+            text {
+              text
+              id
+            }
+            title
+            type
+            contentUpgrade {
+              publicUrl
+            }
+          }
+        }
       }
       category {
         title

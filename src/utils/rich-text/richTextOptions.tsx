@@ -2,6 +2,10 @@ import { Options } from "@contentful/rich-text-react-renderer";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Heading, Text, Link } from "@chakra-ui/react";
 import React from "react";
+import EmbeddedEntry from "./EmbeddedEntry";
+import EmbeddedAsset from "./EmbeddedAsset";
+import EntryHyperlink from "./EntryHyperlink";
+import { Link as GatsbyLink } from "gatsby";
 
 export const options: Options = {
   renderNode: {
@@ -29,11 +33,18 @@ export const options: Options = {
       const { uri } = node.data;
 
       return (
-        <Link color={"primary.highlight"} href={uri}>
+        <Link as={GatsbyLink} to={uri}>
           {children}
         </Link>
       );
     },
+    [INLINES.ENTRY_HYPERLINK]: EntryHyperlink,
+    [INLINES.ASSET_HYPERLINK]: (node, children) => {
+      console.log("STILL TO IMPLEMENT");
+      return <Text>IMPLEMENT</Text>;
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: EmbeddedEntry,
+    [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
   },
   renderMark: {
     // [MARKS.BOLD]: (text) => <Text fontWeight="bold">{text}</Text>,
