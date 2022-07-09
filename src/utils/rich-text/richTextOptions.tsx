@@ -11,7 +11,7 @@ export const options: Options = {
       </Heading>
     ),
     [BLOCKS.HEADING_2]: (node, children) => (
-      <Heading fontSize={"2xl"} size={"md"} mt={5} as="h2">
+      <Heading fontSize={"2xl"} mt={5} as="h2">
         {children}
       </Heading> // 2xl = 1.5 rem
     ),
