@@ -1,12 +1,13 @@
 import { Options } from '@contentful/rich-text-react-renderer';
-import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { Heading, Text, Link } from '@chakra-ui/react';
+import { INLINES, BLOCKS } from '@contentful/rich-text-types';
+import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import EmbeddedEntry from './EmbeddedEntry';
 import EmbeddedAsset from './EmbeddedAsset';
 import EntryHyperlink from './EntryHyperlink';
-import { Link as GatsbyLink } from 'gatsby';
 import InlinesHyperlink from './InlinesHyperlink';
+import List from './List';
+import ListItem from './ListItem';
 
 export const options: Options = {
   renderNode: {
@@ -30,6 +31,9 @@ export const options: Options = {
         {children}
       </Text>
     ), // xl = 1.25rem
+    [BLOCKS.OL_LIST]: List,
+    [BLOCKS.UL_LIST]: List,
+    [BLOCKS.LIST_ITEM]: ListItem,
     [INLINES.HYPERLINK]: InlinesHyperlink,
     [INLINES.ENTRY_HYPERLINK]: EntryHyperlink,
     [INLINES.ASSET_HYPERLINK]: (node, children) => {
@@ -41,5 +45,10 @@ export const options: Options = {
   },
   renderMark: {
     // [MARKS.BOLD]: (text) => <Text fontWeight="bold">{text}</Text>,
+  },
+  renderText: (text) => {
+    return text.split('\n').reduce((children: any, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment];
+    }, []);
   },
 };

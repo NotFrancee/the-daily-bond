@@ -1,4 +1,4 @@
-import { Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import Section from '../shared/Section';
 

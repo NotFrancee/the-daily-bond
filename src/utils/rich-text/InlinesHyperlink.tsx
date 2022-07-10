@@ -1,8 +1,7 @@
 import React from 'react';
-import { Block, Inline, Node } from '@contentful/rich-text-types';
+import { Block, Inline } from '@contentful/rich-text-types';
 import { Link } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
-import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const InlinesHyperlink = (node: Block | Inline, children: React.ReactNode) => {
   // console.log({ node, children });
