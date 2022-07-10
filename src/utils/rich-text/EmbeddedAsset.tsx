@@ -1,5 +1,5 @@
-import { Box, Text } from '@chakra-ui/react';
-import { Block, Inline, Node } from '@contentful/rich-text-types';
+import { Box } from '@chakra-ui/react';
+import { Block, Inline } from '@contentful/rich-text-types';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 

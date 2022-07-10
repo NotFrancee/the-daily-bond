@@ -14,7 +14,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "lint": "eslint .",
     "format": "npx prettier --write ."
   },
   "dependencies": {

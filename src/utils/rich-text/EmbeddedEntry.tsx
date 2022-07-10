@@ -1,6 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import { RenderNode } from '@contentful/rich-text-react-renderer';
-import { Block, Inline, Node } from '@contentful/rich-text-types';
+import { Block, Inline } from '@contentful/rich-text-types';
 import React from 'react';
 import ContentUpgrade from '../../components/newsletter/ContentUpgrade';
 import NewsletterBanner from '../../components/newsletter/NewsletterBanner';

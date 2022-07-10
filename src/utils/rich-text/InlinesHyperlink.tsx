@@ -4,21 +4,6 @@ import { Link } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 
 const InlinesHyperlink = (node: Block | Inline, children: React.ReactNode) => {
-  // console.log({ node, children });
-  // const { __typename } = node.data.target;
-
-  // switch (__typename) {
-  //   case "ContentfulArticle": {
-  //     const { slug, category } = node.data.target;
-  //     const url = `/${category.slug}/${slug}`;
-
-  //     return (
-  //       <Link to={url} as={GatsbyLink}>
-  //         {children}
-  //       </Link>
-  //     );
-  //   }
-  // }
   const uri = node.data.uri as string;
   const external = uri.substring(0, 5) === 'https';
 

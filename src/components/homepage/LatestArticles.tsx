@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Heading, Link } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { ArticlePreview } from '../../@types';

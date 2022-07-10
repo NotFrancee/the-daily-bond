@@ -1,5 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Heading } from '@chakra-ui/react';
 import React from 'react';
 import { DefinitionPreview } from '../../@types/definitions';
 import { Section } from '../shared';

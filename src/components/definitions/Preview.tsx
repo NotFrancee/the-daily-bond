@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { Link as GatsbyLink } from 'gatsby';
 import React from 'react';
 import { DefinitionPreview } from '../../@types';
