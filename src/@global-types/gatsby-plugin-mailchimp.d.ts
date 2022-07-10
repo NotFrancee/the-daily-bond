@@ -1,6 +1,6 @@
 declare module 'gatsby-plugin-mailchimp' {
   declare interface MailchimpResponse {
-    res: 'success' | 'error';
+    result: 'success' | 'error';
     msg: string;
   }
   declare async function addToMailchimp(

@@ -12,6 +12,8 @@ interface Props {
 }
 
 const ArticleTemplate = ({ data }: Props) => {
+  console.log('ARTICLE', data.contentfulArticle);
+
   const {
     mainImage,
     title,

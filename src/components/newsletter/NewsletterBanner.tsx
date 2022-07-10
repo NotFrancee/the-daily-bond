@@ -20,23 +20,33 @@ const NewsletterBanner = ({ title, description }: Props) => {
   const [email, setEmail] = useState('');
   const [response, setResponse] = useState<MailchimpResponse | null>(null);
 
-  const msgColor = response?.res === 'success' ? 'primary.highlight' : 'red';
+  const msgColor = response?.result === 'success' ? 'primary.highlight' : 'red';
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     event.preventDefault();
     setEmail(event.target.value);
   };
 
+  const resetResponse = () => {
+    setTimeout(() => {
+      setResponse(null);
+    }, 3000);
+  };
+
   const handleSubmit: React.FormEventHandler<HTMLButtonElement> = async (
     event,
   ) => {
     event.preventDefault();
-    // console.log(event);
+    if (!email) {
+      setResponse({ result: 'error', msg: 'Compila la Email!' });
+      return resetResponse();
+    }
 
     try {
       const response = await addToMailchimp(email);
       setResponse(response);
-      setTimeout(() => setResponse(null), 3000);
+
+      resetResponse();
     } catch {
       console.error('Something went wrong');
     }

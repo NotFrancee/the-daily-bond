@@ -178,7 +178,8 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         // string; add your MC list endpoint here; see instructions below
-        endpoint: '871722be70e4a654eaebf3dbd&amp;id=bde7442e91',
+        endpoint:
+          'https://thedailybond.us6.list-manage.com/subscribe/post?u=871722be70e4a654eaebf3dbd&amp;id=bde7442e91',
         // number; the amount of time, in milliseconds, that you
         // want to allow mailchimp to respond to your request before timing out.
         // defaults to 3500
