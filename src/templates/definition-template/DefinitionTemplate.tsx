@@ -1,10 +1,10 @@
-import { Heading, Text } from "@chakra-ui/react";
-import { graphql } from "gatsby";
-import React from "react";
-import { ArticleQuery, DefinitionQuery } from "../../@types";
-import Layout from "../../components/shared/Layout";
-import { Section, SEO } from "../../components/shared";
-import RichText from "../../utils/rich-text/RichText";
+import { Heading } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
+import React from 'react';
+import { DefinitionQuery } from '../../@types';
+import Layout from '../../components/shared/Layout';
+import { Section, SEO } from '../../components/shared';
+import RichText from '../../utils/rich-text/RichText';
 
 interface Props {
   data: DefinitionQuery;
@@ -23,7 +23,7 @@ const ArticleTemplate = ({ data }: Props) => {
     updatedAt,
     createdAt,
   } = data.contentfulDefinition;
-  console.log({ updatedAt, createdAt });
+  // console.log({ updatedAt, createdAt });
   return (
     <Layout>
       <SEO
@@ -33,9 +33,9 @@ const ArticleTemplate = ({ data }: Props) => {
         pathName={`/${category.slug}/${slug}`}
         createdAt={createdAt}
         updatedAt={updatedAt}
-        //image={mainImage.publicUrl}
+        // image={mainImage.publicUrl}
       />
-      <Heading p={5} pb={0} as={"h1"}>
+      <Heading p={5} pb={0} as={'h1'}>
         {title}
       </Heading>
       <Section px={10}>

@@ -1,6 +1,6 @@
-import { Heading, Link, Text } from "@chakra-ui/react";
-import React from "react";
-import { Link as GatsbyLink } from "gatsby";
+import { Heading, Link, Text } from '@chakra-ui/react';
+import React from 'react';
+import { Link as GatsbyLink } from 'gatsby';
 
 interface Props {
   children: any;
@@ -8,9 +8,9 @@ interface Props {
   to: string;
 }
 
-const MenuItem = ({ children, isLast, to = "/", ...rest }: Props) => {
+const MenuItem = ({ children, isLast, to = '/', ...rest }: Props) => {
   return (
-    <Heading size={"sm"} as={GatsbyLink} to={to} {...rest}>
+    <Heading size={'sm'} as={GatsbyLink} to={to} {...rest}>
       {children}
     </Heading>
   );

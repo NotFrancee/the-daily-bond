@@ -1,7 +1,7 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
-import { StaticImage } from "gatsby-plugin-image";
-import React from "react";
-import Section from "../shared/Section";
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { StaticImage } from 'gatsby-plugin-image';
+import React from 'react';
+import Section from '../shared/Section';
 
 const AboutMe = () => {
   return (
@@ -10,7 +10,7 @@ const AboutMe = () => {
         alt="About me Icon"
         src="https://ik.imagekit.io/astrum/TheDailyBond/about-me?ik-sdk-version=javascript-1.4.3&updatedAt=1657089147250"
       />
-      <Heading textAlign={"center"} as="h2">
+      <Heading textAlign={'center'} as="h2">
         Chi sono
       </Heading>
       <Text>

@@ -1,11 +1,11 @@
-import { Heading, Text } from "@chakra-ui/react";
-import { graphql } from "gatsby";
-import React from "react";
-import { ArticleQuery } from "../../@types";
-import Layout from "../../components/shared/Layout";
-import { Section, SEO } from "../../components/shared";
-import RichText from "../../utils/rich-text/RichText";
-import MainImage from "./sections/MainImage";
+import { Heading, Text } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
+import React from 'react';
+import { ArticleQuery } from '../../@types';
+import Layout from '../../components/shared/Layout';
+import { Section, SEO } from '../../components/shared';
+import RichText from '../../utils/rich-text/RichText';
+import MainImage from './sections/MainImage';
 
 interface Props {
   data: ArticleQuery;
@@ -24,7 +24,7 @@ const ArticleTemplate = ({ data }: Props) => {
     updatedAt,
   } = data.contentfulArticle;
 
-  console.log({ createdAt, updatedAt });
+  // console.log({ createdAt, updatedAt });
 
   return (
     <Layout>
@@ -39,7 +39,7 @@ const ArticleTemplate = ({ data }: Props) => {
       />
       <Section>
         <Text>{category.title}</Text>
-        <Heading as={"h1"}>{title}</Heading>
+        <Heading as={'h1'}>{title}</Heading>
         <MainImage mainImage={mainImage} />
         <RichText rawBody={body} pt={0} />
       </Section>

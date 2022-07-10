@@ -1,9 +1,9 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
-import { graphql } from "gatsby";
-import React from "react";
-import { ArticlePreviewQuery } from "../../@types";
-import Articles from "../../components/articles/Articles";
-import { Layout, Section, SEO } from "../../components/shared";
+import { Box, Heading, Text } from '@chakra-ui/react';
+import { graphql } from 'gatsby';
+import React from 'react';
+import { ArticlePreviewQuery } from '../../@types';
+import Articles from '../../components/articles/Articles';
+import { Layout, Section, SEO } from '../../components/shared';
 
 interface Props {
   data: ArticlePreviewQuery;
@@ -20,7 +20,7 @@ const index = ({ data }: Props) => {
       />
       <Section>
         <Box>
-          <Heading as={"h1"}>
+          <Heading as={'h1'}>
             Esplora gli Articoli sulla Finanza Personale
           </Heading>
           <Text>

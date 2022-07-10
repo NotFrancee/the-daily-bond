@@ -1,8 +1,8 @@
-import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby";
-import React from "react";
-import { DefinitionPreview } from "../../@types";
-import { Section } from "../shared";
+import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Link as GatsbyLink } from 'gatsby';
+import React from 'react';
+import { DefinitionPreview } from '../../@types';
+import { Section } from '../shared';
 
 interface Props {
   definition: DefinitionPreview;
@@ -15,7 +15,7 @@ const Preview = ({ definition }: Props) => {
   return (
     <Section p={0}>
       <Box>
-        <Heading size={"sm"} to={url} as={GatsbyLink}>
+        <Heading size={'sm'} to={url} as={GatsbyLink}>
           {title}
         </Heading>
       </Box>

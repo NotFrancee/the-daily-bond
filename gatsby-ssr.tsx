@@ -1,16 +1,16 @@
 // gatsby-ssr.js
-import React from "react";
-import { Partytown } from "@builder.io/partytown/react";
+import React from 'react';
+import { Partytown } from '@builder.io/partytown/react';
 
-const ORIGIN = "https://www.googletagmanager.com";
-const GATSBY_GA_MEASUREMENT_ID = "GA-G-1T77TES9JF";
+const ORIGIN = 'https://www.googletagmanager.com';
+const GATSBY_GA_MEASUREMENT_ID = 'GA-G-1T77TES9JF';
 
 export const onRenderBody = ({ setHeadComponents }) => {
-  if (process.env.NODE_ENV !== "production" && process.env.NODE_ENV !== "test")
+  if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test')
     return null;
 
   setHeadComponents([
-    <Partytown key="partytown" forward={["gtag"]} />,
+    <Partytown key="partytown" forward={['gtag']} />,
     <script
       key="google-analytics"
       type="text/partytown"

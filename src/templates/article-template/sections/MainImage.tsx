@@ -1,6 +1,6 @@
-import { Box, ChakraProps } from "@chakra-ui/react";
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import React from "react";
+import { Box, ChakraProps } from '@chakra-ui/react';
+import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import React from 'react';
 
 interface Props extends ChakraProps {
   mainImage: {
@@ -16,7 +16,7 @@ const MainImage = ({ mainImage, ...rest }: Props) => {
   // if (!image) return null;
 
   return (
-    <Box width={["full", "50%"]} margin="auto">
+    <Box width={['full', '50%']} margin="auto">
       <GatsbyImage
         image={mainImage.gatsbyImageData}
         alt={mainImage.description}

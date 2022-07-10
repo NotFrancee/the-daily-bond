@@ -1,4 +1,4 @@
-import { DefinitionPreview } from "../definitions";
+import { DefinitionPreview } from '../definitions';
 
 export default interface DefinitionPreviewQuery {
   allContentfulDefinition: {

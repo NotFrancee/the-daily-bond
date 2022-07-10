@@ -1,6 +1,6 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql, Script } from "gatsby";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql, Script } from 'gatsby';
 
 interface Props {
   title: string;
@@ -39,20 +39,20 @@ const SEO = ({
     canonical: pathName ? `${site.siteMetadata.siteUrl}${pathName}` : null,
   };
 
-  console.log("CANONICAL URL: ", seo.canonical);
+  // console.log("CANONICAL URL: ", seo.canonical);
 
   return (
     <Helmet
       title={seo.title}
       titleTemplate={titleTemplate}
       htmlAttributes={{
-        lang: "it",
+        lang: 'it',
       }}
       link={
         seo.canonical
           ? [
               {
-                rel: "canonical",
+                rel: 'canonical',
                 href: seo.canonical,
               },
             ]
@@ -88,22 +88,22 @@ const SEO = ({
       {seo.image && <meta name="twitter:image" content={seo.image} />}
       <Script type="application/ld+json">
         {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
           mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `${seo.url}`,
+            '@type': 'WebPage',
+            '@id': `${seo.url}`,
           },
           headline: seo.title,
           description,
           image: seo.image || null,
           author: {
-            "@type": "Person",
+            '@type': 'Person',
             name: `Andrea Franceschini`,
-            url: "https://www.instagram.com/andreafranceschiniii",
+            url: 'https://www.instagram.com/andreafranceschiniii',
           },
           publisher: {
-            "@type": "Organization",
+            '@type': 'Organization',
             name: `The Daily Bond`,
             // logo: {
             //   "@type": "ImageObject",
@@ -125,7 +125,7 @@ SEO.defaultProps = {
   description: null,
   image: null,
   article: false,
-  pathName: "",
+  pathName: '',
 };
 
 const query = graphql`

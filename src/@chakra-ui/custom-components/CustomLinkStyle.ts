@@ -1,9 +1,8 @@
-import { ComponentStyleConfig } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby";
+import { ComponentStyleConfig } from '@chakra-ui/react';
 
 const CustomLinkStyle: ComponentStyleConfig = {
   baseStyle: {
-    color: "primary.highlight",
+    color: 'primary.highlight',
   },
 };
 

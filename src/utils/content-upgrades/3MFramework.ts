@@ -1,22 +1,18 @@
-import {
-  TDocumentDefinitions,
-  Content,
-  DynamicContent,
-} from "pdfmake/interfaces";
-import * as pdfMake from "pdfmake/build/pdfmake";
-import * as pdfFonts from "pdfmake/build/vfs_fonts";
-import { header } from "./header";
+import { TDocumentDefinitions, Content } from 'pdfmake/interfaces';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { header } from './header';
 
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 const week = (number: number, hasWeeklyTasks: boolean): Content => [
-  { text: `Settimana ${number}`, style: "headingM" },
-  hasWeeklyTasks ? { text: "put weekly" } : { text: "don't put" },
+  { text: `Settimana ${number}`, style: 'headingM' },
+  hasWeeklyTasks ? { text: 'put weekly' } : { text: "don't put" },
   {
     // layout: "noBorders",
     table: {
       headerRows: 1,
-      body: [["LUN", "MAR", "MER", "GIO", "VEN", "SAB", "DOM"]],
+      body: [['LUN', 'MAR', 'MER', 'GIO', 'VEN', 'SAB', 'DOM']],
     },
   },
 ];
@@ -24,28 +20,28 @@ const week = (number: number, hasWeeklyTasks: boolean): Content => [
 const docDefinition: TDocumentDefinitions = {
   header,
   content: [
-    { text: "Pianificazione", style: "header", alignment: "center" },
+    { text: 'Pianificazione', style: 'header', alignment: 'center' },
     {
-      text: "xx-xx-xxxx -> xx-xx-xxxx",
+      text: 'xx-xx-xxxx -> xx-xx-xxxx',
     },
-    { text: "Settimana 1 - 2" },
+    { text: 'Settimana 1 - 2' },
     week(1, true),
-    { text: "Settimana 1" },
-    { text: "table here" },
-    { text: "Settimana 3 -> Settimana 4" },
-    { text: "Settimana 3" },
-    { text: "Task Settimanali" },
-    { text: "table here" },
-    { text: "Settimana 4" },
-    { text: "Task Settimanali" },
-    { text: "table here" },
-    { text: "Settimana 4 -> Settimana 8" },
+    { text: 'Settimana 1' },
+    { text: 'table here' },
+    { text: 'Settimana 3 -> Settimana 4' },
+    { text: 'Settimana 3' },
+    { text: 'Task Settimanali' },
+    { text: 'table here' },
+    { text: 'Settimana 4' },
+    { text: 'Task Settimanali' },
+    { text: 'table here' },
+    { text: 'Settimana 4 -> Settimana 8' },
   ],
   styles: {
     header: {
       fontSize: 22,
       bold: true,
-      color: "black",
+      color: 'black',
     },
   },
   defaultStyle: {

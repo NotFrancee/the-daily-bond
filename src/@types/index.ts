@@ -1,3 +1,3 @@
-export * from "./queries";
-export * from "./articles";
-export * from "./definitions";
+export * from './queries';
+export * from './articles';
+export * from './definitions';

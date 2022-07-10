@@ -1,7 +1,7 @@
-import { CloseIcon } from "@chakra-ui/icons";
-import { Box } from "@chakra-ui/react";
-import MenuIcon from "./MenuIcon";
-import React from "react";
+import { CloseIcon } from '@chakra-ui/icons';
+import { Box } from '@chakra-ui/react';
+import MenuIcon from './MenuIcon';
+import React from 'react';
 
 interface Props {
   toggle: any;
@@ -10,7 +10,7 @@ interface Props {
 
 const MenuToggle = ({ toggle, isOpen }: Props) => {
   return (
-    <Box display={{ base: "block", md: "none" }} onClick={toggle}>
+    <Box display={{ base: 'block', md: 'none' }} onClick={toggle}>
       {isOpen ? <CloseIcon /> : <MenuIcon />}
     </Box>
   );

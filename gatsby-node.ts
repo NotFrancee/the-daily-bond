@@ -1,5 +1,5 @@
-import type { GatsbyNode } from "gatsby";
-import { CreatePagesQuery } from "./src/@types/queries/CreatePagesQuery";
+import type { GatsbyNode } from 'gatsby';
+import { CreatePagesQuery } from './src/@types/queries/CreatePagesQuery';
 
 interface Redirect {
   fromPath: string;
@@ -8,24 +8,24 @@ interface Redirect {
 }
 type Redirects = Redirect[];
 
-const path = require("path");
-const { copyLibFiles } = require("@builder.io/partytown/utils");
-const redirects: Redirects = require("./redirects.json");
+const path = require('path');
+const { copyLibFiles } = require('@builder.io/partytown/utils');
+const redirects: Redirects = require('./redirects.json');
 
 exports.onPreBuild = async () => {
-  await copyLibFiles(path.join(__dirname, "static", "~partytown"));
+  await copyLibFiles(path.join(__dirname, 'static', '~partytown'));
 };
 
-export const createPages: GatsbyNode["createPages"] = async ({
+export const createPages: GatsbyNode['createPages'] = async ({
   graphql,
   actions,
 }) => {
   const { createPage, createRedirect } = actions;
   const articleTemplate = path.resolve(
-    "./src/templates/article-template/ArticleTemplate.tsx"
+    './src/templates/article-template/ArticleTemplate.tsx',
   );
   const definitionTemplate = path.resolve(
-    "./src/templates/definition-template/DefinitionTemplate.tsx"
+    './src/templates/definition-template/DefinitionTemplate.tsx',
   );
 
   const res = await graphql<CreatePagesQuery>(`
@@ -54,7 +54,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   `);
 
-  if (!res || !res.data) return console.error("error while fetching query ");
+  if (!res || !res.data) return console.error('error while fetching query ');
   const articles = res.data.allContentfulArticle.edges;
   const definitions = res.data.allContentfulDefinition.edges;
 

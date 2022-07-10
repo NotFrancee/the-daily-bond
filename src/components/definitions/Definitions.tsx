@@ -1,9 +1,9 @@
-import { Box, Heading } from "@chakra-ui/react";
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import { DefinitionPreview } from "../../@types/definitions";
-import { Section } from "../shared";
-import Preview from "./Preview";
+import { Box, Heading } from '@chakra-ui/react';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { DefinitionPreview } from '../../@types/definitions';
+import { Section } from '../shared';
+import Preview from './Preview';
 
 interface Props {
   title: string;
@@ -16,7 +16,7 @@ const Definitions = ({ title, definitions }: Props) => {
   ));
   return (
     <Section p={0}>
-      <Heading as={"h2"} size="lg">
+      <Heading as={'h2'} size="lg">
         {title}
       </Heading>
       {previewEl}

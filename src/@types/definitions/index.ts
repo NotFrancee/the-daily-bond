@@ -1,3 +1,3 @@
-import Definition from "./Definition";
-import { DefinitionPreview } from "./DefinitionPreview";
+import Definition from './Definition';
+import { DefinitionPreview } from './DefinitionPreview';
 export { Definition, DefinitionPreview };

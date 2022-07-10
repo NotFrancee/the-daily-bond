@@ -1,18 +1,18 @@
 // src/@chakra-ui/gatsby-plugin/theme.js
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from '@chakra-ui/react';
 import {
   CustomButtonStyle,
   CustomHeadingStyle,
   CustomLinkStyle,
   CustomTextStyle,
   SectionComponent,
-} from "../custom-components";
+} from '../custom-components';
 
 const theme = {
   colors: {
     primary: {
-      highlight: "#48BB78", // green.400
-      background: "#C6F6D5", // green.100
+      highlight: '#48BB78', // green.400
+      background: '#C6F6D5', // green.100
     },
   },
   components: {

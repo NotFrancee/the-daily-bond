@@ -1,12 +1,12 @@
-declare module "gatsby-plugin-mailchimp" {
+declare module 'gatsby-plugin-mailchimp' {
   declare interface MailchimpResponse {
-    res: "success" | "error";
+    res: 'success' | 'error';
     msg: string;
   }
   declare async function addToMailchimp(
     email: string,
     fields?: any,
-    endpointOverride?: string
+    endpointOverride?: string,
   ): Promise<MailchimpResponse>;
 
   export = addToMailchimp;

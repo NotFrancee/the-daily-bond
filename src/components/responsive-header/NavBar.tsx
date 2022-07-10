@@ -1,8 +1,8 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
-import Logo from "./Logo";
-import MenuLinks from "./MenuLinks";
-import MenuToggle from "./MenuToggle";
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import React from 'react';
+import Logo from './Logo';
+import MenuLinks from './MenuLinks';
+import MenuToggle from './MenuToggle';
 
 const NavBarContainer = ({ children, ...props }: any) => {
   return (
@@ -15,12 +15,12 @@ const NavBarContainer = ({ children, ...props }: any) => {
       // mb={5}
       p={5}
       bg={[
-        "primary.highlight",
-        "primary.highlight",
-        "transparent",
-        "transparent",
+        'primary.highlight',
+        'primary.highlight',
+        'transparent',
+        'transparent',
       ]}
-      color={["white", "white", "black", "black"]}
+      color={['white', 'white', 'black', 'black']}
       {...props}
     >
       {children}
@@ -35,7 +35,7 @@ const NavBar = (props: any) => {
 
   return (
     <NavBarContainer {...props}>
-      <Logo color={["white", "white", "black", "black"]} />
+      <Logo color={['white', 'white', 'black', 'black']} />
       <MenuToggle toggle={toggle} isOpen={isOpen} />
       <MenuLinks isOpen={isOpen} />
     </NavBarContainer>

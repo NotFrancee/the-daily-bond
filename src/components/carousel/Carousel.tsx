@@ -1,13 +1,13 @@
-import { Flex, Text } from "@chakra-ui/react";
-import React from "react";
-import { ArticlePreview } from "../../@types";
-import PreviewItem from "./PreviewItem";
+import { Flex, Text } from '@chakra-ui/react';
+import React from 'react';
+import { ArticlePreview } from '../../@types';
+import PreviewItem from './PreviewItem';
 
 const testArticle = {
-  title: "test article",
-  metaDescription: "lorem ipsum dolor sit amet",
-  category: "Personal Finance",
-  mainImage: "",
+  title: 'test article',
+  metaDescription: 'lorem ipsum dolor sit amet',
+  category: 'Personal Finance',
+  mainImage: '',
 };
 
 interface Props {

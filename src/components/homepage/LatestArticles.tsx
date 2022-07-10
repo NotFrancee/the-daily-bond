@@ -1,9 +1,9 @@
-import { Box, Button, Flex, Heading, Link, Text } from "@chakra-ui/react";
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import { ArticlePreview } from "../../@types";
-import Carousel from "../carousel/Carousel";
-import Section from "../shared/Section";
+import { Box, Button, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { ArticlePreview } from '../../@types';
+import Carousel from '../carousel/Carousel';
+import Section from '../shared/Section';
 interface Response {
   allContentfulArticle: {
     nodes: ArticlePreview[];
@@ -34,11 +34,11 @@ const LatestArticles = () => {
 
   return (
     <Section bgColor="primary.background">
-      <Heading textAlign={"center"} as={"h2"}>
+      <Heading textAlign={'center'} as={'h2'}>
         Ultimi Articoli
       </Heading>
       <Carousel articles={articles} />
-      <Link border={"1px solid red"} href="/finanza-personale">
+      <Link border={'1px solid red'} href="/finanza-personale">
         Esplora Tutto
       </Link>
     </Section>

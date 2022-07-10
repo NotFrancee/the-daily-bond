@@ -1,8 +1,8 @@
-import React from "react";
-import { Block, Inline, Node } from "@contentful/rich-text-types";
-import { Link } from "@chakra-ui/react";
-import { Link as GatsbyLink } from "gatsby";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
+import React from 'react';
+import { Block, Inline, Node } from '@contentful/rich-text-types';
+import { Link } from '@chakra-ui/react';
+import { Link as GatsbyLink } from 'gatsby';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const InlinesHyperlink = (node: Block | Inline, children: React.ReactNode) => {
   // console.log({ node, children });
@@ -21,7 +21,7 @@ const InlinesHyperlink = (node: Block | Inline, children: React.ReactNode) => {
   //   }
   // }
   const uri = node.data.uri as string;
-  const external = uri.substring(0, 5) === "https";
+  const external = uri.substring(0, 5) === 'https';
 
   if (external)
     return (
