@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql, Script } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
   title: string;
@@ -86,7 +86,7 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <Script type="application/ld+json">
+      <script type="application/ld+json">
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',
@@ -113,7 +113,7 @@ const SEO = ({
           datePublished: createdAt,
           dateModified: updatedAt,
         })}
-      </Script>
+      </script>
     </Helmet>
   );
 };

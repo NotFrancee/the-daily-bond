@@ -15,7 +15,7 @@ const Introduction = () => {
         migliorare il tuo stile di vita
       </Text>
       <Section alignItems="center" w={['full', '50%']}>
-        <EngineeringTeam width="100%" height="fit-content" />
+        <EngineeringTeam width="100%" height="100%" />
       </Section>
       <Button w={'full'}>Esplora i nostri Articoli</Button>
     </Section>
