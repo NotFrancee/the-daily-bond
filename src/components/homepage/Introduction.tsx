@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import Section from "../shared/Section";
-import EngineeringTeam from "../../assets/engineeringTeam.svg";
+import EngineeringTeam from "../../assets/EngineeringTeam.svg";
 
 const Introduction = () => {
   return (

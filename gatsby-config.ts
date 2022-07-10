@@ -143,7 +143,6 @@ const config: GatsbyConfig = {
         // Processes data and returns only the url received from allSiteData and the last modified time
         serialize: (data: any) => {
           const { path, updatedAt } = data;
-          console.log("PATH: ", path);
           return {
             url: path,
             lastmod: updatedAt,
