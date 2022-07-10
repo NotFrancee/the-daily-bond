@@ -1,4 +1,3 @@
-import { GatsbyGraphQLType } from "gatsby";
 import type { GatsbyNode } from "gatsby";
 import { CreatePagesQuery } from "./src/@types/queries/CreatePagesQuery";
 
@@ -10,11 +9,12 @@ interface Redirect {
 type Redirects = Redirect[];
 
 const path = require("path");
+const { copyLibFiles } = require("@builder.io/partytown/utils");
 const redirects: Redirects = require("./redirects.json");
 
-interface Props {
-  graphql: GatsbyGraphQLType;
-}
+exports.onPreBuild = async () => {
+  await copyLibFiles(path.join(__dirname, "static", "~partytown"));
+};
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,

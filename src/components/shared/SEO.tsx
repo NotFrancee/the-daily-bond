@@ -60,14 +60,14 @@ const SEO = ({
       }
     >
       {/* // SEE IF THIS HELPS */}
-      <link
+      {/* <link
         data-react-helmet="true"
         rel="preload"
         as="font"
         crossOrigin="anonymous"
         type="font/woff2"
         href="https://use.typekit.net/jpc3yrb.css"
-      />
+      /> */}
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
