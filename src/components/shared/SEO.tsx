@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Script } from "gatsby";
 
 interface Props {
   title: string;
@@ -59,6 +59,15 @@ const SEO = ({
           : []
       }
     >
+      {/* // SEE IF THIS HELPS */}
+      <link
+        data-react-helmet="true"
+        rel="preload"
+        as="font"
+        crossOrigin="anonymous"
+        type="font/woff2"
+        href="https://use.typekit.net/jpc3yrb.css"
+      />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -77,7 +86,7 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <script type="application/ld+json">
+      <Script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
@@ -104,7 +113,7 @@ const SEO = ({
           datePublished: createdAt,
           dateModified: updatedAt,
         })}
-      </script>
+      </Script>
     </Helmet>
   );
 };

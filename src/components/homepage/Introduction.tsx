@@ -1,7 +1,8 @@
-import { Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import Section from "../shared/Section";
+import EngineeringTeam from "../../assets/engineeringTeam.svg";
 
 const Introduction = () => {
   return (
@@ -14,11 +15,9 @@ const Introduction = () => {
         vogliamo venderti niente, solo migliorare la tua gestione dei soldi per
         migliorare il tuo stile di vita
       </Text>
-      <StaticImage
-        alt="Image of people working together"
-        layout="fullWidth"
-        src="https://ik.imagekit.io/astrum/TheDailyBond/engineeringTeam"
-      />
+      <Section alignItems="center" w={["full", "50%"]}>
+        <EngineeringTeam width="100%" height="fit-content" />
+      </Section>
       <Button w={"full"}>Esplora i nostri Articoli</Button>
     </Section>
   );

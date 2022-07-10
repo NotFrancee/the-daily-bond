@@ -6,6 +6,7 @@ import EmbeddedEntry from "./EmbeddedEntry";
 import EmbeddedAsset from "./EmbeddedAsset";
 import EntryHyperlink from "./EntryHyperlink";
 import { Link as GatsbyLink } from "gatsby";
+import InlinesHyperlink from "./InlinesHyperlink";
 
 export const options: Options = {
   renderNode: {
@@ -29,15 +30,7 @@ export const options: Options = {
         {children}
       </Text>
     ), // xl = 1.25rem
-    [INLINES.HYPERLINK]: (node, children) => {
-      const { uri } = node.data;
-
-      return (
-        <Link as={GatsbyLink} to={uri}>
-          {children}
-        </Link>
-      );
-    },
+    [INLINES.HYPERLINK]: InlinesHyperlink,
     [INLINES.ENTRY_HYPERLINK]: EntryHyperlink,
     [INLINES.ASSET_HYPERLINK]: (node, children) => {
       console.log("STILL TO IMPLEMENT");

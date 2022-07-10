@@ -48,7 +48,7 @@ const ContentUpgrade = ({ title, description, contentUpgrade }: Props) => {
     }
   };
   return (
-    <Section p={10} w={"100vw"} mx={-5} bg={"primary.background"}>
+    <Section p={10} w={"100vw"} mx={-5} mt={5} bg={"primary.background"}>
       <Box>
         <Heading fontSize={"2xl"}>{title}</Heading>
         <Text fontSize={"xl"}>{description}</Text>
