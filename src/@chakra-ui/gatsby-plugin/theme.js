@@ -3,6 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 import {
   CustomButtonStyle,
   CustomHeadingStyle,
+  CustomLinkStyle,
   CustomTextStyle,
   SectionComponent,
 } from "../custom-components";
@@ -19,6 +20,7 @@ const theme = {
     Text: CustomTextStyle,
     Heading: CustomHeadingStyle,
     Section: SectionComponent,
+    Link: CustomLinkStyle,
   },
   fonts: {
     body: `'minion-pro', serif`,

@@ -55,6 +55,37 @@ export const query = graphql`
     contentfulArticle(slug: { eq: $slug }) {
       body {
         raw
+        references {
+          ... on ContentfulArticle {
+            __typename
+            contentful_id
+            category {
+              slug
+            }
+            slug
+          }
+          ... on ContentfulAsset {
+            __typename
+            contentful_id
+            gatsbyImageData(width: 700)
+            description
+            publicUrl
+          }
+          ... on ContentfulLeadMagnet {
+            __typename
+            contentful_id
+            heading
+            text {
+              text
+              id
+            }
+            title
+            type
+            contentUpgrade {
+              publicUrl
+            }
+          }
+        }
       }
       category {
         title
