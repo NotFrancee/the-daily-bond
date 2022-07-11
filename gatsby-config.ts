@@ -1,6 +1,9 @@
 import { GatsbyConfig } from 'gatsby';
-import * as dotenv from 'dotenv';
-dotenv.config();
+console.log('ENVIRONMENT: ', process.env.NODE_ENV);
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 const siteUrl = process.env.URL || `https://www.thedailybond.com`;
 

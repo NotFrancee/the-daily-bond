@@ -2,8 +2,8 @@
 import React from 'react';
 import { Partytown } from '@builder.io/partytown/react';
 
-const ORIGIN = 'https://www.googletagmanager.com';
-const GATSBY_GA_MEASUREMENT_ID = 'GA-G-1T77TES9JF';
+const ORIGIN = process.env.ORIGIN;
+const GATSBY_GA_MEASUREMENT_ID = process.env.GATSBY_GA_MEASUREMENT_ID;
 
 export const onRenderBody = ({ setHeadComponents }) => {
   if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test')
