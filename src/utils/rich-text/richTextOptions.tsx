@@ -22,7 +22,7 @@ export const options: Options = {
       </Heading> // 2xl = 1.5 rem
     ),
     [BLOCKS.HEADING_3]: (node, children) => (
-      <Heading size={'xl'} mt={2} as="h3">
+      <Heading size={'1.5rem'} mt={2} as="h3">
         {children}
       </Heading> // same as paragraph
     ),
