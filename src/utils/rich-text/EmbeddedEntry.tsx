@@ -1,35 +1,25 @@
-import { Text } from '@chakra-ui/react';
 import { Block, Inline } from '@contentful/rich-text-types';
 import React from 'react';
-import ContentUpgrade from '../../components/newsletter/ContentUpgrade';
-import NewsletterBanner from '../../components/newsletter/NewsletterBanner';
+import LeadMagnet from '../../components/newsletter/LeadMagnet';
 
 const EmbeddedEntry = (node: Block | Inline, children: React.ReactNode) => {
-  const { type } = node.data.target;
-
+  const type = node.data.target.__typename;
   switch (type) {
-    case 'content-upgrade-banner': {
+    case 'ContentfulLeadMagnet': {
       const { heading, text, contentUpgrade } = node.data.target;
 
       return (
-        <ContentUpgrade
+        <LeadMagnet
           title={heading}
           description={text.text}
-          contentUpgrade={contentUpgrade.publicUrl}
+          contentUpgrade={contentUpgrade?.publicUrl}
         />
       );
     }
-    case 'newsletter-banner': {
-      const { heading, text } = node.data.target;
-
-      return <NewsletterBanner title={heading} description={text.text} />;
+    default: {
+      console.log('an error occurred');
     }
-    default:
-      console.log(
-        'Some error occured while trying to render a block entry in the article',
-      );
   }
-  return <Text>ciao</Text>;
 };
 
 export default EmbeddedEntry;

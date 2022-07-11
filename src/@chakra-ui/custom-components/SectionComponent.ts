@@ -12,6 +12,13 @@ const SectionComponent: ComponentStyleConfig = {
     responsive: {
       flexDir: ['column', 'row'],
     },
+    banner: {
+      p: 10,
+      width: ['100vw', 'full'],
+      mx: -5,
+      my: 5,
+      bgColor: 'primary.background',
+    },
   },
   defaultProps: {},
 };
