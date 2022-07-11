@@ -10,7 +10,13 @@ interface Props {
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }: Props) => {
   return (
-    <Heading size={'sm'} as={GatsbyLink} to={to} {...rest}>
+    <Heading
+      size={'sm'}
+      as={GatsbyLink}
+      activeStyle={{ color: '#48BB78' }}
+      to={to}
+      {...rest}
+    >
       {children}
     </Heading>
   );

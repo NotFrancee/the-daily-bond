@@ -5,6 +5,7 @@ import {
   CustomHeadingStyle,
   CustomLinkStyle,
   CustomTextStyle,
+  ResponsiveGridComponent,
   SectionComponent,
 } from '../custom-components';
 
@@ -21,6 +22,7 @@ const theme = {
     Heading: CustomHeadingStyle,
     Section: SectionComponent,
     Link: CustomLinkStyle,
+    ResponsiveGrid: ResponsiveGridComponent,
   },
   fonts: {
     body: `'minion-pro', serif`,

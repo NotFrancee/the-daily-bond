@@ -4,7 +4,7 @@ import Section from '../shared/Section';
 
 const About = () => {
   return (
-    <Section justifyContent="center" mt={10}>
+    <Section justifyContent="center" mt={10} maxWidth="500px" mx="auto">
       <Heading textAlign={'center'} as={'h2'}>
         Perchè The Daily Bond
       </Heading>

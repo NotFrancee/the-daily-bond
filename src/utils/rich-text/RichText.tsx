@@ -11,7 +11,11 @@ interface Props {
 const RichText = ({ rawBody, ...rest }: Props) => {
   const richTextEl = renderRichText(rawBody, options);
 
-  return <Box {...rest}>{richTextEl}</Box>;
+  return (
+    <Box width={['full', '50%']} mx="auto" {...rest}>
+      {richTextEl}
+    </Box>
+  );
 };
 
 export default RichText;

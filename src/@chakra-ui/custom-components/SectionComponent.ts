@@ -10,7 +10,7 @@ const SectionComponent: ComponentStyleConfig = {
   sizes: {},
   variants: {
     responsive: {
-      border: '2px solid orange',
+      flexDir: ['column', 'row'],
     },
   },
   defaultProps: {},

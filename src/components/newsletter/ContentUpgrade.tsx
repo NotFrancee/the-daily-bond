@@ -66,10 +66,20 @@ const ContentUpgrade = ({ title, description, contentUpgrade }: Props) => {
   };
 
   return (
-    <Section p={10} w={'100vw'} mx={-5} mt={5} bg={'primary.background'}>
+    <Section
+      p={10}
+      w={['100vw', 'full']}
+      mx={[-5]}
+      mt={5}
+      bg={'primary.background'}
+    >
       <Box>
-        <Heading fontSize={'2xl'}>{title}</Heading>
-        <Text fontSize={'xl'}>{description}</Text>
+        <Heading textAlign={['left', 'center']} fontSize={'2xl'}>
+          {title}
+        </Heading>
+        <Text textAlign={['left', 'center']} fontSize={'xl'}>
+          {description}
+        </Text>
       </Box>
       <FormControl>
         <FormLabel display={'none'} htmlFor="email">

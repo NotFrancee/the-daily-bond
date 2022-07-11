@@ -2,7 +2,7 @@ import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { Heading } from '@chakra-ui/react';
 
-export default function Logo(props: any) {
+const Logo = (props: any) => {
   return (
     <Heading as={GatsbyLink} to="/" size={'md'} {...props}>
       The Daily Bond
@@ -15,4 +15,6 @@ export default function Logo(props: any) {
   //     </Heading>
   //   </Link>
   // );
-}
+};
+
+export default Logo;

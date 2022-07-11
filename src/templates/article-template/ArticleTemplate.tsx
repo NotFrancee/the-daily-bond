@@ -40,8 +40,10 @@ const ArticleTemplate = ({ data }: Props) => {
         updatedAt={updatedAt}
       />
       <Section>
-        <Text>{category.title}</Text>
-        <Heading as={'h1'}>{title}</Heading>
+        <Text textAlign={['left', 'center']}>{category.title}</Text>
+        <Heading textAlign={['left', 'center']} as={'h1'}>
+          {title}
+        </Heading>
         <MainImage mainImage={mainImage} />
         <RichText rawBody={body} pt={0} />
       </Section>

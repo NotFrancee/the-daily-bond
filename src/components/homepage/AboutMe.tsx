@@ -1,19 +1,18 @@
 import { Heading, Text } from '@chakra-ui/react';
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Section from '../shared/Section';
+import ProfilePic from '../../assets/ProfilePic.svg';
 
 const AboutMe = () => {
   return (
     <Section mt={10} bgColor="gray.100">
-      <StaticImage
-        alt="About me Icon"
-        src="https://ik.imagekit.io/astrum/TheDailyBond/about-me?ik-sdk-version=javascript-1.4.3&updatedAt=1657089147250"
-      />
+      <Section mx="auto" alignItems="center" w={['full', '30%']}>
+        <ProfilePic width="100%" height="100%" />
+      </Section>
       <Heading textAlign={'center'} as="h2">
         Chi sono
       </Heading>
-      <Text>
+      <Text width={['full', '50%']} mx="auto">
         Ciao, mi chiamo Andrea, e sono ormai un appassionato del mondo del
         Business, della Finanza, e della Finanza Personale. Fin da quando ho
         iniziato ad appassionarmi di questi argomenti, non ho potuto non notare

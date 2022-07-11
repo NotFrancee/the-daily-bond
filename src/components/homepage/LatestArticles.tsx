@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { ArticlePreview } from '../../@types';
 import Carousel from '../carousel/Carousel';
-import Section from '../shared/Section';
+import { Section } from '../shared';
 interface Response {
   allContentfulArticle: {
     nodes: ArticlePreview[];
@@ -38,7 +38,7 @@ const LatestArticles = () => {
         Ultimi Articoli
       </Heading>
       <Carousel articles={articles} />
-      <Link border={'1px solid red'} href="/finanza-personale">
+      <Link textAlign={'center'} href="/finanza-personale">
         Esplora Tutto
       </Link>
     </Section>
