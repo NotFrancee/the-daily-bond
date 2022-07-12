@@ -28,6 +28,9 @@ const theme = {
     body: `'minion-pro', serif`,
     heading: `'sofia-pro', sans-serif`,
   },
+  fontSizes: {
+    '3xl': '1.75rem',
+  },
 };
 
 export default extendTheme(theme);

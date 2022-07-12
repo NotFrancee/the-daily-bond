@@ -1,6 +1,6 @@
 import { Options } from '@contentful/rich-text-react-renderer';
-import { INLINES, BLOCKS } from '@contentful/rich-text-types';
-import { Heading, Text } from '@chakra-ui/react';
+import { INLINES, BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { Text } from '@chakra-ui/react';
 import React from 'react';
 import EmbeddedEntry from './EmbeddedEntry';
 import EmbeddedAsset from './EmbeddedAsset';
@@ -8,29 +8,14 @@ import EntryHyperlink from './EntryHyperlink';
 import InlinesHyperlink from './InlinesHyperlink';
 import List from './List';
 import ListItem from './ListItem';
+import Heading from './Heading';
 
 export const options: Options = {
   renderNode: {
-    [BLOCKS.HEADING_1]: (node, children) => (
-      <Heading fontSize={'1.75rem'} mt={5} as="h1">
-        {children}
-      </Heading>
-    ),
-    [BLOCKS.HEADING_2]: (node, children) => (
-      <Heading fontSize={'2xl'} mt={5} as="h2">
-        {children}
-      </Heading> // 2xl = 1.5 rem
-    ),
-    [BLOCKS.HEADING_3]: (node, children) => (
-      <Heading size={'1.5rem'} mt={2} as="h3">
-        {children}
-      </Heading> // same as paragraph
-    ),
-    [BLOCKS.PARAGRAPH]: (node, children) => (
-      <Text pt={3} fontSize={'xl'}>
-        {children}
-      </Text>
-    ), // xl = 1.25rem
+    [BLOCKS.HEADING_1]: Heading,
+    [BLOCKS.HEADING_2]: Heading,
+    [BLOCKS.HEADING_3]: Heading,
+    [BLOCKS.PARAGRAPH]: (node, children) => <Text pt={3}>{children}</Text>, // xl = 1.25rem
     [BLOCKS.OL_LIST]: List,
     [BLOCKS.UL_LIST]: List,
     [BLOCKS.LIST_ITEM]: ListItem,
@@ -44,6 +29,11 @@ export const options: Options = {
     [BLOCKS.EMBEDDED_ASSET]: EmbeddedAsset,
   },
   renderMark: {
+    [MARKS.BOLD]: (text) => (
+      <Text as="span" fontWeight={'bold'}>
+        {text}
+      </Text>
+    ),
     // [MARKS.BOLD]: (text) => <Text fontWeight="bold">{text}</Text>,
   },
   renderText: (text) => {

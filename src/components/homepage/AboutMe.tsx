@@ -2,6 +2,7 @@ import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import ResponsiveFlex from '../shared/ResponsiveFlex';
 import ProfilePic from '../../assets/ProfilePic.svg';
+import { H2 } from '../shared';
 
 const AboutMe = () => {
   return (
@@ -9,9 +10,7 @@ const AboutMe = () => {
       <ResponsiveFlex mx="auto" alignItems="center" w={['full', '30%']}>
         <ProfilePic width="100%" height="100%" />
       </ResponsiveFlex>
-      <Heading textAlign={'center'} as="h2">
-        Chi sono
-      </Heading>
+      <H2 textAlign={'center'}>Chi sono</H2>
       <Text width={['full', '50%']} mx="auto">
         Ciao, mi chiamo Andrea, e sono ormai un appassionato del mondo del
         Business, della Finanza, e della Finanza Personale. Fin da quando ho

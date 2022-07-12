@@ -1,9 +1,9 @@
-import { Heading, Link } from '@chakra-ui/react';
+import { Link } from '@chakra-ui/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { ArticlePreview } from '../../@types';
 import Carousel from '../carousel/Carousel';
-import { ResponsiveFlex } from '../shared';
+import { H2, ResponsiveFlex } from '../shared';
 interface Response {
   allContentfulArticle: {
     nodes: ArticlePreview[];
@@ -34,9 +34,7 @@ const LatestArticles = () => {
 
   return (
     <ResponsiveFlex bgColor="primary.background">
-      <Heading textAlign={'center'} as={'h2'}>
-        Ultimi Articoli
-      </Heading>
+      <H2 textAlign={'center'}>Ultimi Articoli</H2>
       <Carousel articles={articles} />
       <Link textAlign={'center'} href="/finanza-personale">
         Esplora Tutto
