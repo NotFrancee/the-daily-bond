@@ -1,4 +1,12 @@
 import { GatsbyConfig } from 'gatsby';
+import {
+  sitemapQuery,
+  resolvePagesFunc,
+  serializeFunc,
+  feedQuery,
+  serializeQuery,
+  serializeFeed,
+} from './src/utils/gatsby-config';
 console.log('ENVIRONMENT: ', process.env.NODE_ENV);
 
 require('dotenv').config({
@@ -95,67 +103,10 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/',
-        query: `
-          query MyQuery {
-            allSitePage {
-              nodes {
-                path
-              }
-            }
-            allContentfulEntry {
-              nodes {
-                ... on ContentfulArticle {
-                  slug
-                  updatedAt
-                  category {
-                    slug
-                  }
-                }
-                ... on ContentfulCategory {
-                  updatedAt
-                  slug
-                }
-              }
-            }
-          }
-        `,
+        query: sitemapQuery,
         resolveSiteUrl: () => siteUrl,
-        resolvePages: ({ allSitePage, allContentfulEntry }: any) => {
-          const ctfNodes = allContentfulEntry.nodes;
-          const allPages = allSitePage.nodes;
-
-          // Returns an object that maps each page
-          // url to its data (the updatedAt is the important value)
-          const ctfNodeMap = ctfNodes.reduce((acc: any, node: any) => {
-            const { slug, category } = node;
-
-            // If the entry is an article, it includes the category in the slug.
-            // Otherwise, it means it's a category page, and it
-            // formats it accordingly with a trailing and opening backslash
-            const path = category ? `/${category.slug}/${slug}` : `/${slug}/`;
-            acc[path] = node;
-
-            return acc;
-          }, {});
-
-          // Creates an object that has both the path
-          // key and the updatedAt for the corresponding path
-          return allPages.map((page: any) => {
-            return {
-              ...page,
-              ...ctfNodeMap[page.path],
-            };
-          });
-        },
-        // Processes data and returns only the url received from allSiteData
-        // and the last modified time
-        serialize: (data: any) => {
-          const { path, updatedAt } = data;
-          return {
-            url: path,
-            lastmod: updatedAt,
-          };
-        },
+        resolvePages: resolvePagesFunc,
+        serialize: serializeFunc,
       },
     },
     {
@@ -201,6 +152,27 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-plugin-remove-console',
       options: {
         exclude: ['error', 'warn'], // <- will be removed all console calls except these
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: feedQuery,
+        feeds: [
+          {
+            serialize: serializeFeed,
+            query: serializeQuery,
+            output: '/rss.xml',
+            title: 'Feed RSS di The Daily Bond',
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            // match: '^/blog/',
+            // optional configuration to specify external rss feed, such as feedburner
+            link: 'https://feeds.feedburner.com/gatsby/blog',
+          },
+        ],
       },
     },
   ],
