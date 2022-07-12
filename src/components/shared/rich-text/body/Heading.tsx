@@ -1,5 +1,6 @@
 import { Block, Inline } from '@contentful/rich-text-types';
 import React from 'react';
+import generateId from '../../../../utils/generateId';
 import { H1, H2, H3 } from '../../StyledHeadings';
 
 const Heading = (node: Block | Inline, children: React.ReactNode) => {
@@ -8,16 +9,7 @@ const Heading = (node: Block | Inline, children: React.ReactNode) => {
   let element: React.ReactElement;
   const textArr = node.content as any;
 
-  const id = textArr.reduce((result: any, element: any) => {
-    if (element.nodeType !== 'text') return result;
-
-    const regExp = / /g;
-    const string = element.value.replace(regExp, '-').toLowerCase();
-    console.log('this and pre string', string, element.value);
-
-    console.log('RESULT FROM THIS REDUCE ITERATION: ', result + string);
-    return result + string;
-  }, '');
+  const id = generateId(textArr);
 
   switch (headingNo) {
     case '1': {
