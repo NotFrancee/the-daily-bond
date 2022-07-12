@@ -5,10 +5,13 @@ const ResponsiveFlexComponent: ComponentStyleConfig = {
     padding: 5,
     gap: 5,
     display: 'flex',
-    flexDir: ['column', 'row'],
+    flexDir: 'column',
   },
   sizes: {},
   variants: {
+    responsive: {
+      flexDir: ['column', 'row'],
+    },
     banner: {
       flexDir: 'column',
       p: 10,

@@ -6,6 +6,7 @@ import Layout from '../../components/shared/Layout';
 import { ResponsiveFlex, SEO } from '../../components/shared';
 import RichText from '../../utils/rich-text/RichText';
 import MainImage from './sections/MainImage';
+import TableOfContents from '../../utils/table-of-contents/TableOfContents';
 
 interface Props {
   data: ArticleQuery;
@@ -45,7 +46,8 @@ const ArticleTemplate = ({ data }: Props) => {
           {title}
         </Heading>
         <MainImage mainImage={mainImage} />
-        <RichText rawBody={body} pt={0} />
+        <TableOfContents body={body} slug={slug} />
+        <RichText body={body} pt={0} />
       </ResponsiveFlex>
     </Layout>
   );
