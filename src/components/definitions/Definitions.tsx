@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 import React from 'react';
 import { DefinitionPreview } from '../../@types/definitions';
-import { Section } from '../shared';
+import { ResponsiveFlex } from '../shared';
 import Preview from './Preview';
 
 interface Props {
@@ -14,12 +14,12 @@ const Definitions = ({ title, definitions }: Props) => {
     <Preview key={definition.slug} definition={definition} />
   ));
   return (
-    <Section p={0}>
+    <ResponsiveFlex p={0}>
       <Heading as={'h2'} size="lg">
         {title}
       </Heading>
       {previewEl}
-    </Section>
+    </ResponsiveFlex>
   );
 };
 

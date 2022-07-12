@@ -1,6 +1,6 @@
 import { Box, Button, Heading, Text } from '@chakra-ui/react';
 import React from 'react';
-import Section from '../shared/Section';
+import ResponsiveFlex from '../shared/ResponsiveFlex';
 import EngineeringTeam from '../../assets/EngineeringTeam.svg';
 import { navigate } from 'gatsby';
 
@@ -9,8 +9,8 @@ const Introduction = () => {
     navigate('finanza-personale');
   };
   return (
-    <Section variant={'responsive'}>
-      <Section justifyContent="space-between">
+    <ResponsiveFlex variant={'responsive'}>
+      <ResponsiveFlex justifyContent="space-between">
         <Box>
           <Heading as={'h1'}>
             Impara a gestire le tue finanze e riprendi il controllo della tua
@@ -25,14 +25,14 @@ const Introduction = () => {
         <Button onClick={tempNavigate} display={['none', 'block']} w={'full'}>
           Esplora i nostri Articoli
         </Button>
-      </Section>
-      <Section alignItems="center" w={['full', '80%', '60%']}>
+      </ResponsiveFlex>
+      <ResponsiveFlex alignItems="center" w={['full', '80%', '60%']}>
         <EngineeringTeam width="100%" height="100%" />
-      </Section>
+      </ResponsiveFlex>
       <Button onClick={tempNavigate} display={['block', 'none']} w={'full'}>
         Esplora i nostri Articoli
       </Button>
-    </Section>
+    </ResponsiveFlex>
   );
 };
 

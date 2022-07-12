@@ -1,5 +1,5 @@
 import Layout from './Layout';
-import Section from './Section';
+import ResponsiveFlex from './ResponsiveFlex';
 import SEO from './SEO';
 
-export { Layout, Section, SEO };
+export { Layout, ResponsiveFlex, SEO };

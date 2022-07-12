@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticlePreviewQuery } from '../../@types';
 import Articles from '../../components/articles/Articles';
-import { Layout, Section, SEO } from '../../components/shared';
+import { Layout, ResponsiveFlex, SEO } from '../../components/shared';
 
 interface Props {
   data: ArticlePreviewQuery;
@@ -19,7 +19,7 @@ const index = ({ data }: Props) => {
         description="Esplora i nostri articoli sui mercati finanziari!"
         pathName="/mercati"
       />
-      <Section>
+      <ResponsiveFlex>
         <Box>
           <Heading as={'h1'}>
             Esplora gli Articoli sui Mercati Finanziari
@@ -30,7 +30,7 @@ const index = ({ data }: Props) => {
           </Text>
         </Box>
         <Articles title="Ultimi Articoli" articles={articles} />
-      </Section>
+      </ResponsiveFlex>
     </Layout>
   );
 };

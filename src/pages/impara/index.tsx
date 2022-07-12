@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { DefinitionPreviewQuery } from '../../@types';
 import Definitions from '../../components/definitions/Definitions';
-import { Layout, Section, SEO } from '../../components/shared';
+import { Layout, ResponsiveFlex, SEO } from '../../components/shared';
 
 interface Props {
   data: DefinitionPreviewQuery;
@@ -19,7 +19,7 @@ const index = ({ data }: Props) => {
         description="Impara tutti i termini finanziari in modo semplice e veloce!"
         pathName="/impara"
       />
-      <Section>
+      <ResponsiveFlex>
         <Box>
           <Heading as={'h1'}>Impara la Finanza</Heading>
           <Text>
@@ -28,7 +28,7 @@ const index = ({ data }: Props) => {
           </Text>
         </Box>
         <Definitions title="Tutte le Definizioni" definitions={definitions} />
-      </Section>
+      </ResponsiveFlex>
     </Layout>
   );
 };

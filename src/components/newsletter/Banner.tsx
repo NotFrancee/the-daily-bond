@@ -1,6 +1,6 @@
 import { Heading, Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import { Section } from '../shared';
+import { ResponsiveFlex } from '../shared';
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const Banner = ({ title, description, children }: Props) => {
   return (
-    <Section variant="banner">
+    <ResponsiveFlex variant="banner">
       <Box>
         <Heading textAlign={['left', 'center']} fontSize={'2xl'}>
           {title}
@@ -20,7 +20,7 @@ const Banner = ({ title, description, children }: Props) => {
         </Text>
       </Box>
       {children}
-    </Section>
+    </ResponsiveFlex>
   );
 };
 

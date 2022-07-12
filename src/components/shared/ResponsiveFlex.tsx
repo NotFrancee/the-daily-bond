@@ -3,11 +3,11 @@ import React from 'react';
 
 type Props = any;
 
-const Section = (props: Props) => {
+const ResponsiveFlex = (props: Props) => {
   const { variant, ...rest } = props;
-  const styles = useStyleConfig('Section', { variant });
+  const styles = useStyleConfig('ResponsiveFlex', { variant });
 
   return <Box __css={styles} {...rest} />;
 };
 
-export default Section;
+export default ResponsiveFlex;

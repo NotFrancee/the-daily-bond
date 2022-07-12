@@ -6,7 +6,7 @@ import {
   CustomLinkStyle,
   CustomTextStyle,
   ResponsiveGridComponent,
-  SectionComponent,
+  ResponsiveFlexComponent,
 } from '../custom-components';
 
 const theme = {
@@ -20,9 +20,9 @@ const theme = {
     Button: CustomButtonStyle,
     Text: CustomTextStyle,
     Heading: CustomHeadingStyle,
-    Section: SectionComponent,
     Link: CustomLinkStyle,
     ResponsiveGrid: ResponsiveGridComponent,
+    ResponsiveFlex: ResponsiveFlexComponent,
   },
   fonts: {
     body: `'minion-pro', serif`,
