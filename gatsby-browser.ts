@@ -5,6 +5,8 @@ export const onRouteUpdate = ({ location }) => {
     return null;
   }
 
+  // fire new gtm tags when page is changed?
+
   // const pagePath = location
   //   ? location.pathname + location.search + location.hash
   //   : undefined;

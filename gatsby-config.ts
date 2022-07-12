@@ -204,6 +204,10 @@ const config: GatsbyConfig = {
       },
     },
   ],
+  // proxy: {
+  //   prefix: '/proxy',
+  //   url: 'https://www.thedailybond.com',
+  // },
 };
 
 export default config;
