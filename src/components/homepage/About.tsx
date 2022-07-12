@@ -1,7 +1,7 @@
 import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
 import { H2, H3 } from '../shared';
-import ResponsiveFlex from '../shared/ResponsiveFlex';
+import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 
 const About = () => {
   return (

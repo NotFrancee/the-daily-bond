@@ -2,8 +2,9 @@ import React from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import tableOfContentsOptions from './tableOfContentsOptions';
-import { ResponsiveFlex } from '../..';
-import { Heading, UnorderedList } from '@chakra-ui/react';
+import { H2 } from '../../custom-components/StyledHeadings';
+import ResponsiveFlex from '../../custom-components/ResponsiveFlex';
+import { UnorderedList } from '@chakra-ui/react';
 
 interface Props {
   body: {
@@ -38,7 +39,7 @@ const TableOfContents = ({ body, slug }: Props) => {
   );
   return (
     <ResponsiveFlex w="fit-content" border="1px solid black" mx="auto">
-      <Heading as={'h2'}>Indice</Heading>
+      <H2>Indice</H2>
       <UnorderedList listStyleType={'none'} listStylePosition={'inside'}>
         {tableOfContentEl}
       </UnorderedList>

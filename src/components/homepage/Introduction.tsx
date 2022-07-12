@@ -1,6 +1,6 @@
 import { Box, Button, Text } from '@chakra-ui/react';
 import React from 'react';
-import ResponsiveFlex from '../shared/ResponsiveFlex';
+import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 import EngineeringTeam from '../../assets/EngineeringTeam.svg';
 import { navigate } from 'gatsby';
 import { H1 } from '../shared';

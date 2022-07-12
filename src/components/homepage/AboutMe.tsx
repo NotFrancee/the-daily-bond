@@ -1,6 +1,6 @@
 import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
-import ResponsiveFlex from '../shared/ResponsiveFlex';
+import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 import ProfilePic from '../../assets/ProfilePic.svg';
 import { H2 } from '../shared';
 

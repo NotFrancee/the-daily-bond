@@ -1,7 +1,7 @@
 import { Block, Inline } from '@contentful/rich-text-types';
 import React from 'react';
 import generateId from '../../../../utils/generateId';
-import { H1, H2, H3 } from '../../StyledHeadings';
+import { H1, H2, H3 } from '../../custom-components/StyledHeadings';
 
 const Heading = (node: Block | Inline, children: React.ReactNode) => {
   const headingNo = node.nodeType[node.nodeType.length - 1];
