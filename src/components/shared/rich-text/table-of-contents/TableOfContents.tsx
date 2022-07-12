@@ -2,7 +2,7 @@ import React from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import tableOfContentsOptions from './tableOfContentsOptions';
-import { ResponsiveFlex } from '../../components/shared';
+import { ResponsiveFlex } from '../..';
 import { Heading, UnorderedList } from '@chakra-ui/react';
 
 interface Props {

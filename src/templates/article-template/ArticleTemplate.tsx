@@ -4,9 +4,9 @@ import React from 'react';
 import { ArticleQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
 import { ResponsiveFlex, SEO } from '../../components/shared';
-import RichText from '../../utils/rich-text/RichText';
+import RichText from '../../components/shared/rich-text/body/RichText';
 import MainImage from './sections/MainImage';
-import TableOfContents from '../../utils/table-of-contents/TableOfContents';
+import TableOfContents from '../../components/shared/rich-text/table-of-contents/TableOfContents';
 
 interface Props {
   data: ArticleQuery;

@@ -4,7 +4,7 @@ import React from 'react';
 import { DefinitionQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
 import { ResponsiveFlex, SEO } from '../../components/shared';
-import RichText from '../../utils/rich-text/RichText';
+import RichText from '../../components/shared/rich-text/body/RichText';
 
 interface Props {
   data: DefinitionQuery;
@@ -39,8 +39,8 @@ const ArticleTemplate = ({ data }: Props) => {
         {title}
       </Heading>
       <ResponsiveFlex px={10}>
-        <RichText rawBody={mainText} />
-        <RichText rawBody={secondaryText} />
+        <RichText body={mainText} />
+        <RichText body={secondaryText} />
       </ResponsiveFlex>
     </Layout>
   );
