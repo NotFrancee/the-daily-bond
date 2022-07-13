@@ -6,7 +6,7 @@ import Layout from '../../components/shared/Layout';
 import { ResponsiveFlex, SEO } from '../../components/shared';
 import RichText from '../../components/shared/rich-text/body/RichText';
 import MainImage from './sections/MainImage';
-import TableOfContents from '../../components/shared/rich-text/table-of-contents/TableOfContents';
+import { TableOfContents } from '../../components/shared/rich-text';
 
 interface Props {
   data: ArticleQuery;

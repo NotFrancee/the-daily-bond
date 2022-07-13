@@ -4,7 +4,7 @@ import React from 'react';
 import { DefinitionQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
 import { ResponsiveFlex, SEO } from '../../components/shared';
-import RichText from '../../components/shared/rich-text/body/RichText';
+import { RichText } from '../../components/shared/rich-text';
 
 interface Props {
   data: DefinitionQuery;
