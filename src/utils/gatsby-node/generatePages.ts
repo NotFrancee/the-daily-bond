@@ -26,7 +26,6 @@ function generatePages(edges: Edges, createPage: Actions['createPage']) {
 
   edges.forEach(({ node }) => {
     const nodeType = node.__typename;
-    console.log({ node, nodeType });
 
     let path: string | undefined;
     let template: any;

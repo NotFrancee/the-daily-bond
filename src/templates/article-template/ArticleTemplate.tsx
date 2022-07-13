@@ -47,7 +47,7 @@ const ArticleTemplate = ({ data }: Props) => {
         </Heading>
         <MainImage mainImage={mainImage} />
         <TableOfContents body={body} slug={slug} />
-        <RichText body={body} pt={0} />
+        <RichText body={body} pt={0} width={['full', '50%']} />
       </ResponsiveFlex>
     </Layout>
   );

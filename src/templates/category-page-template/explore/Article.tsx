@@ -3,23 +3,16 @@ import React from 'react';
 import { ResponsiveFlex } from '../../../components/shared';
 
 interface Props {
-  category: string;
-  title: string;
+  category: string | undefined | null;
+  title: string | undefined | null;
 }
 
 const Article = ({ category, title }: Props) => {
   return (
-    <Box bgColor={'white'}>
+    <Box bgColor={'white'} boxShadow="0.25rem 0.25rem 0 rgb(0 189 231 / 10%)">
       <Box height={'120px'} width={'full'} bg="primary.background" />
       <ResponsiveFlex pt={2} gap={0}>
-        <Text
-          fontWeight={'700'}
-          casing="uppercase"
-          fontSize={'0.75rem'}
-          letterSpacing="0.04rem"
-          textAlign={'center'}
-          color={'primary.highlight'}
-        >
+        <Text variant={'label'} casing="uppercase">
           {category}
         </Text>
         <Text

@@ -1,17 +1,35 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
-import { H3, ResponsiveFlex } from '../../../components/shared';
-import Articles from './Articles';
+import { CategoryPageQuery } from '../../../../gatsby-graphql';
+import { H2, ResponsiveFlex, ResponsiveGrid } from '../../../components/shared';
+import Article from './Article';
 
-const Explore = () => {
+interface Props {
+  articles: CategoryPageQuery['allContentfulArticle']['edges'];
+  categoryTitle: string;
+}
+
+const Explore = ({ articles, categoryTitle }: Props) => {
+  const articlesEl = articles.map(({ node: article }) => (
+    <Article
+      key={article.slug}
+      title={article.title}
+      category={article.category?.title}
+    />
+  ));
+
   return (
     <Box>
       <ResponsiveFlex>
-        <H3 fontSize={'1.5rem'} fontWeight={'400'} lineHeight={'1.3'}>
-          Esplora Finanza Personale
-        </H3>
+        <H2>Esplora {categoryTitle}</H2>
       </ResponsiveFlex>
-      <Articles />
+      <ResponsiveGrid
+        gridTemplateColumns={'repeat(2, 1fr)'}
+        bgColor={'gray.background'}
+        gap={'1rem'}
+      >
+        {articlesEl}
+      </ResponsiveGrid>
     </Box>
   );
 };

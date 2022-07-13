@@ -1,51 +1,38 @@
-import { Box, Tab, TabList, TabPanels, Tabs } from '@chakra-ui/react';
+import { TabList, TabPanels, Tabs } from '@chakra-ui/react';
 import React from 'react';
-import { H3, ResponsiveFlex } from '../../../components/shared';
+import { H2, ResponsiveFlex } from '../../../components/shared';
+import TabSelector from './TabSelector';
 import TermBox from './TermBox';
 
-const sampleterms = [
-  {
-    title: 'Emergency Fund',
-    description: `An emergency fund is money that you have set aside to cover any financial emergencies or unexpected expenses that may come up. Those can include anything that you haven't planned for, such as unexpected car repairs, medical bills, unemployment or other income loss, property damage, or family emergencies.`,
-    n: 1,
-  },
-  {
-    title: 'Emergency Fund',
-    description: `An emergency fund is money that you have set aside to cover any financial emergencies or unexpected expenses that may come up. Those can include anything that you haven't planned for, such as unexpected car repairs, medical bills, unemployment or other income loss, property damage, or family emergencies.`,
-    n: 2,
-  },
-  {
-    title: 'Emergency Fund',
-    description: `An emergency fund is money that you have set aside to cover any financial emergencies or unexpected expenses that may come up. Those can include anything that you haven't planned for, such as unexpected car repairs, medical bills, unemployment or other income loss, property damage, or family emergencies.`,
-    n: 3,
-  },
-  {
-    title: 'Emergency Fund',
-    description: `An emergency fund is money that you have set aside to cover any financial emergencies or unexpected expenses that may come up. Those can include anything that you haven't planned for, such as unexpected car repairs, medical bills, unemployment or other income loss, property damage, or family emergencies.`,
-    n: 4,
-  },
-];
+interface KeyTerm {
+  title: string;
+  slug: string;
+  mainText: {
+    raw: any;
+  };
+}
 
-const KeyTerms = () => {
-  const tabPanelsEl = sampleterms.map((term) => (
-    <TermBox key={term.n} {...term} />
+interface Props {
+  keyTerms: KeyTerm[];
+}
+
+const KeyTerms = ({ keyTerms }: Props) => {
+  const tabPanelsEl = keyTerms.map(({ slug, title, mainText }) => (
+    <TermBox key={slug} slug={slug} title={title} mainText={mainText} />
   ));
-  const tabsEl = sampleterms.map((item) => (
-    <Tab _selected={{ bg: 'red' }} key={item.n}>
-      <Box w={5} borderRadius={'100%'} h={5} bgColor="white" />
-    </Tab>
-  ));
+
+  const tabsEl = keyTerms.map(({ slug }) => <TabSelector key={slug} />);
 
   console.log({ tabPanelsEl });
 
   return (
     <ResponsiveFlex bgColor={'primary.background'} gap={0}>
-      <H3 fontSize={'1.5rem'} fontWeight="400">
-        Key Terms
-      </H3>
-      <Tabs variant="unstyled">
-        <TabPanels p={0}>{tabPanelsEl}</TabPanels>
-        <TabList justifyContent={'center'}>{tabsEl}</TabList>
+      <H2>Key Terms</H2>
+      <Tabs variant="unstyled" mt={1}>
+        <TabPanels>{tabPanelsEl}</TabPanels>
+        <TabList mt={3} justifyContent={'center'}>
+          {tabsEl}
+        </TabList>
       </Tabs>
     </ResponsiveFlex>
   );

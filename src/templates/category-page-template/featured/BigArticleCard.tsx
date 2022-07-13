@@ -3,9 +3,9 @@ import React from 'react';
 import { H3, ResponsiveFlex } from '../../../components/shared';
 
 interface Props {
-  title: string;
-  createdAt: string;
-  category: string;
+  title: string | null | undefined;
+  createdAt: string | null | undefined;
+  category: string | null | undefined;
   mainImage?: any;
 }
 
@@ -28,24 +28,17 @@ const BigArticleCard = ({ title, createdAt, category }: Props) => {
         position="relative"
         textAlign={'center'}
       >
-        <Text
-          fontWeight={'700'}
-          casing="uppercase"
-          fontSize={'0.75rem'}
-          letterSpacing="0.04rem"
-          textAlign={'center'}
-          color={'primary.highlight'}
-        >
+        <Text casing={'uppercase'} variant="label">
           {category}
         </Text>
-        <H3 lineHeight={1.15} fontWeight="400" fontSize={'1.375rem'}>
+        <H3 as={'p'} lineHeight={1.15}>
           {title}
         </H3>
         <Text mt={2} lineHeight={'1.15'} fontSize={'.75rem'}>
           Pubblicato il {createdAt}
         </Text>
         <Box
-          w={'100%'}
+          w="100%"
           h="100%"
           zIndex={-1}
           bgColor={'primary.background'}

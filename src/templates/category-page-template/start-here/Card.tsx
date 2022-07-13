@@ -3,26 +3,21 @@ import React from 'react';
 import { H3, ResponsiveFlex } from '../../../components/shared';
 
 interface Props {
-  hasImage: boolean;
-  title: string;
-  category: string;
-  updatedAt: string;
+  title: string | null | undefined;
+  category: string | null | undefined;
+  updatedAt: string | null | undefined;
+  index: number;
 }
 
-const Card = ({ hasImage, title, category, updatedAt }: Props) => {
+const Card = ({ index, title, category, updatedAt }: Props) => {
   return (
     <Box bgColor={'white'}>
-      {hasImage && (
+      {index < 3 && (
         <Box height={'220px'} width={'full'} bg="primary.background" />
       )}
       <ResponsiveFlex gap={2}>
         <Box>
-          <Text
-            fontWeight={'700'}
-            casing="uppercase"
-            color={'primary.highlight'}
-            fontSize="0.75rem"
-          >
+          <Text variant={'label'} casing="uppercase">
             {category}
           </Text>
           <H3

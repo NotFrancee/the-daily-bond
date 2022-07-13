@@ -1,31 +1,22 @@
 import React from 'react';
+import { CategoryPageQuery } from '../../../../gatsby-graphql';
 import { ResponsiveFlex } from '../../../components/shared';
 import BigArticleCard from './BigArticleCard';
 
-const sample = [
-  {
-    title: 'Wllug Fulmore on the costs of being queer',
-    createdAt: '22 Aprile 2022',
-    category: 'budgeting',
-    n: 1,
-  },
-  {
-    title: 'Wllug Fulmore on the costs of being queer',
-    createdAt: '22 Aprile 2022',
-    category: 'budgeting',
-    n: 2,
-  },
-  {
-    title: 'Wllug Fulmore on the costs of being queer',
-    createdAt: '22 Aprile 2022',
-    category: 'budgeting',
-    n: 3,
-  },
-];
+interface Props {
+  articles: CategoryPageQuery['allContentfulArticle']['edges'];
+}
 
-const FeaturedArticles = () => {
-  const el = sample.map((item) => <BigArticleCard {...item} key={item.n} />);
-  return <ResponsiveFlex>{el} </ResponsiveFlex>;
+const FeaturedArticles = ({ articles }: Props) => {
+  const articlesEl = articles.map(({ node: article }) => (
+    <BigArticleCard
+      key={article.slug}
+      title={article.title}
+      category={article.category?.title}
+      createdAt={article.createdAt}
+    />
+  ));
+  return <ResponsiveFlex>{articlesEl} </ResponsiveFlex>;
 };
 
 export default FeaturedArticles;

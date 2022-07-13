@@ -1,14 +1,45 @@
+import { Accordion } from '@chakra-ui/react';
 import React from 'react';
-import { H3, ResponsiveFlex } from '../../../components/shared';
-import Questions from './Questions';
+import { H2, ResponsiveFlex } from '../../../components/shared';
+import Question from './Question';
 
-const FAQ = () => {
+export interface FullArticle {
+  slug: string;
+  category: {
+    slug: string;
+  };
+  title: string;
+}
+interface IFAQ {
+  question: string;
+  answer: {
+    raw: any;
+  };
+  fullArticle: FullArticle | null;
+}
+
+interface Props {
+  frequentlyAskedQuestions: IFAQ[];
+}
+
+const FAQ = ({ frequentlyAskedQuestions }: Props) => {
+  console.log({ frequentlyAskedQuestions });
+
+  const accordionEls = frequentlyAskedQuestions.map(
+    ({ answer, question, fullArticle }) => (
+      <Question
+        key={question}
+        title={question}
+        answer={answer}
+        fullArticle={fullArticle}
+      />
+    ),
+  );
+
   return (
     <ResponsiveFlex>
-      <H3 fontSize={'1.5rem'} fontWeight={'400'} lineHeight={'1.3'}>
-        Frequently Asked Questions
-      </H3>
-      <Questions />
+      <H2>Frequently Asked Questions</H2>
+      <Accordion allowToggle>{accordionEls}</Accordion>
     </ResponsiveFlex>
   );
 };

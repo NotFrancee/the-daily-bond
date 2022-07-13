@@ -5,7 +5,6 @@ const CustomButtonStyle: ComponentStyleConfig = {
     'primary-btn': {
       bg: 'primary.highlight',
       color: 'white',
-      fontFamily: 'heading',
       fontWeight: 'bold',
       _hover: {
         border: '2px solid',

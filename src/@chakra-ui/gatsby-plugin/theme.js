@@ -29,8 +29,8 @@ const theme = {
     ResponsiveFlex: ResponsiveFlexComponent,
   },
   fonts: {
-    body: `'minion-pro', serif`,
-    heading: `'sofia-pro', sans-serif`,
+    heading: `'utopia-std-display', serif`,
+    body: `'rubik', sans-serif`,
   },
   fontSizes: {
     '3xl': '1.75rem',
