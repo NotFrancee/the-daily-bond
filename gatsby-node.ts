@@ -29,10 +29,11 @@ export const createPages: GatsbyNode['createPages'] = async ({
   );
 
   const res = await graphql<CreatePagesQuery>(`
-    query {
+    query GatsbyNode {
       allContentfulArticle {
         edges {
           node {
+            __typename
             slug
             category {
               slug
@@ -43,6 +44,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
       allContentfulDefinition {
         edges {
           node {
+            __typename
             slug
             category {
               title
@@ -53,6 +55,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
       }
     }
   `);
+
+  console.log(res.data?.allContentfulArticle.edges[0].node);
 
   if (!res || !res.data) return console.error('error while fetching query ');
   const articles = res.data.allContentfulArticle.edges;

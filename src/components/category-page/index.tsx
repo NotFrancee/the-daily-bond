@@ -4,6 +4,7 @@ import { H1, ResponsiveFlex, SEO } from '../shared';
 import Cards from './articles/Cards';
 import Explore from './explore/Explore';
 import FAQ from './FAQ/FAQ';
+import FeaturedArticles from './featured/FeaturedArticles';
 import KeyTerms from './key-terms/KeyTerms';
 
 interface Props {
@@ -31,8 +32,8 @@ const CategoryPage = ({ title, subTitle }: Props) => {
       <Cards />
       <FAQ />
       <KeyTerms />
+      <FeaturedArticles />
       <Explore />
-      <Text>more here</Text>
     </>
   );
 };

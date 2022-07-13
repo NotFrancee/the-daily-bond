@@ -181,6 +181,17 @@ const config: GatsbyConfig = {
         offset: -100,
       },
     },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `./gatsby-graphql.ts`,
+        documentPaths: [
+          './src/**/*.{ts,tsx}',
+          './node_modules/gatsby-*/**/*.js',
+          './gatsby-node.ts',
+        ],
+      },
+    },
   ],
   // proxy: {
   //   prefix: '/proxy',
