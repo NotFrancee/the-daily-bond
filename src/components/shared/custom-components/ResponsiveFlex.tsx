@@ -1,7 +1,9 @@
-import { Box, useStyleConfig } from '@chakra-ui/react';
+import { Box, GridProps, useStyleConfig } from '@chakra-ui/react';
 import React from 'react';
 
-type Props = any;
+interface Props extends GridProps {
+  variant?: string;
+}
 
 const ResponsiveFlex = (props: Props) => {
   const { variant, ...rest } = props;

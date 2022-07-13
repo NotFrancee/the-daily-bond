@@ -3,6 +3,7 @@ import {
   Heading,
   Link,
   ListItem,
+  Tag,
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
@@ -14,11 +15,16 @@ interface Props {}
 
 const DailyDefinition = ({}: Props) => {
   return (
-    <ResponsiveFlex>
+    <ResponsiveFlex bgColor={'primary.background'}>
       <Box>
-        <Text color={'primary.highlight'} casing={'uppercase'}>
-          Termine del giorno
-        </Text>
+        <Tag
+          bgColor={'white'}
+          fontFamily="heading"
+          fontWeight={'bold'}
+          color={'primary.highlight'}
+        >
+          TERMINE DEL GIORNO
+        </Tag>
         <Heading>TER - Total Expense Ratio</Heading>
       </Box>
       <UnorderedList>

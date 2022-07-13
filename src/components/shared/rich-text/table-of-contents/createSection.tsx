@@ -16,13 +16,8 @@ const createSection = (
 
   const destination = `../${slug}#${id}`;
 
-  // return (
-  //   <AnchorLink stripHash={true} to={destination}>
-  //     {children}
-  //   </AnchorLink>
-  // );
   return (
-    <ListItem ml={leftMargin}>
+    <ListItem ml={leftMargin} textDecoration="underline">
       <AnchorLink stripHash to={destination}>
         {children}
       </AnchorLink>

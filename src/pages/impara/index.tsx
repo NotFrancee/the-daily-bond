@@ -2,7 +2,7 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { DefinitionPreviewQuery } from '../../@types';
-// import DailyDefinition from '../../components/definitions/DailyDefinition';
+import DailyDefinition from '../../components/definitions/DailyDefinition';
 import Definitions from '../../components/definitions/Definitions';
 import { Layout, ResponsiveFlex, SEO } from '../../components/shared';
 
@@ -28,7 +28,7 @@ const index = ({ data }: Props) => {
             nostra definizione del giorno, oppure cerca partendo da una lettera!
           </Text>
         </Box>
-        {/* <DailyDefinition /> */}
+        <DailyDefinition />
         <Definitions title="Tutte le Definizioni" definitions={definitions} />
       </ResponsiveFlex>
     </Layout>

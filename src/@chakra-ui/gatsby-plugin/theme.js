@@ -15,6 +15,10 @@ const theme = {
       highlight: '#48BB78', // green.400
       background: '#C6F6D5', // green.100
     },
+    gray: {
+      backround: '#EEEEEE',
+      subHeading: '#777777',
+    },
   },
   components: {
     Button: CustomButtonStyle,
