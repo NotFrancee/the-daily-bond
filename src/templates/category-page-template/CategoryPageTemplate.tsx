@@ -87,6 +87,10 @@ export const query = graphql`
           }
           slug
           title
+          mainImage {
+            gatsbyImageData(layout: CONSTRAINED, resizingBehavior: PAD)
+            description
+          }
           mustRead
           createdAt(formatString: "DD MMMM, YYYY", locale: "it")
           updatedAt(formatString: "DD MMMM, YYYY", locale: "it")

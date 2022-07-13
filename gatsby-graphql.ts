@@ -9443,7 +9443,7 @@ export type CategoryPageQueryVariables = Exact<{
 }>;
 
 
-export type CategoryPageQuery = { allContentfulArticle: { edges: Array<{ node: { slug?: string | null, title?: string | null, mustRead?: boolean | null, createdAt?: any | null, updatedAt?: any | null, category?: { title?: string | null, slug?: string | null } | null } }> }, contentfulCategory?: { slug?: string | null, title?: string | null, pageDescription?: { pageDescription?: string | null } | null, frequentlyAskedQuestions?: Array<{ question?: string | null, answer?: { raw?: string | null } | null, fullArticle?: { slug?: string | null, title?: string | null, category?: { slug?: string | null } | null } | null } | null> | null, keyTerms?: Array<{ slug?: string | null, title?: string | null, mainText?: { raw?: string | null } | null } | null> | null } | null };
+export type CategoryPageQuery = { allContentfulArticle: { edges: Array<{ node: { slug?: string | null, title?: string | null, mustRead?: boolean | null, createdAt?: any | null, updatedAt?: any | null, category?: { title?: string | null, slug?: string | null } | null, mainImage?: { gatsbyImageData?: any | null, description?: string | null } | null } }> }, contentfulCategory?: { slug?: string | null, title?: string | null, pageDescription?: { pageDescription?: string | null } | null, frequentlyAskedQuestions?: Array<{ question?: string | null, answer?: { raw?: string | null } | null, fullArticle?: { slug?: string | null, title?: string | null, category?: { slug?: string | null } | null } | null } | null> | null, keyTerms?: Array<{ slug?: string | null, title?: string | null, mainText?: { raw?: string | null } | null } | null> | null } | null };
 
 export type DefinitionDataQueryVariables = Exact<{
   slug: Scalars['String'];

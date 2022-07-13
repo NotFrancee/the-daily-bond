@@ -11,11 +11,7 @@ interface Props {
 
 const Explore = ({ articles, categoryTitle }: Props) => {
   const articlesEl = articles.map(({ node: article }) => (
-    <Article
-      key={article.slug}
-      title={article.title}
-      category={article.category?.title}
-    />
+    <Article key={article.slug} article={article} />
   ));
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CategoryPageQuery } from '../../../../gatsby-graphql';
-import { ResponsiveFlex } from '../../../components/shared';
+import { H2, ResponsiveFlex } from '../../../components/shared';
 import BigArticleCard from './BigArticleCard';
 
 interface Props {
@@ -9,14 +9,14 @@ interface Props {
 
 const FeaturedArticles = ({ articles }: Props) => {
   const articlesEl = articles.map(({ node: article }) => (
-    <BigArticleCard
-      key={article.slug}
-      title={article.title}
-      category={article.category?.title}
-      createdAt={article.createdAt}
-    />
+    <BigArticleCard article={article} key={article.slug} />
   ));
-  return <ResponsiveFlex>{articlesEl} </ResponsiveFlex>;
+  return (
+    <ResponsiveFlex>
+      <H2>I Nostri Preferiti</H2>
+      {articlesEl}{' '}
+    </ResponsiveFlex>
+  );
 };
 
 export default FeaturedArticles;
