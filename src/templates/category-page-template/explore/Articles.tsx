@@ -1,5 +1,5 @@
 import React from 'react';
-import { ResponsiveGrid } from '../../shared';
+import { ResponsiveGrid } from '../../../components/shared';
 import Article from './Article';
 
 const sample = [

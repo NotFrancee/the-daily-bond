@@ -1,6 +1,6 @@
 import { Box, GridProps } from '@chakra-ui/react';
 import React from 'react';
-import { H2, ResponsiveFlex, ResponsiveGrid } from '../../shared';
+import { H2, ResponsiveGrid } from '../../../components/shared';
 import Card from './Card';
 
 const samplearticles = [
@@ -34,7 +34,11 @@ const responsiveLayout: GridProps = {
   gridTemplateColumns: ['1fr'],
 };
 
-const Cards = () => {
+interface Props {
+  topArticles?: any;
+}
+
+const StartHere = ({ topArticles }: Props) => {
   const cardsEl = samplearticles.map((article) => (
     <Card key={article.title} {...article} />
   ));
@@ -56,4 +60,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default StartHere;

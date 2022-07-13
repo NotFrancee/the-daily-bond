@@ -1,6 +1,6 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import { H3, ResponsiveFlex } from '../../shared';
+import { H3, ResponsiveFlex } from '../../../components/shared';
 
 interface Props {
   title: string;

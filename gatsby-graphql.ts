@@ -916,11 +916,16 @@ export type ContentfulCategory = ContentfulReference & ContentfulEntry & Node & 
   title?: Maybe<Scalars['String']>;
   slug?: Maybe<Scalars['String']>;
   article?: Maybe<Array<Maybe<ContentfulArticle>>>;
+  pageDescription?: Maybe<ContentfulCategoryPageDescriptionTextNode>;
   spaceId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['Date']>;
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulCategorySys>;
   definition?: Maybe<Array<Maybe<ContentfulDefinition>>>;
+  /** Returns all children nodes filtered by type contentfulCategoryPageDescriptionTextNode */
+  childrenContentfulCategoryPageDescriptionTextNode?: Maybe<Array<Maybe<ContentfulCategoryPageDescriptionTextNode>>>;
+  /** Returns the first child node of type contentfulCategoryPageDescriptionTextNode or null if there are no children of given type on this node */
+  childContentfulCategoryPageDescriptionTextNode?: Maybe<ContentfulCategoryPageDescriptionTextNode>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
@@ -1102,6 +1107,19 @@ export type ContentfulDefinitionMetaDescriptionTextNodeSys = {
   type?: Maybe<Scalars['String']>;
 };
 
+export type ContentfulCategoryPageDescriptionTextNode = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  pageDescription?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulCategoryPageDescriptionTextNodeSys>;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
 export type ContentfulArticleMetaDescriptionTextNode = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -1163,6 +1181,8 @@ export type Query = {
   allContentfulLeadMagnetTextTextNode: ContentfulLeadMagnetTextTextNodeConnection;
   contentfulDefinitionMetaDescriptionTextNode?: Maybe<ContentfulDefinitionMetaDescriptionTextNode>;
   allContentfulDefinitionMetaDescriptionTextNode: ContentfulDefinitionMetaDescriptionTextNodeConnection;
+  contentfulCategoryPageDescriptionTextNode?: Maybe<ContentfulCategoryPageDescriptionTextNode>;
+  allContentfulCategoryPageDescriptionTextNode: ContentfulCategoryPageDescriptionTextNodeConnection;
   contentfulArticleMetaDescriptionTextNode?: Maybe<ContentfulArticleMetaDescriptionTextNode>;
   allContentfulArticleMetaDescriptionTextNode: ContentfulArticleMetaDescriptionTextNodeConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -1496,11 +1516,14 @@ export type QueryContentfulCategoryArgs = {
   title?: InputMaybe<StringQueryOperatorInput>;
   slug?: InputMaybe<StringQueryOperatorInput>;
   article?: InputMaybe<ContentfulArticleFilterListInput>;
+  pageDescription?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
   spaceId?: InputMaybe<StringQueryOperatorInput>;
   createdAt?: InputMaybe<DateQueryOperatorInput>;
   updatedAt?: InputMaybe<DateQueryOperatorInput>;
   sys?: InputMaybe<ContentfulCategorySysFilterInput>;
   definition?: InputMaybe<ContentfulDefinitionFilterListInput>;
+  childrenContentfulCategoryPageDescriptionTextNode?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterListInput>;
+  childContentfulCategoryPageDescriptionTextNode?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -1606,6 +1629,24 @@ export type QueryContentfulDefinitionMetaDescriptionTextNodeArgs = {
 export type QueryAllContentfulDefinitionMetaDescriptionTextNodeArgs = {
   filter?: InputMaybe<ContentfulDefinitionMetaDescriptionTextNodeFilterInput>;
   sort?: InputMaybe<ContentfulDefinitionMetaDescriptionTextNodeSortInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulCategoryPageDescriptionTextNodeArgs = {
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  pageDescription?: InputMaybe<StringQueryOperatorInput>;
+  sys?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeSysFilterInput>;
+};
+
+
+export type QueryAllContentfulCategoryPageDescriptionTextNodeArgs = {
+  filter?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
+  sort?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeSortInput>;
   skip?: InputMaybe<Scalars['Int']>;
   limit?: InputMaybe<Scalars['Int']>;
 };
@@ -4193,11 +4234,14 @@ export type ContentfulCategoryFilterInput = {
   title?: InputMaybe<StringQueryOperatorInput>;
   slug?: InputMaybe<StringQueryOperatorInput>;
   article?: InputMaybe<ContentfulArticleFilterListInput>;
+  pageDescription?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
   spaceId?: InputMaybe<StringQueryOperatorInput>;
   createdAt?: InputMaybe<DateQueryOperatorInput>;
   updatedAt?: InputMaybe<DateQueryOperatorInput>;
   sys?: InputMaybe<ContentfulCategorySysFilterInput>;
   definition?: InputMaybe<ContentfulDefinitionFilterListInput>;
+  childrenContentfulCategoryPageDescriptionTextNode?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterListInput>;
+  childContentfulCategoryPageDescriptionTextNode?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
   parent?: InputMaybe<NodeFilterInput>;
   children?: InputMaybe<NodeFilterListInput>;
   internal?: InputMaybe<InternalFilterInput>;
@@ -4260,6 +4304,19 @@ export type ContentfulArticleSysContentTypeSysFilterInput = {
 
 export type ContentfulArticleMetaDescriptionTextNodeFilterListInput = {
   elemMatch?: InputMaybe<ContentfulArticleMetaDescriptionTextNodeFilterInput>;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeFilterInput = {
+  id?: InputMaybe<StringQueryOperatorInput>;
+  parent?: InputMaybe<NodeFilterInput>;
+  children?: InputMaybe<NodeFilterListInput>;
+  internal?: InputMaybe<InternalFilterInput>;
+  pageDescription?: InputMaybe<StringQueryOperatorInput>;
+  sys?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeSysFilterInput>;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeSysFilterInput = {
+  type?: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCategorySysFilterInput = {
@@ -4343,6 +4400,10 @@ export type ContentfulDefinitionSysContentTypeSysFilterInput = {
 
 export type ContentfulDefinitionMetaDescriptionTextNodeFilterListInput = {
   elemMatch?: InputMaybe<ContentfulDefinitionMetaDescriptionTextNodeFilterInput>;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeFilterListInput = {
+  elemMatch?: InputMaybe<ContentfulCategoryPageDescriptionTextNodeFilterInput>;
 };
 
 export type ContentfulArticleConnection = {
@@ -4506,6 +4567,7 @@ export type ContentfulArticleFieldsEnum =
   | 'category___article___category___createdAt'
   | 'category___article___category___updatedAt'
   | 'category___article___category___definition'
+  | 'category___article___category___childrenContentfulCategoryPageDescriptionTextNode'
   | 'category___article___category___children'
   | 'category___article___metaDescription___id'
   | 'category___article___metaDescription___children'
@@ -4535,6 +4597,22 @@ export type ContentfulArticleFieldsEnum =
   | 'category___article___internal___mediaType'
   | 'category___article___internal___owner'
   | 'category___article___internal___type'
+  | 'category___pageDescription___id'
+  | 'category___pageDescription___parent___id'
+  | 'category___pageDescription___parent___children'
+  | 'category___pageDescription___children'
+  | 'category___pageDescription___children___id'
+  | 'category___pageDescription___children___children'
+  | 'category___pageDescription___internal___content'
+  | 'category___pageDescription___internal___contentDigest'
+  | 'category___pageDescription___internal___description'
+  | 'category___pageDescription___internal___fieldOwners'
+  | 'category___pageDescription___internal___ignoreType'
+  | 'category___pageDescription___internal___mediaType'
+  | 'category___pageDescription___internal___owner'
+  | 'category___pageDescription___internal___type'
+  | 'category___pageDescription___pageDescription'
+  | 'category___pageDescription___sys___type'
   | 'category___spaceId'
   | 'category___createdAt'
   | 'category___updatedAt'
@@ -4559,6 +4637,7 @@ export type ContentfulArticleFieldsEnum =
   | 'category___definition___category___createdAt'
   | 'category___definition___category___updatedAt'
   | 'category___definition___category___definition'
+  | 'category___definition___category___childrenContentfulCategoryPageDescriptionTextNode'
   | 'category___definition___category___children'
   | 'category___definition___metaDescription___id'
   | 'category___definition___metaDescription___children'
@@ -4588,6 +4667,39 @@ export type ContentfulArticleFieldsEnum =
   | 'category___definition___internal___mediaType'
   | 'category___definition___internal___owner'
   | 'category___definition___internal___type'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___sys___type'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___sys___type'
   | 'category___parent___id'
   | 'category___parent___parent___id'
   | 'category___parent___parent___children'
@@ -5002,6 +5114,9 @@ export type ContentfulCategoryFieldsEnum =
   | 'article___category___article___updatedAt'
   | 'article___category___article___childrenContentfulArticleMetaDescriptionTextNode'
   | 'article___category___article___children'
+  | 'article___category___pageDescription___id'
+  | 'article___category___pageDescription___children'
+  | 'article___category___pageDescription___pageDescription'
   | 'article___category___spaceId'
   | 'article___category___createdAt'
   | 'article___category___updatedAt'
@@ -5019,6 +5134,13 @@ export type ContentfulCategoryFieldsEnum =
   | 'article___category___definition___updatedAt'
   | 'article___category___definition___childrenContentfulDefinitionMetaDescriptionTextNode'
   | 'article___category___definition___children'
+  | 'article___category___childrenContentfulCategoryPageDescriptionTextNode'
+  | 'article___category___childrenContentfulCategoryPageDescriptionTextNode___id'
+  | 'article___category___childrenContentfulCategoryPageDescriptionTextNode___children'
+  | 'article___category___childrenContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'article___category___childContentfulCategoryPageDescriptionTextNode___id'
+  | 'article___category___childContentfulCategoryPageDescriptionTextNode___children'
+  | 'article___category___childContentfulCategoryPageDescriptionTextNode___pageDescription'
   | 'article___category___parent___id'
   | 'article___category___parent___children'
   | 'article___category___children'
@@ -5123,6 +5245,46 @@ export type ContentfulCategoryFieldsEnum =
   | 'article___internal___mediaType'
   | 'article___internal___owner'
   | 'article___internal___type'
+  | 'pageDescription___id'
+  | 'pageDescription___parent___id'
+  | 'pageDescription___parent___parent___id'
+  | 'pageDescription___parent___parent___children'
+  | 'pageDescription___parent___children'
+  | 'pageDescription___parent___children___id'
+  | 'pageDescription___parent___children___children'
+  | 'pageDescription___parent___internal___content'
+  | 'pageDescription___parent___internal___contentDigest'
+  | 'pageDescription___parent___internal___description'
+  | 'pageDescription___parent___internal___fieldOwners'
+  | 'pageDescription___parent___internal___ignoreType'
+  | 'pageDescription___parent___internal___mediaType'
+  | 'pageDescription___parent___internal___owner'
+  | 'pageDescription___parent___internal___type'
+  | 'pageDescription___children'
+  | 'pageDescription___children___id'
+  | 'pageDescription___children___parent___id'
+  | 'pageDescription___children___parent___children'
+  | 'pageDescription___children___children'
+  | 'pageDescription___children___children___id'
+  | 'pageDescription___children___children___children'
+  | 'pageDescription___children___internal___content'
+  | 'pageDescription___children___internal___contentDigest'
+  | 'pageDescription___children___internal___description'
+  | 'pageDescription___children___internal___fieldOwners'
+  | 'pageDescription___children___internal___ignoreType'
+  | 'pageDescription___children___internal___mediaType'
+  | 'pageDescription___children___internal___owner'
+  | 'pageDescription___children___internal___type'
+  | 'pageDescription___internal___content'
+  | 'pageDescription___internal___contentDigest'
+  | 'pageDescription___internal___description'
+  | 'pageDescription___internal___fieldOwners'
+  | 'pageDescription___internal___ignoreType'
+  | 'pageDescription___internal___mediaType'
+  | 'pageDescription___internal___owner'
+  | 'pageDescription___internal___type'
+  | 'pageDescription___pageDescription'
+  | 'pageDescription___sys___type'
   | 'spaceId'
   | 'createdAt'
   | 'updatedAt'
@@ -5157,6 +5319,9 @@ export type ContentfulCategoryFieldsEnum =
   | 'definition___category___article___updatedAt'
   | 'definition___category___article___childrenContentfulArticleMetaDescriptionTextNode'
   | 'definition___category___article___children'
+  | 'definition___category___pageDescription___id'
+  | 'definition___category___pageDescription___children'
+  | 'definition___category___pageDescription___pageDescription'
   | 'definition___category___spaceId'
   | 'definition___category___createdAt'
   | 'definition___category___updatedAt'
@@ -5174,6 +5339,13 @@ export type ContentfulCategoryFieldsEnum =
   | 'definition___category___definition___updatedAt'
   | 'definition___category___definition___childrenContentfulDefinitionMetaDescriptionTextNode'
   | 'definition___category___definition___children'
+  | 'definition___category___childrenContentfulCategoryPageDescriptionTextNode'
+  | 'definition___category___childrenContentfulCategoryPageDescriptionTextNode___id'
+  | 'definition___category___childrenContentfulCategoryPageDescriptionTextNode___children'
+  | 'definition___category___childrenContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'definition___category___childContentfulCategoryPageDescriptionTextNode___id'
+  | 'definition___category___childContentfulCategoryPageDescriptionTextNode___children'
+  | 'definition___category___childContentfulCategoryPageDescriptionTextNode___pageDescription'
   | 'definition___category___parent___id'
   | 'definition___category___parent___children'
   | 'definition___category___children'
@@ -5278,6 +5450,87 @@ export type ContentfulCategoryFieldsEnum =
   | 'definition___internal___mediaType'
   | 'definition___internal___owner'
   | 'definition___internal___type'
+  | 'childrenContentfulCategoryPageDescriptionTextNode'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___parent___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___parent___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___children___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___children___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___content'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___description'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___mediaType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___owner'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___parent___internal___type'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___parent___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___parent___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___children___id'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___children___children'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___content'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___contentDigest'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___description'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___ignoreType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___mediaType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___owner'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___children___internal___type'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'childrenContentfulCategoryPageDescriptionTextNode___sys___type'
+  | 'childContentfulCategoryPageDescriptionTextNode___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___parent___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___parent___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___children___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___children___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___content'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___contentDigest'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___description'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___fieldOwners'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___ignoreType'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___mediaType'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___owner'
+  | 'childContentfulCategoryPageDescriptionTextNode___parent___internal___type'
+  | 'childContentfulCategoryPageDescriptionTextNode___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___parent___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___parent___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___children___id'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___children___children'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___content'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___contentDigest'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___description'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___fieldOwners'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___ignoreType'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___mediaType'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___owner'
+  | 'childContentfulCategoryPageDescriptionTextNode___children___internal___type'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'childContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'childContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'childContentfulCategoryPageDescriptionTextNode___sys___type'
   | 'parent___id'
   | 'parent___parent___id'
   | 'parent___parent___parent___id'
@@ -5507,6 +5760,7 @@ export type ContentfulDefinitionFieldsEnum =
   | 'category___article___category___createdAt'
   | 'category___article___category___updatedAt'
   | 'category___article___category___definition'
+  | 'category___article___category___childrenContentfulCategoryPageDescriptionTextNode'
   | 'category___article___category___children'
   | 'category___article___metaDescription___id'
   | 'category___article___metaDescription___children'
@@ -5536,6 +5790,22 @@ export type ContentfulDefinitionFieldsEnum =
   | 'category___article___internal___mediaType'
   | 'category___article___internal___owner'
   | 'category___article___internal___type'
+  | 'category___pageDescription___id'
+  | 'category___pageDescription___parent___id'
+  | 'category___pageDescription___parent___children'
+  | 'category___pageDescription___children'
+  | 'category___pageDescription___children___id'
+  | 'category___pageDescription___children___children'
+  | 'category___pageDescription___internal___content'
+  | 'category___pageDescription___internal___contentDigest'
+  | 'category___pageDescription___internal___description'
+  | 'category___pageDescription___internal___fieldOwners'
+  | 'category___pageDescription___internal___ignoreType'
+  | 'category___pageDescription___internal___mediaType'
+  | 'category___pageDescription___internal___owner'
+  | 'category___pageDescription___internal___type'
+  | 'category___pageDescription___pageDescription'
+  | 'category___pageDescription___sys___type'
   | 'category___spaceId'
   | 'category___createdAt'
   | 'category___updatedAt'
@@ -5560,6 +5830,7 @@ export type ContentfulDefinitionFieldsEnum =
   | 'category___definition___category___createdAt'
   | 'category___definition___category___updatedAt'
   | 'category___definition___category___definition'
+  | 'category___definition___category___childrenContentfulCategoryPageDescriptionTextNode'
   | 'category___definition___category___children'
   | 'category___definition___metaDescription___id'
   | 'category___definition___metaDescription___children'
@@ -5589,6 +5860,39 @@ export type ContentfulDefinitionFieldsEnum =
   | 'category___definition___internal___mediaType'
   | 'category___definition___internal___owner'
   | 'category___definition___internal___type'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'category___childrenContentfulCategoryPageDescriptionTextNode___sys___type'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___parent___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___parent___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children___id'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___children___children'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___content'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___contentDigest'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___description'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___fieldOwners'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___ignoreType'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___mediaType'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___owner'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___internal___type'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___pageDescription'
+  | 'category___childContentfulCategoryPageDescriptionTextNode___sys___type'
   | 'category___parent___id'
   | 'category___parent___parent___id'
   | 'category___parent___parent___children'
@@ -6680,6 +6984,187 @@ export type ContentfulDefinitionMetaDescriptionTextNodeSortInput = {
   order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
 };
 
+export type ContentfulCategoryPageDescriptionTextNodeConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulCategoryPageDescriptionTextNodeEdge>;
+  nodes: Array<ContentfulCategoryPageDescriptionTextNode>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<ContentfulCategoryPageDescriptionTextNodeGroupConnection>;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeConnectionDistinctArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeConnectionMaxArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeConnectionMinArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeConnectionSumArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeEdge = {
+  next?: Maybe<ContentfulCategoryPageDescriptionTextNode>;
+  node: ContentfulCategoryPageDescriptionTextNode;
+  previous?: Maybe<ContentfulCategoryPageDescriptionTextNode>;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeFieldsEnum =
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'pageDescription'
+  | 'sys___type';
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulCategoryPageDescriptionTextNodeEdge>;
+  nodes: Array<ContentfulCategoryPageDescriptionTextNode>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  max?: Maybe<Scalars['Float']>;
+  min?: Maybe<Scalars['Float']>;
+  sum?: Maybe<Scalars['Float']>;
+  group: Array<ContentfulCategoryPageDescriptionTextNodeGroupConnection>;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnectionDistinctArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnectionMaxArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnectionMinArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnectionSumArgs = {
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+
+export type ContentfulCategoryPageDescriptionTextNodeGroupConnectionGroupArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  field: ContentfulCategoryPageDescriptionTextNodeFieldsEnum;
+};
+
+export type ContentfulCategoryPageDescriptionTextNodeSortInput = {
+  fields?: InputMaybe<Array<InputMaybe<ContentfulCategoryPageDescriptionTextNodeFieldsEnum>>>;
+  order?: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+};
+
 export type ContentfulArticleMetaDescriptionTextNodeConnection = {
   totalCount: Scalars['Int'];
   edges: Array<ContentfulArticleMetaDescriptionTextNodeEdge>;
@@ -7069,20 +7554,10 @@ export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type SeoQuery = { site?: { siteMetadata?: { defaultTitle?: string | null, titleTemplate?: string | null, defaultDescription?: string | null, siteUrl?: string | null, defaultImage?: string | null, twitterUsername?: string | null } | null } | null };
 
-export type FpArticlePreviewsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type FpArticlePreviewsQuery = { allContentfulArticle: { nodes: Array<{ slug?: string | null, title?: string | null, category?: { slug?: string | null, title?: string | null } | null, metaDescription?: { metaDescription?: string | null } | null }> } };
-
 export type DefinitionsPreviewsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type DefinitionsPreviewsQuery = { allContentfulDefinition: { nodes: Array<{ slug?: string | null, title?: string | null, category?: { slug?: string | null } | null }> } };
-
-export type MArticlePreviewsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type MArticlePreviewsQuery = { allContentfulArticle: { nodes: Array<{ slug?: string | null, title?: string | null, category?: { slug?: string | null, title?: string | null } | null, metaDescription?: { metaDescription?: string | null } | null }> } };
 
 export type MyQueryQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -7090,6 +7565,13 @@ export type MyQueryQueryVariables = Exact<{
 
 
 export type MyQueryQuery = { contentfulArticle?: { createdAt?: any | null, seoTitle?: string | null, slug?: string | null, title?: string | null, updatedAt?: any | null, body?: { raw?: string | null, references?: Array<{ __typename: 'ContentfulArticle', contentful_id: string, slug?: string | null, category?: { slug?: string | null } | null } | { __typename: 'ContentfulAsset', contentful_id: string, gatsbyImageData?: any | null, description?: string | null, publicUrl: string } | { __typename: 'ContentfulLeadMagnet', contentful_id: string, heading?: string | null, title?: string | null, type?: string | null, text?: { text?: string | null, id: string } | null, contentUpgrade?: { publicUrl: string } | null } | null> | null } | null, category?: { title?: string | null, slug?: string | null } | null, metaDescription?: { metaDescription?: string | null, id: string } | null, mainImage?: { gatsbyImageData?: any | null, description?: string | null, publicUrl: string } | null } | null };
+
+export type CategoryPageQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type CategoryPageQuery = { allContentfulArticle: { edges: Array<{ node: { createdAt?: any | null, slug?: string | null, title?: string | null, updatedAt?: any | null, category?: { title?: string | null, slug?: string | null } | null } }> }, contentfulCategory?: { slug?: string | null, title?: string | null, pageDescription?: { pageDescription?: string | null } | null } | null };
 
 export type DefinitionDataQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -7127,4 +7609,4 @@ export type GatsbyImageSharpFluid_WithWebp_NoBase64Fragment = { aspectRatio: num
 export type GatsbyNodeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GatsbyNodeQuery = { allContentfulArticle: { edges: Array<{ node: { __typename: 'ContentfulArticle', slug?: string | null, category?: { slug?: string | null } | null } }> }, allContentfulDefinition: { edges: Array<{ node: { __typename: 'ContentfulDefinition', slug?: string | null, category?: { title?: string | null, slug?: string | null } | null } }> } };
+export type GatsbyNodeQuery = { allContentfulArticle: { edges: Array<{ node: { __typename: 'ContentfulArticle', slug?: string | null, category?: { slug?: string | null } | null } }> }, allContentfulDefinition: { edges: Array<{ node: { __typename: 'ContentfulDefinition', slug?: string | null, category?: { slug?: string | null } | null } }> }, allContentfulCategory: { edges: Array<{ node: { __typename: 'ContentfulCategory', slug?: string | null } }> } };

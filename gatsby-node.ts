@@ -1,5 +1,6 @@
 import type { GatsbyNode } from 'gatsby';
-import { CreatePagesQuery } from './src/@types/queries/CreatePagesQuery';
+import { GatsbyNodeQuery } from './gatsby-graphql';
+import generatePages from './src/utils/gatsby-node/generatePages';
 
 interface Redirect {
   fromPath: string;
@@ -21,14 +22,8 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions,
 }) => {
   const { createPage, createRedirect } = actions;
-  const articleTemplate = path.resolve(
-    './src/templates/article-template/ArticleTemplate.tsx',
-  );
-  const definitionTemplate = path.resolve(
-    './src/templates/definition-template/DefinitionTemplate.tsx',
-  );
 
-  const res = await graphql<CreatePagesQuery>(`
+  const res = await graphql<GatsbyNodeQuery>(`
     query GatsbyNode {
       allContentfulArticle {
         edges {
@@ -47,40 +42,65 @@ export const createPages: GatsbyNode['createPages'] = async ({
             __typename
             slug
             category {
-              title
               slug
             }
+          }
+        }
+      }
+      allContentfulCategory {
+        edges {
+          node {
+            __typename
+            slug
           }
         }
       }
     }
   `);
 
-  console.log(res.data?.allContentfulArticle.edges[0].node);
+  console.log(res.data?.allContentfulArticle.edges);
 
-  if (!res || !res.data) return console.error('error while fetching query ');
+  if (!res.data) return console.error('error while fetching query ');
   const articles = res.data.allContentfulArticle.edges;
   const definitions = res.data.allContentfulDefinition.edges;
+  const categories = res.data.allContentfulCategory.edges;
 
-  articles.forEach((edge) => {
-    createPage({
-      component: articleTemplate,
-      path: `/${edge.node.category.slug}/${edge.node.slug}`,
-      context: {
-        slug: edge.node.slug,
-      },
-    });
-  });
+  console.log('generating pages for articles ');
+  generatePages(articles, createPage);
+  console.log('generating pages for definitions ');
+  generatePages(definitions, createPage);
+  generatePages(categories, createPage);
+  // generatePages(categories, createPage);
 
-  definitions.forEach((edge) => {
-    createPage({
-      component: definitionTemplate,
-      path: `/${edge.node.category.slug}/${edge.node.slug}`,
-      context: {
-        slug: edge.node.slug,
-      },
-    });
-  });
+  // articles.forEach((edge) => {
+  //   const { category, slug } = edge.node;
+  //   if (!(category && slug)) {
+  //     return console.error('category or slug not present in this node');
+  //   }
+
+  //   createPage({
+  //     component: articleTemplate,
+  //     path: `/${category.slug}/${slug}`,
+  //     context: {
+  //       slug,
+  //     },
+  //   });
+  // });
+
+  // definitions.forEach((edge) => {
+  //   const { category, slug } = edge.node;
+  //   if (!(category && slug)) {
+  //     return console.error('category or slug not present in this node');
+  //   }
+
+  //   createPage({
+  //     component: definitionTemplate,
+  //     path: `/${category.slug}/${slug}`,
+  //     context: {
+  //       slug,
+  //     },
+  //   });
+  // });
 
   redirects.forEach((redirect) => {
     const { fromPath, toPath, isPermanent } = redirect;

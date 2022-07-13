@@ -10,7 +10,7 @@ interface Props {
   data: DefinitionQuery;
 }
 
-const ArticleTemplate = ({ data }: Props) => {
+const DefinitionTemplate = ({ data }: Props) => {
   // console.log(data);
   const {
     title,
@@ -73,4 +73,4 @@ export const query = graphql`
   }
 `;
 
-export default ArticleTemplate;
+export default DefinitionTemplate;

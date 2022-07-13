@@ -1,6 +1,6 @@
 import { TabPanel, Text } from '@chakra-ui/react';
 import React from 'react';
-import { ResponsiveFlex } from '../../shared';
+import { ResponsiveFlex } from '../../../components/shared';
 
 interface Props {
   title: string;

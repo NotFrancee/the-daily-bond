@@ -1,6 +1,5 @@
-import { Box } from '@chakra-ui/react';
 import React from 'react';
-import { ResponsiveFlex } from '../../shared';
+import { ResponsiveFlex } from '../../../components/shared';
 import BigArticleCard from './BigArticleCard';
 
 const sample = [

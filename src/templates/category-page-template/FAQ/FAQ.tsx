@@ -1,5 +1,5 @@
 import React from 'react';
-import { H3, ResponsiveFlex } from '../../shared';
+import { H3, ResponsiveFlex } from '../../../components/shared';
 import Questions from './Questions';
 
 const FAQ = () => {
