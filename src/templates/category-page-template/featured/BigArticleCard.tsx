@@ -35,7 +35,15 @@ const BigArticleCard = ({ title, createdAt, category }: Props) => {
           {title}
         </H3>
         <Text mt={2} lineHeight={'1.15'} fontSize={'.75rem'}>
-          Pubblicato il {createdAt}
+          Pubblicato il{' '}
+          <Text
+            as="span"
+            lineHeight={'1.15'}
+            fontSize={'.75rem'}
+            casing={'capitalize'}
+          >
+            {createdAt}
+          </Text>
         </Text>
         <Box
           w="100%"

@@ -85,11 +85,11 @@ export const query = graphql`
             title
             slug
           }
-          createdAt
           slug
           title
-          updatedAt
           mustRead
+          createdAt(formatString: "DD MMMM, YYYY", locale: "it")
+          updatedAt(formatString: "DD MMMM, YYYY", locale: "it")
         }
       }
     }

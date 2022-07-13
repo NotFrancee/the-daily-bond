@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { Heading } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 const Logo = (props: any) => {
   return (
-    <Heading as={GatsbyLink} to="/" size={'md'} {...props}>
+    <Text as={GatsbyLink} to="/" {...props}>
       The Daily Bond
-    </Heading>
+    </Text>
   );
   // return (
   //   <Link as={GatsbyLink} to="/">

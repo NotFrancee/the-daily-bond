@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { ResponsiveFlex } from '../../../components/shared';
 
@@ -9,9 +9,19 @@ interface Props {
 
 const Article = ({ category, title }: Props) => {
   return (
-    <Box bgColor={'white'} boxShadow="0.25rem 0.25rem 0 rgb(0 189 231 / 10%)">
+    <Flex
+      flexDir="column"
+      bgColor={'white'}
+      boxShadow="0.25rem 0.25rem 0 rgb(0 189 231 / 10%)"
+    >
       <Box height={'120px'} width={'full'} bg="primary.background" />
-      <ResponsiveFlex pt={2} gap={0}>
+      <ResponsiveFlex
+        border="1px solid red"
+        pt={2}
+        gap={0}
+        justifyContent="space-around"
+        height="calc(100% - 120px)"
+      >
         <Text variant={'label'} casing="uppercase">
           {category}
         </Text>
@@ -24,7 +34,7 @@ const Article = ({ category, title }: Props) => {
           {title}
         </Text>
       </ResponsiveFlex>
-    </Box>
+    </Flex>
   );
 };
 
