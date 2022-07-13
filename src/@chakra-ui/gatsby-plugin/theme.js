@@ -16,7 +16,7 @@ const theme = {
       background: '#C6F6D5', // green.100
     },
     gray: {
-      backround: '#EEEEEE',
+      background: '#EEEEEE',
       subHeading: '#777777',
     },
   },

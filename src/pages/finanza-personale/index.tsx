@@ -25,8 +25,8 @@ const index = ({ data }: Props) => {
         description="Esplora le nostre risorse sulla finanza personale!"
         pathName="/finanza-personale"
       />
-      {/* <CategoryPage title={info.title} subTitle={info.subTitle} />; */}
-      <ResponsiveFlex>
+      <CategoryPage title={info.title} subTitle={info.subTitle} />;
+      {/* <ResponsiveFlex>
         <Box>
           <Heading as={'h1'}>
             Esplora gli Articoli sulla Finanza Personale
@@ -37,7 +37,7 @@ const index = ({ data }: Props) => {
           </Text>
         </Box>
         <Articles title="Ultimi Articoli" articles={articles} />
-      </ResponsiveFlex>
+      </ResponsiveFlex> */}
     </Layout>
   );
 };

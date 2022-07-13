@@ -1,6 +1,10 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 import { H1, ResponsiveFlex, SEO } from '../shared';
+import Cards from './articles/Cards';
+import Explore from './explore/Explore';
+import FAQ from './FAQ/FAQ';
+import KeyTerms from './key-terms/KeyTerms';
 
 interface Props {
   title: string;
@@ -9,16 +13,27 @@ interface Props {
 
 const CategoryPage = ({ title, subTitle }: Props) => {
   return (
-    <ResponsiveFlex>
+    <>
       {/* <SEO />  */}
-      <Box textAlign={'center'}>
-        <H1>{title}</H1>
-        <Text lineHeight={'base'} color={'gray.subHeading'}>
+      <ResponsiveFlex textAlign={'center'}>
+        <H1 mb={1} fontWeight={'400'} fontSize="1.75rem" lineHeight={'31px'}>
+          {title}
+        </H1>
+        <Text
+          mb={4}
+          fontSize={'1rem'}
+          lineHeight={'24px'}
+          color={'gray.subHeading'}
+        >
           {subTitle}
         </Text>
-      </Box>
+      </ResponsiveFlex>
+      <Cards />
+      <FAQ />
+      <KeyTerms />
+      <Explore />
       <Text>more here</Text>
-    </ResponsiveFlex>
+    </>
   );
 };
 
