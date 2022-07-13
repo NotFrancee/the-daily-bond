@@ -6,6 +6,12 @@ const CustomTextStyle: ComponentStyleConfig = {
   },
   variants: {
     subheading: {},
+    body: {
+      fontSize: 'xl',
+    },
+  },
+  defaultProps: {
+    variant: 'body',
   },
 };
 

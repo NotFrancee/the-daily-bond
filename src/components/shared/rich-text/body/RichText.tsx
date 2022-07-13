@@ -4,12 +4,12 @@ import React from 'react';
 import { options } from './richTextOptions';
 
 interface Props {
-  rawBody: any;
+  body: any;
   pt?: number;
 }
 
-const RichText = ({ rawBody, ...rest }: Props) => {
-  const richTextEl = renderRichText(rawBody, options);
+const RichText = ({ body, ...rest }: Props) => {
+  const richTextEl = renderRichText(body, options);
 
   return (
     <Box width={['full', '50%']} mx="auto" {...rest}>

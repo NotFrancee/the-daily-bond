@@ -8,8 +8,8 @@ interface Props {
   image: string;
   article: boolean;
   pathName: string;
-  updatedAt: string;
-  createdAt: string;
+  updatedAt?: string;
+  createdAt?: string;
 }
 
 const SEO = ({
@@ -59,15 +59,6 @@ const SEO = ({
           : []
       }
     >
-      {/* // SEE IF THIS HELPS */}
-      {/* <link
-        data-react-helmet="true"
-        rel="preload"
-        as="font"
-        crossOrigin="anonymous"
-        type="font/woff2"
-        href="https://use.typekit.net/jpc3yrb.css"
-      /> */}
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -86,34 +77,36 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': `${seo.url}`,
-          },
-          headline: seo.title,
-          description,
-          image: seo.image || null,
-          author: {
-            '@type': 'Person',
-            name: `Andrea Franceschini`,
-            url: 'https://www.instagram.com/andreafranceschiniii',
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: `The Daily Bond`,
-            // logo: {
-            //   "@type": "ImageObject",
-            //   url: "https://images.ctfassets.net/z7pyyvho21dm/56G3Sy04rYABwiRJE0Qpd5/93c58230cd554417689228cab8a4f077/Screenshot_2021-04-26_132720.png?w=680&h=144&q=50&fm=webp",
-            // },
-          },
-          datePublished: createdAt,
-          dateModified: updatedAt,
-        })}
-      </script>
+      {article && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `${seo.url}`,
+            },
+            headline: seo.title,
+            description,
+            image: seo.image || null,
+            author: {
+              '@type': 'Person',
+              name: `Andrea Franceschini`,
+              url: 'https://www.instagram.com/andreafranceschiniii',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: `The Daily Bond`,
+              // logo: {
+              //   "@type": "ImageObject",
+              //   url: "https://images.ctfassets.net/z7pyyvho21dm/56G3Sy04rYABwiRJE0Qpd5/93c58230cd554417689228cab8a4f077/Screenshot_2021-04-26_132720.png?w=680&h=144&q=50&fm=webp",
+              // },
+            },
+            datePublished: createdAt,
+            dateModified: updatedAt,
+          })}
+        </script>
+      )}
     </Helmet>
   );
 };

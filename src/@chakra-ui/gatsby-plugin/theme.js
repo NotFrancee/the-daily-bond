@@ -6,7 +6,7 @@ import {
   CustomLinkStyle,
   CustomTextStyle,
   ResponsiveGridComponent,
-  SectionComponent,
+  ResponsiveFlexComponent,
 } from '../custom-components';
 
 const theme = {
@@ -15,18 +15,25 @@ const theme = {
       highlight: '#48BB78', // green.400
       background: '#C6F6D5', // green.100
     },
+    gray: {
+      backround: '#EEEEEE',
+      subHeading: '#777777',
+    },
   },
   components: {
     Button: CustomButtonStyle,
     Text: CustomTextStyle,
     Heading: CustomHeadingStyle,
-    Section: SectionComponent,
     Link: CustomLinkStyle,
     ResponsiveGrid: ResponsiveGridComponent,
+    ResponsiveFlex: ResponsiveFlexComponent,
   },
   fonts: {
     body: `'minion-pro', serif`,
     heading: `'sofia-pro', sans-serif`,
+  },
+  fontSizes: {
+    '3xl': '1.75rem',
   },
 };
 

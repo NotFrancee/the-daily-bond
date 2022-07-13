@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticlePreview } from '../../@types';
-import ResponsiveGrid from '../shared/ResponsiveGrid';
+import { ResponsiveGrid } from '../shared';
 import PreviewItem from './PreviewItem';
 
 interface Props {

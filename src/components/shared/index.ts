@@ -1,5 +1,6 @@
 import Layout from './Layout';
-import Section from './Section';
+import ResponsiveFlex from './custom-components/ResponsiveFlex';
+import ResponsiveGrid from './custom-components/ResponsiveGrid';
 import SEO from './SEO';
-
-export { Layout, Section, SEO };
+import { H1, H2, H3 } from './custom-components/StyledHeadings';
+export { Layout, ResponsiveFlex, SEO, H1, H2, H3, ResponsiveGrid };

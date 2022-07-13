@@ -1,11 +1,11 @@
 import { ComponentStyleConfig } from '@chakra-ui/react';
 
-const SectionComponent: ComponentStyleConfig = {
+const ResponsiveFlexComponent: ComponentStyleConfig = {
   baseStyle: {
     padding: 5,
     gap: 5,
     display: 'flex',
-    flexDirection: 'column',
+    flexDir: 'column',
   },
   sizes: {},
   variants: {
@@ -13,6 +13,7 @@ const SectionComponent: ComponentStyleConfig = {
       flexDir: ['column', 'row'],
     },
     banner: {
+      flexDir: 'column',
       p: 10,
       width: ['100vw', 'full'],
       mx: -5,
@@ -23,4 +24,4 @@ const SectionComponent: ComponentStyleConfig = {
   defaultProps: {},
 };
 
-export default SectionComponent;
+export default ResponsiveFlexComponent;

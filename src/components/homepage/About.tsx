@@ -1,24 +1,23 @@
 import { Heading, Text } from '@chakra-ui/react';
 import React from 'react';
-import Section from '../shared/Section';
+import { H2, H3 } from '../shared';
+import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 
 const About = () => {
   return (
-    <Section justifyContent="center" mt={10} maxWidth="500px" mx="auto">
-      <Heading textAlign={'center'} as={'h2'}>
-        Perchè The Daily Bond
-      </Heading>
-      <Section>
-        <Heading textAlign={'center'} size={'md'} as={'h3'}>
+    <ResponsiveFlex justifyContent="center" mt={10} maxWidth="500px" mx="auto">
+      <H2 textAlign={'center'}>Perchè The Daily Bond</H2>
+      <ResponsiveFlex>
+        <H3 textAlign={'center'} size={'md'}>
           Finanza Personale
-        </Heading>
+        </H3>
         <Text textAlign={'center'} mt={5}>
           Migliora la gestione delle tue finanza personali e inizia a
           risparmiare per il tuo futuro. Non è difficile, semplicemente non te
           lo hanno mai insegnato!
         </Text>
-      </Section>
-      <Section>
+      </ResponsiveFlex>
+      <ResponsiveFlex>
         <Heading textAlign={'center'} size={'md'} as={'h3'}>
           Investimenti
         </Heading>
@@ -26,8 +25,8 @@ const About = () => {
           Tenere i soldi sotto il materasso non è più una soluzione: è ora di
           far fruttare il tuo denaro, e non è difficile come pensi!
         </Text>
-      </Section>
-      <Section>
+      </ResponsiveFlex>
+      <ResponsiveFlex>
         <Heading textAlign={'center'} size={'md'} as={'h3'}>
           Produttività
         </Heading>
@@ -36,8 +35,8 @@ const About = () => {
           e affrontare anche i compiti più difficili è più semplice di quello
           che pensi!
         </Text>
-      </Section>
-    </Section>
+      </ResponsiveFlex>
+    </ResponsiveFlex>
   );
 };
 

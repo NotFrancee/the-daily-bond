@@ -3,9 +3,10 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
-import { Section, SEO } from '../../components/shared';
-import RichText from '../../utils/rich-text/RichText';
+import { ResponsiveFlex, SEO } from '../../components/shared';
+import RichText from '../../components/shared/rich-text/body/RichText';
 import MainImage from './sections/MainImage';
+import TableOfContents from '../../components/shared/rich-text/table-of-contents/TableOfContents';
 
 interface Props {
   data: ArticleQuery;
@@ -39,14 +40,15 @@ const ArticleTemplate = ({ data }: Props) => {
         createdAt={createdAt}
         updatedAt={updatedAt}
       />
-      <Section>
+      <ResponsiveFlex>
         <Text textAlign={['left', 'center']}>{category.title}</Text>
         <Heading textAlign={['left', 'center']} as={'h1'}>
           {title}
         </Heading>
         <MainImage mainImage={mainImage} />
-        <RichText rawBody={body} pt={0} />
-      </Section>
+        <TableOfContents body={body} slug={slug} />
+        <RichText body={body} pt={0} />
+      </ResponsiveFlex>
     </Layout>
   );
   // handle SEO

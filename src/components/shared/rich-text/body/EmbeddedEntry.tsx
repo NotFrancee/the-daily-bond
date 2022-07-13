@@ -1,6 +1,6 @@
 import { Block, Inline } from '@contentful/rich-text-types';
 import React from 'react';
-import LeadMagnet from '../../components/newsletter/LeadMagnet';
+import LeadMagnet from '../../../newsletter/LeadMagnet';
 
 const EmbeddedEntry = (node: Block | Inline, children: React.ReactNode) => {
   const type = node.data.target.__typename;

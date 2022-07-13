@@ -1,7 +1,7 @@
 import { Heading } from '@chakra-ui/react';
 import React from 'react';
 import { ArticlePreview } from '../../@types';
-import { Section } from '../shared';
+import { ResponsiveFlex } from '../shared';
 import Preview from './Preview';
 
 interface Props {
@@ -15,12 +15,12 @@ const Articles = ({ articles, title }: Props) => {
     <Preview key={article.slug} article={article} />
   ));
   return (
-    <Section p={0}>
+    <ResponsiveFlex p={0}>
       <Heading as="h2" pb={5} size="lg">
         {title}
       </Heading>
       {previewEl}
-    </Section>
+    </ResponsiveFlex>
   );
 };
 

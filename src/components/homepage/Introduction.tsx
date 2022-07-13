@@ -1,38 +1,39 @@
-import { Box, Button, Heading, Text } from '@chakra-ui/react';
+import { Box, Button, Text } from '@chakra-ui/react';
 import React from 'react';
-import Section from '../shared/Section';
+import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 import EngineeringTeam from '../../assets/EngineeringTeam.svg';
 import { navigate } from 'gatsby';
+import { H1 } from '../shared';
 
 const Introduction = () => {
   const tempNavigate = () => {
     navigate('finanza-personale');
   };
   return (
-    <Section variant={'responsive'}>
-      <Section justifyContent="space-between">
+    <ResponsiveFlex variant={'responsive'}>
+      <ResponsiveFlex justifyContent="space-between">
         <Box>
-          <Heading as={'h1'}>
+          <H1>
             Impara a gestire le tue finanze e riprendi il controllo della tua
             vita
-          </Heading>
-          <Text>
+          </H1>
+          <Text mt={5}>
             Tutte le risorse presenti sul sito sono gratuite e dritte al punto.
-            Non vogliamo venderti niente, solo migliorare la tua gestione dei
-            soldi per migliorare il tuo stile di vita
+            Migliora la tua gestione dei soldi per migliorare il tuo stile di
+            vita!
           </Text>
         </Box>
         <Button onClick={tempNavigate} display={['none', 'block']} w={'full'}>
           Esplora i nostri Articoli
         </Button>
-      </Section>
-      <Section alignItems="center" w={['full', '80%', '60%']}>
+      </ResponsiveFlex>
+      <ResponsiveFlex alignItems="center" w={['full', '80%', '60%']}>
         <EngineeringTeam width="100%" height="100%" />
-      </Section>
+      </ResponsiveFlex>
       <Button onClick={tempNavigate} display={['block', 'none']} w={'full'}>
         Esplora i nostri Articoli
       </Button>
-    </Section>
+    </ResponsiveFlex>
   );
 };
 

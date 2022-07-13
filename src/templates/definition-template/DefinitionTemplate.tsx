@@ -3,8 +3,8 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import { DefinitionQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
-import { Section, SEO } from '../../components/shared';
-import RichText from '../../utils/rich-text/RichText';
+import { ResponsiveFlex, SEO } from '../../components/shared';
+import RichText from '../../components/shared/rich-text/body/RichText';
 
 interface Props {
   data: DefinitionQuery;
@@ -38,10 +38,10 @@ const ArticleTemplate = ({ data }: Props) => {
       <Heading p={5} pb={0} as={'h1'}>
         {title}
       </Heading>
-      <Section px={10}>
-        <RichText rawBody={mainText} />
-        <RichText rawBody={secondaryText} />
-      </Section>
+      <ResponsiveFlex px={10}>
+        <RichText body={mainText} />
+        <RichText body={secondaryText} />
+      </ResponsiveFlex>
     </Layout>
   );
   // handle SEO
