@@ -6,8 +6,6 @@ const CustomTextStyle: ComponentStyleConfig = {
     fontSize: '1rem',
   },
   variants: {
-    subheading: {},
-    body: {},
     label: {
       fontWeight: 700,
       fontSize: '0.75rem',
@@ -16,9 +14,7 @@ const CustomTextStyle: ComponentStyleConfig = {
       color: 'primary.highlight',
     },
   },
-  defaultProps: {
-    variant: 'body',
-  },
+  defaultProps: {},
 };
 
 export default CustomTextStyle;

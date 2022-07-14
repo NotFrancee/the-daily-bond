@@ -22,17 +22,15 @@ const Heading = (node: Block | Inline, children: React.ReactNode) => {
     }
     case '2': {
       element = (
-        <H2 mt={5} id={id}>
+        <H2 variant="h2-article" mt={5} id={id}>
           {children}
         </H2>
       );
       break;
     }
     case '3': {
-      console.log('creating h3, ', id);
-
       element = (
-        <H3 mt={3} id={id}>
+        <H3 variant="h3-article" mt={3} id={id}>
           {children}
         </H3>
       );

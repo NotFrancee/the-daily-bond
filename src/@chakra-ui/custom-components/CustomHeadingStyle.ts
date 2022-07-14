@@ -7,11 +7,11 @@ const CustomHeadingStyle: ComponentStyleConfig = {
   },
   variants: {
     h1: {
-      fontSize: '3xl', // 1.75rem - 3xl
-      lineHeight: '125%',
+      fontSize: '2rem', // 1.75rem - 3xl
+      lineHeight: '1.1',
     },
     h2: {
-      fontSize: '2xl', // 1.5rem - 2xl
+      fontSize: '1.5rem', // 1.5rem - 2xl
       lineHeight: '1.3',
     },
     h3: {
@@ -27,6 +27,16 @@ const CustomHeadingStyle: ComponentStyleConfig = {
       letterSpacing: '0.07rem',
       fontWeight: '600',
       fontFamily: 'body',
+    },
+    'h2-article': {
+      fontSize: '1.375rem',
+      lineHeight: '1.2',
+    },
+    'h3-article': {
+      fontSize: '1.25rem',
+      fontFamily: 'body',
+      fontWeight: '600',
+      lineHeight: '1.3',
     },
   },
 };

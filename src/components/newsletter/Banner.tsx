@@ -1,6 +1,6 @@
-import { Heading, Box, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
-import { ResponsiveFlex } from '../shared';
+import { H2, ResponsiveFlex } from '../shared';
 
 interface Props {
   title: string;
@@ -12,10 +12,8 @@ const Banner = ({ title, description, children }: Props) => {
   return (
     <ResponsiveFlex variant="banner">
       <Box>
-        <Heading textAlign={['left', 'center']} fontSize={'2xl'}>
-          {title}
-        </Heading>
-        <Text textAlign={['left', 'center']} fontSize={'xl'}>
+        <H2 textAlign={'center'}>{title}</H2>
+        <Text pt={1} textAlign={'center'}>
           {description}
         </Text>
       </Box>

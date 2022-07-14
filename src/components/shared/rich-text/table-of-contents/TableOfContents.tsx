@@ -39,13 +39,19 @@ const TableOfContents = ({ body, slug }: Props) => {
   );
   return (
     <ResponsiveFlex
-      as={'section'}
+      as="section"
       w="fit-content"
-      border="1px solid black"
+      border="2px solid"
+      borderColor={'black'}
       mx="auto"
+      gap={2}
     >
-      <H2>Indice</H2>
-      <UnorderedList listStyleType={'none'} listStylePosition={'inside'}>
+      <H2 variant={'h2-article'}>Indice</H2>
+      <UnorderedList
+        listStyleType={'none'}
+        listStylePosition={'inside'}
+        mx="auto"
+      >
         {tableOfContentEl}
       </UnorderedList>
     </ResponsiveFlex>

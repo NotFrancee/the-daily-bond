@@ -1,9 +1,9 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
-import { ResponsiveFlex, SEO } from '../../components/shared';
+import { H1, ResponsiveFlex, SEO } from '../../components/shared';
 import RichText from '../../components/shared/rich-text/body/RichText';
 import MainImage from './sections/MainImage';
 import TableOfContents from '../../components/shared/rich-text/table-of-contents/TableOfContents';
@@ -41,17 +41,17 @@ const ArticleTemplate = ({ data }: Props) => {
         updatedAt={updatedAt}
       />
       <ResponsiveFlex as={'article'}>
-        <Box as="section">
-          <Text textAlign={['left', 'center']}>{category.title}</Text>
-          <Heading
+        <Box as="section" textAlign={'center'}>
+          <Text textAlign={'center'}>{category.title}</Text>
+          <H1
             bgGradient={
               'linear-gradient(180deg,rgba(255,255,255,0) 50%, #C6F6D5 50%)'
             }
-            textAlign={['left', 'center']}
-            as={'h1'}
+            w="fit-content"
+            mx={'auto'}
           >
             {title}
-          </Heading>
+          </H1>
           <MainImage mainImage={mainImage} />
         </Box>
         <TableOfContents body={body} slug={slug} />
