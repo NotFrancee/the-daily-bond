@@ -8,13 +8,11 @@ interface Props {
 }
 
 const Carousel = ({ articles }: Props) => {
-  // console.log({ articles });
   const ArticlesEl = articles.map((article) => (
     <PreviewItem key={article.slug} article={article} />
   ));
-  // console.log(ArticlesEl);
 
-  return <ResponsiveGrid>{ArticlesEl}</ResponsiveGrid>;
+  return <ResponsiveGrid py={0}>{ArticlesEl}</ResponsiveGrid>;
 };
 
 export default Carousel;

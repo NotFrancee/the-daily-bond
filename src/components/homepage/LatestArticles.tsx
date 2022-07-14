@@ -12,7 +12,7 @@ interface Response {
 
 const query = graphql`
   query ArticlePreviews {
-    allContentfulArticle(limit: 3, sort: { fields: updatedAt, order: DESC }) {
+    allContentfulArticle(limit: 3, sort: { fields: createdAt, order: DESC }) {
       nodes {
         metaDescription {
           metaDescription
@@ -34,7 +34,9 @@ const LatestArticles = () => {
 
   return (
     <ResponsiveFlex bgColor="primary.background">
-      <H2 textAlign={'center'}>Ultimi Articoli</H2>
+      <H2 border={'1px solid red'} textAlign={'center'}>
+        Ultimi Articoli
+      </H2>
       <Carousel articles={articles} />
       <Link textAlign={'center'} href="/finanza-personale">
         Esplora Tutto

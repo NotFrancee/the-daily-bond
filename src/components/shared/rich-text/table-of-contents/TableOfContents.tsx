@@ -42,7 +42,7 @@ const TableOfContents = ({ body, slug }: Props) => {
       as="section"
       w="fit-content"
       border="2px solid"
-      borderColor={'black'}
+      borderColor="black"
       mx="auto"
       gap={2}
     >
