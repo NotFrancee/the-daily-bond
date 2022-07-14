@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { DefinitionQuery } from '../../@types';
@@ -35,13 +35,15 @@ const DefinitionTemplate = ({ data }: Props) => {
         updatedAt={updatedAt}
         // image={mainImage.publicUrl}
       />
-      <Heading p={5} pb={0} as={'h1'}>
-        {title}
-      </Heading>
-      <ResponsiveFlex px={10}>
-        <RichText body={mainText} />
-        <RichText body={secondaryText} />
-      </ResponsiveFlex>
+      <Box as="article">
+        <Heading p={5} pb={0} as={'h1'}>
+          {title}
+        </Heading>
+        <ResponsiveFlex as={'section'} px={10}>
+          <RichText body={mainText} />
+          <RichText body={secondaryText} />
+        </ResponsiveFlex>
+      </Box>
     </Layout>
   );
   // handle SEO

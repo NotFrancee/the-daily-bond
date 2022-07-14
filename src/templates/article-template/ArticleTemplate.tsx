@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleQuery } from '../../@types';
@@ -40,12 +40,20 @@ const ArticleTemplate = ({ data }: Props) => {
         createdAt={createdAt}
         updatedAt={updatedAt}
       />
-      <ResponsiveFlex>
-        <Text textAlign={['left', 'center']}>{category.title}</Text>
-        <Heading textAlign={['left', 'center']} as={'h1'}>
-          {title}
-        </Heading>
-        <MainImage mainImage={mainImage} />
+      <ResponsiveFlex as={'article'}>
+        <Box as="section">
+          <Text textAlign={['left', 'center']}>{category.title}</Text>
+          <Heading
+            bgGradient={
+              'linear-gradient(180deg,rgba(255,255,255,0) 50%, #C6F6D5 50%)'
+            }
+            textAlign={['left', 'center']}
+            as={'h1'}
+          >
+            {title}
+          </Heading>
+          <MainImage mainImage={mainImage} />
+        </Box>
         <TableOfContents body={body} slug={slug} />
         <RichText body={body} pt={0} width={['full', '50%']} />
       </ResponsiveFlex>

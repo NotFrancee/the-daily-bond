@@ -15,7 +15,7 @@ const Explore = ({ articles, categoryTitle }: Props) => {
   ));
 
   return (
-    <Box>
+    <Box as="section">
       <ResponsiveFlex>
         <H2>Esplora {categoryTitle}</H2>
       </ResponsiveFlex>

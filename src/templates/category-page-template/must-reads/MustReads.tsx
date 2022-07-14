@@ -14,16 +14,10 @@ interface Props {
 
 const MustReads = ({ articles }: Props) => {
   const cardsEl = articles.map(({ node: article }, index) => (
-    <Card
-      key={article.slug}
-      category={article.category?.title}
-      title={article.title}
-      updatedAt={article.updatedAt}
-      index={index}
-    />
+    <Card key={article.slug} article={article} index={index} />
   ));
   return (
-    <Box bgColor={'gray.background'}>
+    <Box bgColor={'gray.background'} as="section">
       <Box p={5} pb={0}>
         <H2 variant={'labelHeading'}>
           {/* YOUR GUIDE TO SPENDING AND SAVING MONEY */}

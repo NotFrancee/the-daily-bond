@@ -23,7 +23,7 @@ interface Props {
 
 const Question = ({ title, answer, fullArticle }: Props) => {
   return (
-    <AccordionItem>
+    <AccordionItem as={'article'}>
       <AccordionButton p={1}>
         <Flex align={'center'} width={'full'} justify={'space-between'}>
           <Text textAlign={'left'} fontSize={'1.25rem'} lineHeight="1.5">

@@ -1,5 +1,5 @@
 import React from 'react';
-import MustReads from './start-here/MustReads';
+import MustReads from './must-reads/MustReads';
 import Explore from './explore/Explore';
 import FAQ from './FAQ/FAQ';
 import FeaturedArticles from './featured/FeaturedArticles';

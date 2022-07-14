@@ -13,7 +13,7 @@ const BigArticleCard = ({
   article: { title, category, updatedAt, mustRead, slug, createdAt, mainImage },
 }: Props) => {
   return (
-    <Box>
+    <Box as="article">
       <Box
         border={'1px solid red'}
         height={'200px'}
@@ -33,7 +33,6 @@ const BigArticleCard = ({
 
       <LinkBox as="article" maxW={'90%'} mx="auto">
         <ResponsiveFlex
-          border="1px solid"
           borderColor={'primary.highlight'}
           mx="auto"
           mt={'-6rem'}

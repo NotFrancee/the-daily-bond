@@ -8,13 +8,6 @@ const Logo = (props: any) => {
       The Daily Bond
     </Text>
   );
-  // return (
-  //   <Link as={GatsbyLink} to="/">
-  //     <Heading as={"p"} size={"md"}>
-  //       The Daily Bond
-  //     </Heading>
-  //   </Link>
-  // );
 };
 
 export default Logo;

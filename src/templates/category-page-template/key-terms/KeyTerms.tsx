@@ -26,7 +26,7 @@ const KeyTerms = ({ keyTerms }: Props) => {
   console.log({ tabPanelsEl });
 
   return (
-    <ResponsiveFlex bgColor={'primary.background'} gap={0}>
+    <ResponsiveFlex as="section" bgColor={'primary.background'} gap={0}>
       <H2>Key Terms</H2>
       <Tabs variant="unstyled" mt={1}>
         <TabPanels>{tabPanelsEl}</TabPanels>

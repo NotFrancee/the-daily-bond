@@ -12,7 +12,7 @@ const FeaturedArticles = ({ articles }: Props) => {
     <BigArticleCard article={article} key={article.slug} />
   ));
   return (
-    <ResponsiveFlex>
+    <ResponsiveFlex as={'section'}>
       <H2>I Nostri Preferiti</H2>
       {articlesEl}{' '}
     </ResponsiveFlex>

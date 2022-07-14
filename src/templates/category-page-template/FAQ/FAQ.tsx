@@ -37,7 +37,7 @@ const FAQ = ({ frequentlyAskedQuestions }: Props) => {
   );
 
   return (
-    <ResponsiveFlex>
+    <ResponsiveFlex as={'section'}>
       <H2>Frequently Asked Questions</H2>
       <Accordion allowToggle>{accordionEls}</Accordion>
     </ResponsiveFlex>

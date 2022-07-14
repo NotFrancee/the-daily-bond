@@ -11,7 +11,7 @@ const RichText = ({ body, ...rest }: Props) => {
   const richTextEl = renderRichText(body, options);
 
   return (
-    <Box mx="auto" {...rest}>
+    <Box as={'section'} mx="auto" {...rest}>
       {richTextEl}
     </Box>
   );

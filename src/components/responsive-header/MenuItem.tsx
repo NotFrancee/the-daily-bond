@@ -1,4 +1,4 @@
-import { Heading, Link, Text } from '@chakra-ui/react';
+import { Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 
@@ -10,15 +10,21 @@ interface Props {
 
 const MenuItem = ({ children, isLast, to = '/', ...rest }: Props) => {
   return (
-    <Heading
-      size={'sm'}
+    <Text
       as={GatsbyLink}
-      activeStyle={{ color: '#48BB78' }}
+      fontSize="0.9rem"
+      activeStyle={
+        {
+          // color: 'green',
+          // '@media screen and (minWidth: 780px)': { color: 'red' },
+          // '@media screen and (maxWidth: 780px)': { color: '#ffffff' },
+        }
+      }
       to={to}
       {...rest}
     >
       {children}
-    </Heading>
+    </Text>
   );
   return (
     <Link href={to}>

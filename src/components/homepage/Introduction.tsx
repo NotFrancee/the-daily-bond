@@ -17,7 +17,7 @@ const Introduction = () => {
             Impara a gestire le tue finanze e riprendi il controllo della tua
             vita
           </H1>
-          <Text mt={5}>
+          <Text mt={2}>
             Tutte le risorse presenti sul sito sono gratuite e dritte al punto.
             Migliora la tua gestione dei soldi per migliorare il tuo stile di
             vita!

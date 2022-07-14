@@ -10,7 +10,7 @@ const Header = ({ title, subtitle }: Props) => {
   console.log({ title, subtitle });
 
   return (
-    <ResponsiveFlex textAlign={'center'} gap={2}>
+    <ResponsiveFlex as={'header'} textAlign={'center'} gap={2}>
       <H1 mb={1} fontWeight={'400'} fontSize="1.75rem" lineHeight={'31px'}>
         {title}
       </H1>
