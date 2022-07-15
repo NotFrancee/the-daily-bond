@@ -3,6 +3,7 @@ import About from '../components/homepage/About';
 // import AboutMe from '../components/homepage/AboutMe';
 import Introduction from '../components/homepage/Introduction';
 import LatestArticles from '../components/homepage/LatestArticles';
+import MustReads from '../components/homepage/must-reads/MustReads';
 import { SEO } from '../components/shared';
 import Layout from '../components/shared/Layout';
 
@@ -15,6 +16,7 @@ const Index = () => {
         pathName="/"
       />
       <Introduction />
+      <MustReads />
       <LatestArticles />
       <About />
       {/* <AboutMe /> */}

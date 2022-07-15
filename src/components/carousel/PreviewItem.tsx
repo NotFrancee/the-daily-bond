@@ -4,11 +4,8 @@ import { ArticlePreview } from '../../@types';
 import { Link as GatsbyLink } from 'gatsby';
 
 interface Props {
-  // type: "article" | "definition";
   article: ArticlePreview;
 }
-
-// what do we need for a preview?
 
 const PreviewItem = ({ article }: Props) => {
   // console.log("article to preview", article);

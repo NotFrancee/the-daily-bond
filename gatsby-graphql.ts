@@ -9421,6 +9421,11 @@ export type ArticlePreviewsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ArticlePreviewsQuery = { allContentfulArticle: { nodes: Array<{ slug?: string | null, title?: string | null, metaDescription?: { metaDescription?: string | null } | null, category?: { title?: string | null, slug?: string | null } | null }> } };
 
+export type HomepageMustReadsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomepageMustReadsQuery = { allContentfulArticle: { edges: Array<{ node: { title?: string | null, slug?: string | null, updatedAt?: any | null, category?: { slug?: string | null, title?: string | null } | null } }> } };
+
 export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
 
 

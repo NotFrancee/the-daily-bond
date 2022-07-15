@@ -4,6 +4,7 @@ import React from 'react';
 import { ArticlePreview } from '../../@types';
 import Carousel from '../carousel/Carousel';
 import { H2, ResponsiveFlex } from '../shared';
+import { Link as GatsbyLink } from 'gatsby';
 interface Response {
   allContentfulArticle: {
     nodes: ArticlePreview[];
@@ -33,12 +34,10 @@ const LatestArticles = () => {
   const articles = data.allContentfulArticle.nodes;
 
   return (
-    <ResponsiveFlex bgColor="primary.background">
-      <H2 border={'1px solid red'} textAlign={'center'}>
-        Ultimi Articoli
-      </H2>
+    <ResponsiveFlex textAlign={'center'} bgColor="primary.background">
+      <H2>Ultimi Articoli</H2>
       <Carousel articles={articles} />
-      <Link textAlign={'center'} href="/finanza-personale">
+      <Link as={GatsbyLink} to="/finanza-personale">
         Esplora Tutto
       </Link>
     </ResponsiveFlex>
