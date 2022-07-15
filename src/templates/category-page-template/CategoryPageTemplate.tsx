@@ -1,13 +1,16 @@
-import React from 'react';
-import MustReads from './must-reads/MustReads';
-import Explore from './explore/Explore';
-import FAQ from './FAQ/FAQ';
-import FeaturedArticles from './featured/FeaturedArticles';
+import React, { Suspense } from 'react';
 import Header from './header/Header';
-import KeyTerms from './key-terms/KeyTerms';
+const MustReads = React.lazy(() => import('./must-reads/MustReads'));
+const Explore = React.lazy(() => import('./explore/Explore'));
+const FAQ = React.lazy(() => import('./FAQ/FAQ'));
+const FeaturedArticles = React.lazy(
+  () => import('./featured/FeaturedArticles'),
+);
+const KeyTerms = React.lazy(() => import('./key-terms/KeyTerms'));
 import { graphql } from 'gatsby';
 import { Layout, SEO } from '../../components/shared';
 import { CategoryPageQuery } from '../../../gatsby-graphql';
+import FallbackComponent from '../../components/shared/FallbackComponent';
 
 interface Props {
   title: string;
@@ -54,20 +57,22 @@ const CategoryPage = ({ data }: Props) => {
         title={title || 'error'}
         subtitle={pageDescription?.pageDescription || 'error'}
       />
-      {Boolean(mustReads.length) && <MustReads articles={mustReads} />}
-      {frequentlyAskedQuestions && (
-        <FAQ frequentlyAskedQuestions={frequentlyAskedQuestions as any} />
-      )}
-      {keyTerms && <KeyTerms keyTerms={keyTerms as any} />}
-      {Boolean(featuredArticles.length) && (
-        <FeaturedArticles articles={featuredArticles} />
-      )}
-      {Boolean(remainingArticles.length) && (
-        <Explore
-          categoryTitle={title || 'error'}
-          articles={remainingArticles}
-        />
-      )}
+      <Suspense fallback={FallbackComponent}>
+        {Boolean(mustReads.length) && <MustReads articles={mustReads} />}
+        {frequentlyAskedQuestions && (
+          <FAQ frequentlyAskedQuestions={frequentlyAskedQuestions as any} />
+        )}
+        {keyTerms && <KeyTerms keyTerms={keyTerms as any} />}
+        {Boolean(featuredArticles.length) && (
+          <FeaturedArticles articles={featuredArticles} />
+        )}
+        {Boolean(remainingArticles.length) && (
+          <Explore
+            categoryTitle={title || 'error'}
+            articles={remainingArticles}
+          />
+        )}
+      </Suspense>
     </Layout>
   );
 };

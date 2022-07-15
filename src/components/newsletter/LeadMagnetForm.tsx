@@ -39,7 +39,6 @@ const LeadMagnetForm = ({
         borderColor="primary.highlight"
         focusBorderColor="green.500"
       />
-      {/* <FormHelperText>Non diffonderò la tua email</FormHelperText> */}
       <Button mt={5} w={'full'} onClick={handleSubmit}>
         Invia
       </Button>
