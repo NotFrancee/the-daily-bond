@@ -192,7 +192,6 @@ const config: GatsbyConfig = {
         ],
       },
     },
-    `gatsby-plugin-preload-fonts`,
   ],
   // proxy: {
   //   prefix: '/proxy',
