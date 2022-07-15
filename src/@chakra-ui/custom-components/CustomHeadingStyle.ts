@@ -28,6 +28,15 @@ const CustomHeadingStyle: ComponentStyleConfig = {
       fontWeight: '600',
       fontFamily: 'body',
     },
+    'h1-article': {
+      fontSize: '2rem', // 1.75rem - 3xl
+      lineHeight: '1.1',
+      bgGradient:
+        'linear-gradient(180deg,rgba(255,255,255,0) 65%, #C6F6D5 65%)',
+      width: 'fit-content',
+      display: 'inline',
+      marginX: 'auto',
+    },
     'h2-article': {
       fontSize: '1.375rem',
       lineHeight: '1.2',

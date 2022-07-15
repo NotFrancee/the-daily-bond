@@ -43,15 +43,7 @@ const ArticleTemplate = ({ data }: Props) => {
       <ResponsiveFlex as={'article'}>
         <Box as="section" textAlign={'center'}>
           <Text textAlign={'center'}>{category.title}</Text>
-          <H1
-            bgGradient={
-              'linear-gradient(180deg,rgba(255,255,255,0) 50%, #C6F6D5 50%)'
-            }
-            w="fit-content"
-            mx={'auto'}
-          >
-            {title}
-          </H1>
+          <H1 variant={'h1-article'}>{title}</H1>
           <MainImage mainImage={mainImage} />
         </Box>
         <TableOfContents body={body} slug={slug} />

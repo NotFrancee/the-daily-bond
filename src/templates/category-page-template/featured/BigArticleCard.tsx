@@ -15,7 +15,7 @@ const BigArticleCard = ({
   return (
     <Box as="article">
       <Box
-        border={'1px solid red'}
+        // border={'1px solid red'}
         height={'200px'}
         position={'relative'}
         zIndex={-3}
