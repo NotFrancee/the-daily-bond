@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { DefinitionQuery } from '../../@types';
@@ -10,7 +10,7 @@ interface Props {
   data: DefinitionQuery;
 }
 
-const ArticleTemplate = ({ data }: Props) => {
+const DefinitionTemplate = ({ data }: Props) => {
   // console.log(data);
   const {
     title,
@@ -35,13 +35,15 @@ const ArticleTemplate = ({ data }: Props) => {
         updatedAt={updatedAt}
         // image={mainImage.publicUrl}
       />
-      <Heading p={5} pb={0} as={'h1'}>
-        {title}
-      </Heading>
-      <ResponsiveFlex px={10}>
-        <RichText body={mainText} />
-        <RichText body={secondaryText} />
-      </ResponsiveFlex>
+      <Box as="article">
+        <Heading p={5} pb={0} as={'h1'}>
+          {title}
+        </Heading>
+        <ResponsiveFlex as={'section'} px={10}>
+          <RichText body={mainText} />
+          <RichText body={secondaryText} />
+        </ResponsiveFlex>
+      </Box>
     </Layout>
   );
   // handle SEO
@@ -73,4 +75,4 @@ export const query = graphql`
   }
 `;
 
-export default ArticleTemplate;
+export default DefinitionTemplate;

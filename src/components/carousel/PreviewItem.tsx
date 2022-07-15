@@ -1,14 +1,12 @@
-import { Box, Flex, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import { ArticlePreview } from '../../@types';
 import { Link as GatsbyLink } from 'gatsby';
+import { H3 } from '../shared';
 
 interface Props {
-  // type: "article" | "definition";
   article: ArticlePreview;
 }
-
-// what do we need for a preview?
 
 const PreviewItem = ({ article }: Props) => {
   // console.log("article to preview", article);
@@ -17,13 +15,18 @@ const PreviewItem = ({ article }: Props) => {
     <Flex p={5} gap={5} bgColor="white" direction="column" rounded={'md'}>
       {/* IMG */}
       <Box>
-        <Link as={GatsbyLink} to={`/${category.slug}/${slug}`}>
-          <Heading size={'md'} as={'h3'}>
-            {title}
-          </Heading>
-        </Link>
+        <H3
+          textDecor={'underline'}
+          color={'heading'}
+          as={GatsbyLink}
+          to={`/${category.slug}/${slug}`}
+        >
+          {title}
+        </H3>
         <Text fontWeight={'bold'} color={'primary.highlight'}>
-          {category.title}
+          <GatsbyLink to={`/${category.slug}/${category.title}`}>
+            {category.title}
+          </GatsbyLink>
         </Text>
       </Box>
       <Text>{metaDescription.metaDescription}</Text>
@@ -32,28 +35,6 @@ const PreviewItem = ({ article }: Props) => {
       </Link>
     </Flex>
   );
-  // switch (type) {
-  //   case "article": {
-  //     const { title, category, metaDescription } = article;
-  //     return (
-  //       <Flex p={5} gap={5} bgColor="white" direction="column">
-  //         {/* IMG */}
-  //         <Box>
-  //           <Heading>{title}</Heading>
-  //           <Text>{category}</Text>
-  //         </Box>
-  //         <Text>{metaDescription}</Text>
-  //       </Flex>
-  //     );
-  //   }
-
-  //   case "definition": {
-  //     return <Text>tbcoded</Text>;
-  //   }
-  //   default: {
-  //     return <Text>error</Text>;
-  //   }
-  // }
 };
 
 export default PreviewItem;

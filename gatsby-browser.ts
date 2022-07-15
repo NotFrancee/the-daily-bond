@@ -1,4 +1,5 @@
 // gatsby-browser.js
+import '@fontsource/rubik';
 
 export const onRouteUpdate = ({ location }) => {
   if (process.env.NODE_ENV !== 'production') {

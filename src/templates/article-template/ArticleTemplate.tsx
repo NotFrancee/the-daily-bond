@@ -1,9 +1,9 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { ArticleQuery } from '../../@types';
 import Layout from '../../components/shared/Layout';
-import { ResponsiveFlex, SEO } from '../../components/shared';
+import { H1, ResponsiveFlex, SEO } from '../../components/shared';
 import RichText from '../../components/shared/rich-text/body/RichText';
 import MainImage from './sections/MainImage';
 import { TableOfContents } from '../../components/shared/rich-text';
@@ -40,14 +40,14 @@ const ArticleTemplate = ({ data }: Props) => {
         createdAt={createdAt}
         updatedAt={updatedAt}
       />
-      <ResponsiveFlex>
-        <Text textAlign={['left', 'center']}>{category.title}</Text>
-        <Heading textAlign={['left', 'center']} as={'h1'}>
-          {title}
-        </Heading>
-        <MainImage mainImage={mainImage} />
+      <ResponsiveFlex as={'article'}>
+        <Box as="section" textAlign={'center'}>
+          <Text textAlign={'center'}>{category.title}</Text>
+          <H1 variant={'h1-article'}>{title}</H1>
+          <MainImage mainImage={mainImage} />
+        </Box>
         <TableOfContents body={body} slug={slug} />
-        <RichText body={body} pt={0} />
+        <RichText body={body} pt={0} width={['full', '50%']} />
       </ResponsiveFlex>
     </Layout>
   );

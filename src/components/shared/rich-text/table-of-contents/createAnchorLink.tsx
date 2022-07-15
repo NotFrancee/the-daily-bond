@@ -4,7 +4,7 @@ import { ListItem } from '@chakra-ui/react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import generateId from '../../../../utils/generateId';
 
-const createSection = (
+const createAnchorLink = (
   node: Block | Inline,
   children: React.ReactNode,
   slug: string,
@@ -17,7 +17,7 @@ const createSection = (
   const destination = `../${slug}#${id}`;
 
   return (
-    <ListItem ml={leftMargin} textDecoration="underline">
+    <ListItem fontSize={'1rem'} ml={leftMargin} textDecoration="underline">
       <AnchorLink stripHash to={destination}>
         {children}
       </AnchorLink>
@@ -25,4 +25,4 @@ const createSection = (
   );
 };
 
-export default createSection;
+export default createAnchorLink;
