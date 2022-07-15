@@ -82,6 +82,7 @@ function serializeFeed({
       // updatedAt,
       slug,
       category,
+      mainImage,
     } = article;
 
     const url = `${siteUrl}/${category.slug}/${slug}`;
@@ -92,6 +93,10 @@ function serializeFeed({
       date: createdAt,
       url,
       guid: url,
+      image_url: `https://www.thedailybond.com${mainImage.publicUrl}`,
+      custom_elements: [
+        { image_url: `https://www.thedailybond.com${mainImage.publicUrl}` },
+      ],
     };
   });
 }
