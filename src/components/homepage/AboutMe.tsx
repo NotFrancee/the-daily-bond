@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import React from 'react';
 import ResponsiveFlex from '../shared/custom-components/ResponsiveFlex';
 import ProfilePic from '../../assets/ProfilePic.svg';
