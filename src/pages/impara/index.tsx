@@ -28,7 +28,7 @@ const index = ({ data }: Props) => {
             nostra definizione del giorno, oppure cerca partendo da una lettera!
           </Text>
         </Box>
-        <DailyDefinition />
+        {/* <DailyDefinition /> */}
         <Definitions title="Tutte le Definizioni" definitions={definitions} />
       </ResponsiveFlex>
     </Layout>
